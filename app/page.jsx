@@ -10,7 +10,7 @@ import "./styles/home.css";
 
 export default function HomePage() {
  const { language, t, loading: langLoading } = useLanguage();
- const { skills, projects, loading: dataLoading } = useData();
+ const { skills, projects } = useData();
  const [isVisible, setIsVisible] = useState(false);
 
  useEffect(() => {
@@ -18,7 +18,7 @@ export default function HomePage() {
   return () => clearTimeout(timer);
  }, []);
 
- if (langLoading || dataLoading || !skills || !projects) {
+ if (langLoading) {
   return <LoadingScreen language={language} />;
  }
 

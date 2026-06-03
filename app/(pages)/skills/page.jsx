@@ -17,7 +17,7 @@ import LoadingScreen from "../../../components/extra/LoadingScreen";
 
 export default function SkillsPage() {
  const { language, loading: langLoading } = useLanguage();
- const { skills, loading: dataLoading } = useData();
+ const { skills } = useData();
  const [isVisible, setIsVisible] = useState(false);
  const [activeCategory, setActiveCategory] = useState("frontend");
 
@@ -26,19 +26,9 @@ export default function SkillsPage() {
   return () => clearTimeout(timer);
  }, []);
 
- if (langLoading || dataLoading || !skills) {
+ if (langLoading) {
   return <LoadingScreen language={language} />;
  }
-
- const groupedSkills = Array.isArray(skills)
-  ? skills.reduce((acc, skill) => {
-   skill.categories.forEach((category) => {
-    if (!acc[category]) acc[category] = { skills: [] };
-    acc[category].skills.push(skill);
-   });
-   return acc;
-  }, {})
-  : skills;
 
  const categoryIcons = {
   frontend: FaLaptopCode,
@@ -54,9 +44,9 @@ export default function SkillsPage() {
   tools: "bg-green-700",
  };
 
- const skillsData = Object.keys(groupedSkills).reduce((acc, key) => {
+ const skillsData = Object.keys(skills).reduce((acc, key) => {
   acc[key] = {
-   ...groupedSkills[key],
+   ...skills[key],
    icon: categoryIcons[key],
    color: categoryColors[key],
   };

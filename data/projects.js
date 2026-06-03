@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
-
-const projectsData = [
+/* Proje listesi */
+export const projectList = [
  {
   category: "web",
   titleTr: "Kişisel Portfolio Web Sitesi",
@@ -514,32 +512,25 @@ const projectsData = [
  },
 ];
 
-async function seedProjects() {
- await prisma.project.deleteMany({});
-
- let successCount = 0;
- let errorCount = 0;
-
- for (const data of projectsData) {
-  try {
-   await prisma.project.create({
-    data: data,
-   });
-   successCount++;
-  } catch (error) {
-   errorCount++;
-  }
- }
+export function getProjects(lang) {
+ const isEnglish = String(lang || "TR").toUpperCase() === "EN";
+ return [...projectList]
+  .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0))
+  .map((project, index) => ({
+   id: `project-${index}`,
+   category: project.category,
+   title: isEnglish ? project.titleEn : project.titleTr,
+   description: isEnglish ? project.descriptionEn : project.descriptionTr,
+   longDescription: isEnglish
+    ? project.longDescriptionEn
+    : project.longDescriptionTr,
+   status: project.status,
+   technologies: project.technologies || [],
+   features: isEnglish ? (project.featuresEn || []) : (project.featuresTr || []),
+   liveUrl: project.liveUrl,
+   githubUrl: project.githubUrl,
+   team: isEnglish ? project.teamEn : project.teamTr,
+   role: isEnglish ? project.roleEn : project.roleTr,
+   metrics: isEnglish ? (project.metricsEn || []) : (project.metricsTr || []),
+  }));
 }
-
-async function main() {
- try {
-  await seedProjects();
- } catch (e) {
-  process.exit(1);
- } finally {
-  await prisma.$disconnect();
- }
-}
-
-main();

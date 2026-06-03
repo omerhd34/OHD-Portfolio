@@ -12,7 +12,7 @@ import { GrCertificate } from "react-icons/gr";
 
 export default function ExperiencePage() {
  const { language, loading: langLoading } = useLanguage();
- const { experience, loading: dataLoading } = useData();
+ const { experience } = useData();
  const [isVisible, setIsVisible] = useState(false);
  const [activeCategory, setActiveCategory] = useState("education");
 
@@ -21,7 +21,7 @@ export default function ExperiencePage() {
   return () => clearTimeout(timer);
  }, []);
 
- if (langLoading || dataLoading || !experience) {
+ if (langLoading) {
   return <LoadingScreen language={language} />;
  }
 

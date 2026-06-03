@@ -1,58 +1,28 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { getTranslations } from "../../data/translations";
 
 const LanguageContext = createContext();
 
-const translationCache = {
- TR: null,
- EN: null
-};
-
 export function LanguageProvider({ children }) {
  const [language, setLanguage] = useState("TR");
- const [translations, setTranslations] = useState({});
- const [loading, setLoading] = useState(true);
 
  useEffect(() => {
-  const savedLanguage = localStorage.getItem('preferredLanguage');
-  if (savedLanguage && (savedLanguage === 'TR' || savedLanguage === 'EN')) {
+  const savedLanguage = localStorage.getItem("preferredLanguage");
+  if (savedLanguage === "TR" || savedLanguage === "EN") {
    setLanguage(savedLanguage);
   }
  }, []);
 
- useEffect(() => {
-  fetchTranslations(language);
- }, [language]);
-
- const fetchTranslations = async (lang) => {
-  if (translationCache[lang]) {
-   setTranslations(translationCache[lang]);
-   setLoading(false);
-   return;
-  }
-
-  setLoading(true);
-  try {
-   const response = await fetch(`/api/translations/${lang}`);
-   if (response.ok) {
-    const data = await response.json();
-    translationCache[lang] = data;
-    setTranslations(data);
-   }
-  } catch (error) {
-   console.error('Translation fetch error:', error);
-  } finally {
-   setLoading(false);
-  }
- };
+ const translations = useMemo(() => getTranslations(language), [language]);
 
  const handleLanguageChange = (newLanguage) => {
   setLanguage(newLanguage);
-  localStorage.setItem('preferredLanguage', newLanguage);
+  localStorage.setItem("preferredLanguage", newLanguage);
  };
 
  const t = (key) => {
-  const keys = key.split('.');
+  const keys = key.split(".");
   let value = translations;
 
   for (const k of keys) {
@@ -66,13 +36,15 @@ export function LanguageProvider({ children }) {
  };
 
  return (
-  <LanguageContext.Provider value={{
-   language,
-   handleLanguageChange,
-   translations,
-   t,
-   loading
-  }}>
+  <LanguageContext.Provider
+   value={{
+    language,
+    handleLanguageChange,
+    translations,
+    t,
+    loading: false,
+   }}
+  >
    {children}
   </LanguageContext.Provider>
  );

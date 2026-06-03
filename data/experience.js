@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
-
-const experienceData = [
+/* Deneyim listesi */
+export const experienceList = [
  {
   category: "education",
   titleTr: "Elektrik-Elektronik Mühendisliği",
@@ -332,31 +330,24 @@ const experienceData = [
  },
 ];
 
-async function seedExperience() {
- await prisma.experience.deleteMany({});
- let successCount = 0;
- let errorCount = 0;
-
- for (const data of experienceData) {
-  try {
-   await prisma.experience.create({
-    data: data,
-   });
-   successCount++;
-  } catch (error) {
-   errorCount++;
-  }
- }
+export function getGroupedExperience(lang) {
+ const isEnglish = String(lang || "TR").toUpperCase() === "EN";
+ return experienceList.reduce((acc, exp, index) => {
+  if (!acc[exp.category]) acc[exp.category] = { items: [] };
+  acc[exp.category].items.push({
+   id: `exp-${index}`,
+   category: exp.category,
+   title: isEnglish ? exp.titleEn : exp.titleTr,
+   institution: isEnglish ? exp.institutionEn : exp.institutionTr,
+   period: exp.period,
+   status: exp.status,
+   location: exp.location,
+   gpa: exp.gpa,
+   description: isEnglish ? exp.descriptionEn : exp.descriptionTr,
+   technologies: exp.technologies || [],
+   achievements: isEnglish ? (exp.achievementsEn || []) : (exp.achievementsTr || []),
+   icon: exp.icon,
+  });
+  return acc;
+ }, {});
 }
-
-async function main() {
- try {
-  await seedExperience();
- } catch (e) {
-  process.exit(1);
- } finally {
-  await prisma.$disconnect();
- }
-}
-
-main();

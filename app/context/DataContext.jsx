@@ -1,77 +1,28 @@
 "use client";
-import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
+import { createContext, useContext, useMemo } from "react";
 import { useLanguage } from "./LanguageContext";
+import { groupedSkills } from "../../data/skills";
+import { getGroupedExperience } from "../../data/experience";
+import { getProjects } from "../../data/projects";
 
 const DataContext = createContext();
 
-const dataCache = {
- skills: null,
- experience: {},
- projects: {}
-};
-
 export function DataProvider({ children }) {
  const { language } = useLanguage();
- const [skills, setSkills] = useState(dataCache.skills);
- const [experience, setExperience] = useState(dataCache.experience[language] || null);
- const [projects, setProjects] = useState(dataCache.projects[language] || null);
- const [loading, setLoading] = useState(true);
- const [error, setError] = useState(null);
+ const skills = groupedSkills;
+ const experience = useMemo(() => getGroupedExperience(language), [language]);
+ const projects = useMemo(() => getProjects(language), [language]);
 
- const fetchAllData = useCallback(async () => {
-  setLoading(true);
-  setError(null);
-
-  try {
-   const skillsRes = await fetch(`/api/skills?t=${Date.now()}`, {
-    cache: 'no-store'
-   });
-   if (skillsRes.ok) {
-    const skillsData = await skillsRes.json();
-    dataCache.skills = skillsData;
-    setSkills(skillsData);
-   }
-
-   if (!dataCache.experience[language]) {
-    const experienceRes = await fetch(`/api/experience/${language}`);
-    if (experienceRes.ok) {
-     const experienceData = await experienceRes.json();
-     dataCache.experience[language] = experienceData;
-     setExperience(experienceData);
-    }
-   } else {
-    setExperience(dataCache.experience[language]);
-   }
-
-   if (!dataCache.projects[language]) {
-    const projectsRes = await fetch(`/api/projects/${language}`);
-    if (projectsRes.ok) {
-     const projectsData = await projectsRes.json();
-     dataCache.projects[language] = projectsData;
-     setProjects(projectsData);
-    }
-   } else {
-    setProjects(dataCache.projects[language]);
-   }
-  } catch (err) {
-   setError(err.message);
-  } finally {
-   setLoading(false);
-  }
- }, [language]);
-
- useEffect(() => {
-  fetchAllData();
- }, [fetchAllData]);
-
- const contextValue = useMemo(() => ({
-  skills,
-  experience,
-  projects,
-  loading,
-  error,
-  refetch: fetchAllData,
- }), [skills, experience, projects, loading, error, fetchAllData]);
+ const contextValue = useMemo(
+  () => ({
+   skills,
+   experience,
+   projects,
+   loading: false,
+   error: null,
+  }),
+  [skills, experience, projects]
+ );
 
  return (
   <DataContext.Provider value={contextValue}>

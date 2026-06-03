@@ -10,7 +10,7 @@ import LoadingScreen from "../../../components/extra/LoadingScreen";
 
 export default function ProjectsPage() {
  const { language, t, loading: langLoading } = useLanguage();
- const { projects, loading: dataLoading } = useData();
+ const { projects } = useData();
  const [isVisible, setIsVisible] = useState(false);
  const [searchTerm] = useState("");
  const [filteredProjects, setFilteredProjects] = useState([]);
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
   setFilteredProjects(filtered);
  }, [searchTerm, projects]);
 
- if (langLoading || dataLoading || !projects) {
+ if (langLoading) {
   return <LoadingScreen language={language} />;
  }
 
