@@ -12,9 +12,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 import {
  FaUser,
- FaCode,
  FaBriefcase,
- FaProjectDiagram,
  FaEnvelope,
  FaLinkedin,
  FaGithub,
@@ -34,22 +32,10 @@ const getNavigationItems = (t, currentLanguage) => [
   name: currentLanguage === 'TR' ? "Hakkımda" : "About"
  },
  {
-  key: 'skills',
-  href: '/skills',
-  icon: FaCode,
-  name: currentLanguage === 'TR' ? "Yetenekler" : "Skills"
- },
- {
   key: 'experience',
   href: '/experience',
   icon: FaBriefcase,
   name: currentLanguage === 'TR' ? "Deneyimler" : "Experiences"
- },
- {
-  key: 'projects',
-  href: '/projects',
-  icon: FaProjectDiagram,
-  name: currentLanguage === 'TR' ? "Projeler" : "Projects"
  },
  {
   key: 'contact',

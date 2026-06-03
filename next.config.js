@@ -2,6 +2,30 @@
 const nextConfig = {
   output: "standalone",
   trailingSlash: true,
+  async redirects() {
+    return [
+      {
+        source: "/skills",
+        destination: "/about/#skills",
+        permanent: true,
+      },
+      {
+        source: "/skills/",
+        destination: "/about/#skills",
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/experience/#projects",
+        permanent: true,
+      },
+      {
+        source: "/projects/",
+        destination: "/experience/#projects",
+        permanent: true,
+      },
+    ];
+  },
   reactStrictMode: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
