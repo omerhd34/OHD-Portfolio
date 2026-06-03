@@ -4,7 +4,7 @@ export function MobileToggleButton({ isExpanded, onClick, translations }) {
  return (
   <button
    onClick={onClick}
-   className="flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors duration-200 sm:hidden group"
+   className="flex items-center space-x-2 cursor-pointer text-green-400 hover:text-green-300 transition-colors duration-200 sm:hidden group"
    aria-expanded={isExpanded}
    aria-label={isExpanded ? translations.showLess : translations.showMore}
   >
@@ -29,7 +29,7 @@ export function DesktopToggleButton({ isExpanded, onClick, translations, showExp
  return (
   <button
    onClick={onClick}
-   className="hidden sm:flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors duration-200 group"
+   className="hidden sm:flex items-center space-x-2 cursor-pointer text-green-400 hover:text-green-300 transition-colors duration-200 group"
    aria-expanded={isExpanded}
    aria-label={isExpanded ? translations.showLess : translations.showMore}
   >

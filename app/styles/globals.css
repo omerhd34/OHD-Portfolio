@@ -4,6 +4,7 @@
 @layer base {
   body {
     font-family: "Zain-Light", sans-serif;
+    font-size: 15px;
     transition: all 0.3s ease;
   }
 
@@ -20,23 +21,6 @@
     --text-accent: #c8e6c9;
 
     --border-primary: #2e7d32;
-    --border-info: #66bb6a;
-    --border-accent: #81c784;
-  }
-
-  :root.light {
-    --bg-primary: #f1f8e9;
-    --bg-secondary: #e8f5e9;
-    --bg-info: #dcedc8;
-    --bg-muted: #c5e1a5;
-    --bg-accent: #2e7d32;
-
-    --text-primary: #1b5e20;
-    --text-secondary: #2e7d32;
-    --text-tertiary: #388e3c;
-    --text-accent: #c8e6c9;
-
-    --border-primary: #43a047;
     --border-info: #66bb6a;
     --border-accent: #81c784;
   }
@@ -61,11 +45,7 @@
 }
 
 .text-adaptive-icon {
-  color: #ffffff !important; /* Dark mode: white */
-}
-
-:root.light .text-adaptive-icon {
-  color: #000000 !important; /* Light mode: black */
+  color: #ffffff !important;
 }
 
 .bg-primary {

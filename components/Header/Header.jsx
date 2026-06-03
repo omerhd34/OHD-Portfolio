@@ -8,11 +8,12 @@ import { LanguageSelector } from "./LanguageSelector";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { MobileNav } from "./MobileNav";
 import { DesktopSocialLinks } from "./DesktopSocialLinks";
-import { ThemeToggle } from "./ThemeToggle";
+import { serviceRoles } from "../../data/services";
 
 import {
  FaUser,
  FaBriefcase,
+ FaCogs,
  FaEnvelope,
  FaLinkedin,
  FaGithub,
@@ -36,6 +37,21 @@ const getNavigationItems = (t, currentLanguage) => [
   href: '/experience',
   icon: FaBriefcase,
   name: currentLanguage === 'TR' ? "Deneyimler" : "Experiences"
+ },
+ {
+  key: 'services',
+  href: '/services',
+  icon: FaCogs,
+  name: currentLanguage === 'TR' ? "Hizmetler" : "Services",
+  children: serviceRoles.map((role) => ({
+   key: role.id,
+   href: `/services#${role.id}`,
+   name: role.label[currentLanguage === "TR" ? "TR" : "EN"],
+   image: role.image,
+   intro: role.intro[currentLanguage === "TR" ? "TR" : "EN"],
+   description: role.menuDescription[currentLanguage === "TR" ? "TR" : "EN"],
+   technologies: role.technologies || [],
+  })),
  },
  {
   key: 'contact',
@@ -93,8 +109,11 @@ export default function Header({ language = "TR", onLanguageChange }) {
  const socialLinks = getSocialLinks(t, language);
 
  const getActiveSection = () => {
-  const currentPath = pathname;
-  const activeItem = navigationItems.find((item) => item.href === currentPath);
+  const currentPath = pathname?.replace(/\/$/, "") || "";
+  const activeItem = navigationItems.find((item) => {
+   const itemPath = item.href?.replace(/\/$/, "") || "";
+   return itemPath === currentPath || currentPath.startsWith(`${itemPath}/`);
+  });
   return activeItem?.key || null;
  };
 
@@ -103,12 +122,11 @@ export default function Header({ language = "TR", onLanguageChange }) {
  return (
   <header className="sticky top-0 z-50 2xl:-mb-20 backdrop-blur-md ">
    <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-2 sm:pt-3 ">
-    <nav className="bg-[#0d2821] backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl rounded-b-2xl min-[1152px]:rounded-b-none shadow-2xl border border-[#2e7d32]/30 relative z-10">
+    <nav className="bg-[#0d2821] backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-t-2xl rounded-b-2xl min-[1152px]:rounded-b-none shadow-2xl border border-[#2e7d32]/30 relative z-10 overflow-visible">
      <div className="flex justify-between items-center">
       <Logo isHovered={isHovered} setIsHovered={setIsHovered} />
-      <DesktopNav navigationItems={navigationItems} activeSection={activeSection} />
+      <DesktopNav navigationItems={navigationItems} activeSection={activeSection} language={language} />
       <div className="flex items-center space-x-2 ">
-       <ThemeToggle />
        <LanguageSelector
         language={language}
         handleLanguageChange={handleLanguageChange}

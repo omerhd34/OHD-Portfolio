@@ -1,23 +1,78 @@
 "use client";
-import { useState, useEffect } from "react";
-import {
- FaUser,
- FaCode,
- FaDatabase,
- FaLaptopCode,
- FaServer,
- FaTools,
-} from "react-icons/fa";
+import { useState, useEffect, useMemo } from "react";
+import { FaUser, FaCode } from "react-icons/fa";
+import { ICON_MAP } from "../../../components/extra/icons";
 import { useLanguage } from "../../context/LanguageContext";
 import { useData } from "../../context/DataContext";
 import Title from "../../../components/extra/Title";
 import CategoryButton from "../../../components/extra/CategoryButton";
 import SkillsContent from "../../../components/PageComponents/Skill/SkillsContent";
 import "../../styles/about.css";
+import "../../styles/skills.css";
+import "../../styles/services.css";
 import InterestsCard from "../../../components/PageComponents/About/InterestsCard";
-import PersonalInfoCard from "../../../components/PageComponents/About/PersonalInfoCard";
 import JourneyCard from "../../../components/PageComponents/About/JourneyCard";
 import LoadingScreen from "../../../components/extra/LoadingScreen";
+import {
+ skillCategoryOrder,
+ serviceTechCategoryMeta,
+ skillCategoryIconKeys,
+} from "../../../data/skills";
+
+const categoryIcons = Object.fromEntries(
+ Object.entries(skillCategoryIconKeys).map(([key, iconKey]) => [key, ICON_MAP[iconKey]])
+);
+
+const categoryColors = {
+ frontend: "from-blue-700 to-blue-600",
+ ui: "from-teal-700 to-teal-600",
+ backend: "from-orange-700 to-orange-600",
+ database: "from-slate-600 to-slate-500",
+ mobile: "from-cyan-700 to-cyan-600",
+ hosting: "from-purple-700 to-purple-600",
+ tools: "from-yellow-600 to-amber-600",
+ seo: "from-green-700 to-green-600",
+ publishing: "from-indigo-700 to-indigo-600",
+};
+
+const categoryDescriptions = {
+ frontend: {
+  TR: "Web arayüzleri, istemci tarafı teknolojiler ve framework'ler",
+  EN: "Web interfaces, client-side technologies, and frameworks",
+ },
+ ui: {
+  TR: "UI bileşen kütüphaneleri ve tasarım sistemleri",
+  EN: "UI component libraries and design systems",
+ },
+ backend: {
+  TR: "Sunucu tarafı teknolojiler ve API geliştirme",
+  EN: "Server-side technologies and API development",
+ },
+ database: {
+  TR: "Veritabanı teknolojileri ve ORM araçları",
+  EN: "Database technologies and ORM tools",
+ },
+ mobile: {
+  TR: "iOS ve Android mobil uygulama geliştirme",
+  EN: "iOS and Android mobile application development",
+ },
+ hosting: {
+  TR: "Hosting, cloud ve deploy altyapıları",
+  EN: "Hosting, cloud, and deployment infrastructure",
+ },
+ tools: {
+  TR: "Geliştirme araçları ve yardımcı platformlar",
+  EN: "Development tools and supporting platforms",
+ },
+ seo: {
+  TR: "SEO, arama görünürlüğü ve web analitik",
+  EN: "SEO, search visibility, and web analytics",
+ },
+ publishing: {
+  TR: "App Store ve Google Play yayın süreçleri",
+  EN: "App Store and Google Play publishing",
+ },
+};
 
 export default function AboutPage() {
  const { language, t, loading } = useLanguage();
@@ -30,10 +85,60 @@ export default function AboutPage() {
   return () => clearTimeout(timer);
  }, []);
 
+ const lang = language === "EN" ? "EN" : "TR";
+
+ const availableCategories = useMemo(
+  () => skillCategoryOrder.filter((id) => (skills[id]?.skills?.length ?? 0) > 0),
+  [skills]
+ );
+
+ useEffect(() => {
+  if (!availableCategories.includes(activeCategory)) {
+   setActiveCategory(availableCategories[0] || "frontend");
+  }
+ }, [activeCategory, availableCategories]);
+
+ const skillsData = useMemo(() => {
+  return availableCategories.reduce((acc, key) => {
+   acc[key] = {
+    ...skills[key],
+    icon: categoryIcons[key],
+    color: categoryColors[key],
+   };
+   return acc;
+  }, {});
+ }, [availableCategories, skills]);
+
+ const skillsTranslations = useMemo(() => {
+  const categories = serviceTechCategoryMeta.reduce((acc, category) => {
+   if (!availableCategories.includes(category.id)) return acc;
+   acc[category.id] = {
+    title: category.label[lang],
+    description: categoryDescriptions[category.id]?.[lang] || category.label[lang],
+   };
+   return acc;
+  }, {});
+
+  return {
+   title: lang === "EN" ? "Skills" : "Yetenekler",
+   subtitle: lang === "EN" ? "Technical Expertise" : "Teknik Uzmanlık",
+   description:
+    lang === "EN"
+     ? "Skills grouped by the same categories as my services: frontend, UI, backend, database, mobile, hosting, tools, SEO & analytics, and publishing."
+     : "Hizmetlerimdeki kategorilerle aynı gruplama: frontend, UI, backend, veritabanı, mobil, hosting, araçlar, SEO & analitik ve yayın.",
+   categories,
+   categoryStats: {
+    skills: lang === "EN" ? "Skills" : "Yetenek",
+    technologies: lang === "EN" ? "Technologies" : "Teknoloji",
+   },
+   yearsExp: lang === "EN" ? "Years Experience" : "Yıl Deneyim",
+  };
+ }, [availableCategories, lang]);
+
  if (loading) return <LoadingScreen language={language} />;
 
  const getTextPreview = (text, maxSentences = 3) => {
-  if (!text) return { preview: '', hasMore: false };
+  if (!text) return { preview: "", hasMore: false };
 
   const sentences = text
    .split(". ")
@@ -51,81 +156,17 @@ export default function AboutPage() {
   return { preview, remaining, hasMore: true };
  };
 
- const journeyText = getTextPreview(t('about.journeyDescription'), 3);
- const interestsText = getTextPreview(t('about.interestsDescription'), 3);
+ const aboutDescription =
+  lang === "EN"
+   ? "Born and based in Istanbul, I hold a bachelor's degree in Electrical-Electronics Engineering from Istanbul Commerce University. From my second year of engineering studies onward, I began moving into software development and, after graduation, positioned my career in this field. Building on the analytical foundation of my engineering background, I now specialize in end-to-end delivery across full stack web and mobile projects—encompassing frontend, backend, database architecture, hosting, SEO, and publishing workflows. My professional journey, areas of focus, and technical expertise are outlined below."
+   : "İstanbul doğumlu ve merkezli olarak faaliyet gösteriyorum. İstanbul Ticaret Üniversitesi Elektrik-Elektronik Mühendisliği lisans programında eğitim alırken ikinci yıldan itibaren yazılıma adım attım; mezuniyetimin ardından kariyerimi bu alanda konumlandırdım. Mühendislik disiplininden edindiğim analitik altyapıyı yazılım geliştirmeye taşıyarak full stack web ve mobil uygulama projelerinde frontend, backend, veritabanı, hosting, SEO ve yayın süreçlerini uçtan uca yönetiyorum. Yolculuğum, uzmanlık alanlarım ve teknik yetkinliklerim aşağıda detaylandırılmıştır.";
 
- const categoryIcons = {
-  frontend: FaLaptopCode,
-  backend: FaServer,
-  tools: FaTools,
-  database: FaDatabase,
- };
+ const journeyText = getTextPreview(t("about.journeyDescription"), 3);
+ const interestsText = getTextPreview(t("about.interestsDescription"), 3);
 
- const categoryColors = {
-  frontend: "bg-green-700",
-  backend: "bg-green-700",
-  database: "bg-green-700",
-  tools: "bg-green-700",
- };
-
- const skillsData = Object.keys(skills).reduce((acc, key) => {
-  acc[key] = {
-   ...skills[key],
-   icon: categoryIcons[key],
-   color: categoryColors[key],
-  };
-  return acc;
- }, {});
-
- const skillsTranslations = {
-  title: language === "EN" ? "Skills" : "Yetenekler",
-  subtitle: language === "EN" ? "Technical Skills" : "Teknik Beceriler",
-  description:
-   language === "EN"
-    ? "With the deep technical knowledge and experience I've gained throughout my web development journey, I create user-centric and innovative solutions. I confidently navigate across a broad technology spectrum from frontend to backend, excelling at every layer."
-    : "Web geliştirme serüvenimde edindiğim derin teknik bilgi ve deneyimle, kullanıcı odaklı ve yenilikçi çözümler üretiyorum. Frontend'den backend'e uzanan geniş teknoloji yelpazesinde, her katmanda güvenle hareket ediyorum.",
-  categories: {
-   frontend: {
-    title: "Frontend",
-    description:
-     language === "EN"
-      ? "Frontend technologies and frameworks"
-      : "Frontend teknolojileri ve framework'ler",
-   },
-   backend: {
-    title: "Backend",
-    description:
-     language === "EN"
-      ? "Backend technologies and frameworks"
-      : "Backend teknolojileri ve framework'ler",
-   },
-   database: {
-    title: language === "EN" ? "Database" : "Veritabanı",
-    description:
-     language === "EN"
-      ? "Database Technologies"
-      : "Veritabanı Teknolojileri",
-   },
-   tools: {
-    title:
-     language === "EN" ? "Development Environment" : "Geliştirme Ortamı",
-    description:
-     language === "EN"
-      ? "Development tools and platforms"
-      : "Geliştirme araçları ve platformlar",
-   },
-  },
-  categoryStats: {
-   skills: language === "EN" ? "Skills" : "Yetenek",
-   technologies: language === "EN" ? "Technologies" : "Teknoloji",
-  },
-  yearsExp: language === "EN" ? "Years Experience" : "Yıl Deneyim",
- };
-
- const getCategoryStats = (category) => {
-  const categorySkills = skillsData[category]?.skills || [];
-  return { count: categorySkills.length };
- };
+ const getCategoryStats = (category) => ({
+  count: skillsData[category]?.skills?.length || 0,
+ });
 
  return (
   <section id="about" className="relative mt-5 sm:mt-10 md:mt-20 min-h-screen">
@@ -140,18 +181,19 @@ export default function AboutPage() {
      />
 
      <Title
-      title={language === "EN" ? "About" : "Hakkımda"}
-      subtitle={language === "EN" ? "Career and Vision" : "Kariyerim ve Vizyonum"}
+      title={lang === "EN" ? "About" : "Hakkımda"}
+      subtitle={
+       lang === "EN" ? "Web & Application Development" : "Web ve Uygulama Geliştirme"
+      }
       isVisible={isVisible}
-      description={language === "EN" ? "The experiences I have gained throughout my career, my personal development journey, and my future goals are detailed below." : "Kariyerim boyunca edindiğim deneyimler, kişisel gelişim yolculuğum ve geleceğe dair hedeflerim aşağıda detaylandırılmıştır."}
+      description={aboutDescription}
      />
 
      <div className="max-w-none mx-auto space-y-8">
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-6 items-stretch">
        <JourneyCard journeyText={journeyText} language={language} isVisible={isVisible} />
        <InterestsCard interestsText={interestsText} language={language} isVisible={isVisible} />
       </div>
-      <PersonalInfoCard language={language} isVisible={isVisible} />
      </div>
 
      <div id="skills" className="mt-16 sm:mt-20 md:mt-24">
@@ -170,10 +212,11 @@ export default function AboutPage() {
       />
 
       <div
-       className={`flex flex-wrap justify-center gap-3 sm:gap-4 mb-5 sm:mb-12 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+       className={`flex flex-wrap justify-center gap-2 sm:gap-3 mb-5 sm:mb-12 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-       {Object.entries(skillsData).map(([key, data]) => {
+       {availableCategories.map((key) => {
+        const data = skillsData[key];
         const stats = getCategoryStats(key);
         return (
          <CategoryButton
@@ -182,8 +225,8 @@ export default function AboutPage() {
           title={skillsTranslations.categories[key]?.title || key}
           count={stats.count}
           countLabel={skillsTranslations.categoryStats.skills}
-          icon={data.icon}
-          color={data.color}
+          icon={data?.icon}
+          color={data?.color}
           isActive={activeCategory === key}
           onClick={setActiveCategory}
          />

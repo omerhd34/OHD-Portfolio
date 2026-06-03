@@ -136,7 +136,6 @@ export default function ContactForm({ language, isVisible }) {
 
     <form onSubmit={handleSubmit} className="space-y-6">
      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {/* Name */}
       <div className="group">
        <label htmlFor="name" className="block text-[17px] sm:text-md font-medium mb-2">
         <FaUser className="inline w-4 h-4 mr-2 mb-1" />
@@ -155,7 +154,6 @@ export default function ContactForm({ language, isVisible }) {
        />
       </div>
 
-      {/* Email */}
       <div className="group">
        <label htmlFor="email" className="block text-[17px] sm:text-md font-medium mb-2">
         <FaEnvelope className="inline w-4 h-4 mr-2 mb-1" />
@@ -176,7 +174,6 @@ export default function ContactForm({ language, isVisible }) {
      </div>
 
      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {/* Phone */}
       <div className="group">
        <label htmlFor="phone" className="block text-[17px] sm:text-md font-medium mb-2">
         <FaPhone className="inline w-4 h-4 mr-2 mb-1" />
@@ -194,7 +191,6 @@ export default function ContactForm({ language, isVisible }) {
        />
       </div>
 
-      {/* Subject */}
       <div className="group">
        <label htmlFor="subject" className="block text-[17px] sm:text-md font-medium mb-2">
         <FaTag className="inline w-4 h-4 mr-2 mb-1" />
@@ -214,7 +210,6 @@ export default function ContactForm({ language, isVisible }) {
       </div>
      </div>
 
-     {/* Message */}
      <div className="group mb-2">
       <label htmlFor="message" className="block text-[17px] sm:text-md font-medium mb-2">
        <FaComment className="inline w-4 h-4 mr-2 mb-1" />

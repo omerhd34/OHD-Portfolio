@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { FaHome, FaUser, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaUser, FaBriefcase, FaCogs, FaEnvelope } from "react-icons/fa";
 
 const pageIconMap = {
  "/": FaHome,
  "/about": FaUser,
  "/experience": FaBriefcase,
+ "/services": FaCogs,
  "/contact": FaEnvelope,
 };
 
@@ -13,6 +14,7 @@ export default function QuickLinksSection({ language }) {
   { name: languageCode === "TR" ? "Ana Sayfa" : "Home", href: '/' },
   { name: languageCode === "TR" ? "Hakkımda" : "About", href: '/about' },
   { name: languageCode === "TR" ? "Deneyimler" : "Experiences", href: '/experience' },
+  { name: languageCode === "TR" ? "Hizmetler" : "Services", href: '/services' },
   { name: languageCode === "TR" ? "İletişim" : "Contact", href: '/contact' },
  ];
 

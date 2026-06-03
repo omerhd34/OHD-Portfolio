@@ -14,17 +14,17 @@ export function DesktopSocialLinks({ socialLinks, t }) {
          href={link.href}
          target="_blank"
          rel="noopener noreferrer"
-         className="group relative flex items-center justify-center px-3 py-2.5 bg-[#143d32] dark:bg-[#143d32] light:bg-[#1b5e20] hover:bg-[#1a5745] dark:hover:bg-[#1a5745] light:hover:bg-[#2e7d32] rounded-lg text-xs font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border border-[#66bb6a]/30 dark:border-[#66bb6a]/30 light:border-[#2e7d32] hover:border-[#81c784] dark:hover:border-[#81c784] light:hover:border-[#43a047] min-w-[40px]"
+         className="group relative flex items-center justify-center px-3 py-2.5 bg-[#143d32] hover:bg-[#1a5745] rounded-lg text-xs font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border border-[#66bb6a]/30 hover:border-[#81c784] min-w-[40px]"
         >
          {link.name === t.cv ? (
           <div className="flex items-center space-x-1">
-           <IconComponent className="w-4 h-4 text-[#c8e6c9] dark:text-[#c8e6c9] light:text-white" />
-           <span className="text-xs whitespace-nowrap text-[#c8e6c9] dark:text-[#c8e6c9] light:text-white font-semibold">
+           <IconComponent className="w-4 h-4 text-[#c8e6c9]" />
+           <span className="text-xs whitespace-nowrap text-[#c8e6c9] font-semibold">
             {link.name}
            </span>
           </div>
          ) : (
-          <IconComponent className="w-4 h-4 text-[#c8e6c9] dark:text-[#c8e6c9] light:text-white" />
+          <IconComponent className="w-4 h-4 text-[#c8e6c9]" />
          )}
          <div className="absolute inset-0 bg-linear-to-r from-[#1b5e20] to-[#2e7d32] rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
         </Link>

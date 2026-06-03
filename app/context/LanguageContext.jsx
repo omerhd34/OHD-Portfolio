@@ -14,6 +14,10 @@ export function LanguageProvider({ children }) {
   }
  }, []);
 
+ useEffect(() => {
+  document.documentElement.lang = language === "TR" ? "tr" : "en";
+ }, [language]);
+
  const translations = useMemo(() => getTranslations(language), [language]);
 
  const handleLanguageChange = (newLanguage) => {

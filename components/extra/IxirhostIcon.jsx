@@ -1,7 +1,7 @@
-export default function IyzicoIcon({ className, ...props }) {
+export default function IxirhostIcon({ className, ...props }) {
  return (
   <img
-   src="/images/iyzico_ile_ode_colored.svg"
+   src="/images/ixirhost.png"
    alt=""
    aria-hidden="true"
    className={`aspect-square object-contain ${className ?? ""}`}

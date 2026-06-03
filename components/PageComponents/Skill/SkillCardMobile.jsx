@@ -1,6 +1,9 @@
 import SkillIcon from "./SkillIcon";
+import { getSkillCardClasses } from "./skillCardStyles";
 
 export default function SkillCardMobile({ skill, index, translations }) {
+ const { card, iconWrap } = getSkillCardClasses(skill.isPrimary, "mobile", skill.categoryIconClass);
+
  return (
   <div
    className="group relative overflow-hidden"
@@ -9,9 +12,9 @@ export default function SkillCardMobile({ skill, index, translations }) {
     animation: `fadeInUp 0.6s ease-out ${index * 100}ms both`,
    }}
   >
-   <div className="bg-info p-3 rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-105 border border-info hover:border-primary/30">
+   <div className={card}>
      <div className="flex flex-col items-center text-center">
-      <div className="p-2 rounded-lg bg-muted transition-transform duration-300 group-hover:scale-110 mb-1">
+      <div className={iconWrap}>
        <SkillIcon iconName={skill.icon} size="small" color={skill.color} />
       </div>
      <h4 className="font-semibold text-xs leading-tight mb-1">{skill.name}</h4>

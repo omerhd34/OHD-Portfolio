@@ -14,7 +14,7 @@ export default function CategoryButton({
  return (
   <button
    onClick={() => onClick(categoryKey)}
-   className={`group relative px-3 xs:px-4 sm:px-6 py-2 xs:py-3 sm:py-4 rounded-lg xs:rounded-xl transition-all duration-300 ${isActive
+   className={`group relative cursor-pointer px-3 xs:px-4 sm:px-6 py-2 xs:py-3 sm:py-4 rounded-lg xs:rounded-xl transition-all duration-300 ${isActive
     ? `bg-linear-to-r ${color} text-accent shadow-lg scale-105`
     : "bg-secondary hover:bg-info text-primary"
     } ${className}`}

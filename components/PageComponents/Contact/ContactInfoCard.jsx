@@ -62,7 +62,6 @@ export default function ContactInfoCard({ language, isVisible }) {
          <div className="font-medium text-[16px] wrap-break-words flex items-center gap-2">
           {info.value}
 
-          {/* WhatsApp butonu */}
           {info.label === (language === "TR" ? "Telefon:" : "Phone:") && (
            <Link
             href="https://wa.me/905078492903"
@@ -74,7 +73,6 @@ export default function ContactInfoCard({ language, isVisible }) {
             <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
            </Link>
           )}
-          {/* E-posta butonu */}
           {info.label === (language === "TR" ? "E-posta:" : "Email:") && (
            <Link
             href="mailto:omerhd16@outlook.com"

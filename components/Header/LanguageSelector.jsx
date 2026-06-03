@@ -24,7 +24,7 @@ export function LanguageSelector({ language, handleLanguageChange, languagesConf
   <div className="relative" ref={dropdownRef}>
    <button
     onClick={() => setIsOpen(!isOpen)}
-    className="hidden lg:flex items-center space-x-2 px-3 py-2 text-[#a5d6a7] dark:text-[#a5d6a7] light:text-[#1b5e20] hover:bg-[#2e7d32]/10 dark:hover:bg-[#2e7d32]/10 light:hover:bg-[#c8e6c9] rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#66bb6a]/50 dark:focus:ring-[#66bb6a]/50 light:focus:ring-[#2e7d32] border border-[#66bb6a]/30 dark:border-[#66bb6a]/30 light:border-[#2e7d32] text-sm cursor-pointer hover:cursor-pointer font-semibold"
+    className="hidden lg:flex items-center space-x-2 px-3 py-2 text-[#a5d6a7] hover:bg-[#2e7d32]/10 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#66bb6a]/50 border border-[#66bb6a]/30 text-sm cursor-pointer hover:cursor-pointer font-semibold"
    >
     <div className="flex items-center">
      <ReactCountryFlag
@@ -54,7 +54,7 @@ export function LanguageSelector({ language, handleLanguageChange, languagesConf
    </button>
 
    {isOpen && (
-    <div className="absolute top-full left-0 mt-2 py-2 w-22 bg-[#143d32] dark:bg-[#143d32] light:bg-[#c8e6c9] rounded-lg shadow-xl border border-[#66bb6a]/30 dark:border-[#66bb6a]/30 light:border-[#2e7d32] z-50">
+    <div className="absolute top-full left-0 mt-2 py-2 w-22 bg-[#143d32] rounded-lg shadow-xl border border-[#66bb6a]/30 z-50">
      {languagesConfig.map((lang) => (
       <button
        key={lang.code}
@@ -63,8 +63,8 @@ export function LanguageSelector({ language, handleLanguageChange, languagesConf
         setIsOpen(false);
        }}
        className={`flex items-center space-x-2 w-full px-3 py-2 text-sm transition-all duration-300 cursor-pointer hover:cursor-pointer font-semibold ${language === lang.code
-        ? "text-[#c8e6c9] dark:text-[#c8e6c9] light:text-[#1b5e20] bg-[#2e7d32]/20 dark:bg-[#2e7d32]/20 light:bg-[#81c784]"
-        : "text-[#a5d6a7] dark:text-[#a5d6a7] light:text-[#2e7d32] hover:text-[#81c784] dark:hover:text-[#81c784] light:hover:text-[#1b5e20] hover:bg-[#2e7d32]/10 dark:hover:bg-[#2e7d32]/10 light:hover:bg-[#a5d6a7]"
+        ? "text-[#c8e6c9] bg-[#2e7d32]/20"
+        : "text-[#a5d6a7] hover:text-[#81c784] hover:bg-[#2e7d32]/10"
         }`}
       >
        <div className="flex items-center">

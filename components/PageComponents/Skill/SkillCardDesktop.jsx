@@ -1,6 +1,9 @@
 import SkillIcon from "./SkillIcon";
+import { getSkillCardClasses } from "./skillCardStyles";
 
 export default function SkillCardDesktop({ skill, index, translations }) {
+ const { card, iconWrap } = getSkillCardClasses(skill.isPrimary, "desktop", skill.categoryIconClass);
+
  return (
   <div
    className="group relative"
@@ -9,9 +12,9 @@ export default function SkillCardDesktop({ skill, index, translations }) {
     animation: `fadeInUp 0.6s ease-out ${index * 100}ms both`,
    }}
   >
-   <div className="relative bg-muted p-5 sm:p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl border border-info hover:border-primary/30 overflow-hidden">
+   <div className={card}>
      <div className="flex items-center space-x-3">
-      <div className="p-3 rounded-xl bg-primary transition-all duration-300 group-hover:scale-110">
+      <div className={iconWrap}>
        <SkillIcon iconName={skill.icon} size="default" color={skill.color} />
       </div>
      <div className="flex-1">
