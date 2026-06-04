@@ -1,3 +1,4 @@
+import "../../../app/styles/services.css";
 import { ICON_MAP, ICON_COLOR_MAP } from "../../extra/icons";
 import { primaryServiceTechIcons, serviceTechIconCategories } from "../../../data/services";
 import { getServiceTechIconClass, sortServiceTechIcons } from "./serviceTechCategoryUtils";
