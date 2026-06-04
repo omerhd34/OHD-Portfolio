@@ -26,7 +26,6 @@ const packageIcons = {
 };
 
 const cardAccent = "from-[#1b5e20] to-[#388e3c]";
-const cardGlow = "group-hover:shadow-[0_0_28px_rgba(102,187,106,0.15)]";
 
 export default function SitePackageCard({ sitePackage, language, index = 0 }) {
  const [activeTier, setActiveTier] = useState("standart");
@@ -34,8 +33,6 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
  const tier = sitePackage.tiers[activeTier];
  const tierFeatures = sitePackage.features[activeTier][lang];
  const Icon = packageIcons[sitePackage.id] || FaIdCard;
-
- const deliveryText = `${tier.deliveryDays}`;
 
  const revisionText =
   tier.revisions == null
@@ -55,9 +52,8 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
     ? `${tier.pages}`
     : `${tier.pages}`;
 
- const ctaLabel = lang === "TR" ? "Teklif Al" : "Get a Quote";
- const deliveryLabel = lang === "TR" ? localeUppercase("Teslim (gün)", "TR") : "DELIVERY (Day)";
- const revisionLabel = lang === "TR" ? localeUppercase("Revizyon", "TR") : "REVISIONS";
+ const revisionLabel =
+  lang === "TR" ? localeUppercase("Revizyon", "TR") : "REVISIONS";
  const customPagesLabel = sitePackage.statLabels?.pages?.[lang];
  const pagesLabel = customPagesLabel
   ? lang === "TR"
@@ -66,17 +62,10 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
   : lang === "TR"
    ? localeUppercase("Sayfalar", "TR")
    : "PAGES";
- const priceLabel =
-  lang === "TR" ? localeUppercase("Başlangıç fiyatı", "TR") : "STARTING FROM";
-
- const formattedPrice =
-  lang === "TR"
-   ? `${tier.price.toLocaleString("tr-TR")} ₺`
-   : `${tier.price.toLocaleString("en-US")} TRY`;
 
  return (
   <article
-   className={`service-package-card group relative flex flex-col h-full rounded-2xl border border-[#2e7d32]/35 bg-[#0d2821]/90 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#66bb6a]/50 ${cardGlow}`}
+   className="service-package-card group relative flex flex-col h-full rounded-2xl border border-[#2e7d32]/35 bg-[#0d2821]/90 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-[#66bb6a]/50 group-hover:shadow-[0_0_28px_rgba(102,187,106,0.15)]"
    style={{ animationDelay: `${index * 120}ms` }}
   >
    <div className={`h-1 w-full bg-linear-to-r ${cardAccent}`} />
@@ -121,23 +110,37 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
      <div className="service-stat-box rounded-xl bg-[#143d32]/70 border border-[#2e7d32]/40 px-3 py-3 min-w-0">
       <div className="flex items-center gap-2 text-[#81c784] mb-1 min-w-0">
        <FaClock className="w-3.5 h-3.5 shrink-0" />
-       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">{deliveryLabel}</span>
+       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">
+        {lang === "TR"
+         ? localeUppercase("Teslim (gün)", "TR")
+         : "DELIVERY (Day)"}
+       </span>
       </div>
-      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">{deliveryText}</p>
+      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">
+       {tier.deliveryDays}
+      </p>
      </div>
      <div className="service-stat-box rounded-xl bg-[#143d32]/70 border border-[#2e7d32]/40 px-3 py-3 min-w-0">
       <div className="flex items-center gap-2 text-[#81c784] mb-1 min-w-0">
        <FaPencilAlt className="w-3.5 h-3.5 shrink-0" />
-       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">{revisionLabel}</span>
+       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">
+        {revisionLabel}
+       </span>
       </div>
-      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">{revisionText}</p>
+      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">
+       {revisionText}
+      </p>
      </div>
      <div className="service-stat-box rounded-xl bg-[#143d32]/70 border border-[#2e7d32]/40 px-3 py-3 min-w-0">
       <div className="flex items-center gap-2 text-[#81c784] mb-1 min-w-0">
        <FaFileAlt className="w-3.5 h-3.5 shrink-0" />
-       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">{pagesLabel}</span>
+       <span className="service-stat-label text-[10px] sm:text-[11px] tracking-wide font-medium">
+        {pagesLabel}
+       </span>
       </div>
-      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">{pagesText}</p>
+      <p className="text-xs sm:text-sm font-bold text-[#c8e6c9] whitespace-nowrap">
+       {pagesText}
+      </p>
      </div>
     </div>
 
@@ -150,26 +153,20 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-[#1b5e20]/80 border border-[#66bb6a]/30">
         <FaCheck className="w-2.5 h-2.5 text-[#81c784]" />
        </span>
-       <span className="group-hover/feature:text-[#c8e6c9] transition-colors">{feature}</span>
+       <span className="group-hover/feature:text-[#c8e6c9] transition-colors">
+        {feature}
+       </span>
       </li>
      ))}
     </ul>
 
-    <div className="mt-auto pt-4 border-t border-[#2e7d32]/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-     <div>
-      <p className="text-[10px] tracking-wider text-[#81c784] mb-0.5">
-       {priceLabel}
-      </p>
-      <p className="text-xl sm:text-2xl font-extrabold bg-linear-to-r from-[#a5d6a7] to-[#c8e6c9] bg-clip-text text-transparent">
-       {formattedPrice}
-      </p>
-     </div>
+    <div className="mt-auto pt-5 border-t border-[#2e7d32]/30 flex justify-center">
      <Link
       href="/contact/"
-      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm bg-linear-to-r from-[#2e7d32] to-[#388e3c] text-[#e8f5e9] hover:from-[#388e3c] hover:to-[#43a047] border border-[#66bb6a]/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg shrink-0"
+      className="service-package-cta group/cta w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-[15px] tracking-wide text-[#e8f5e9] transition-all duration-300"
      >
-      {ctaLabel}
-      <FaArrowRight className="w-3.5 h-3.5" />
+      <span>{lang === "TR" ? "Teklif Al" : "Get a Quote"}</span>
+      <FaArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover/cta:translate-x-1" />
      </Link>
     </div>
    </div>

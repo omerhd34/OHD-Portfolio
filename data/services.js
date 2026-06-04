@@ -305,19 +305,16 @@ export const sitePackages = [
     deliveryDays: 7,
     revisions: 2,
     pages: 3,
-    price: 15000,
    },
    standart: {
     deliveryDays: 14,
     revisions: 4,
     pages: 8,
-    price: 25000,
    },
    pro: {
     deliveryDays: 21,
     revisions: 6,
     pages: null,
-    price: 40000,
    },
   },
  },
@@ -400,19 +397,16 @@ export const sitePackages = [
     deliveryDays: 14,
     revisions: 3,
     pages: 5,
-    price: 30000,
    },
    standart: {
     deliveryDays: 21,
     revisions: 5,
     pages: 15,
-    price: 45000,
    },
    pro: {
     deliveryDays: 30,
     revisions: 8,
     pages: null,
-    price: 70000,
    },
   },
  },
@@ -493,19 +487,16 @@ export const sitePackages = [
     deliveryDays: 21,
     revisions: 3,
     pages: 15,
-    price: 55000,
    },
    standart: {
     deliveryDays: 30,
     revisions: 5,
     pages: 30,
-    price: 90000,
    },
    pro: {
     deliveryDays: 45,
     revisions: 10,
     pages: null,
-    price: 120000,
    },
   },
  },
@@ -600,9 +591,9 @@ export const mobilePackages = [
    },
   },
   tiers: {
-   temel: { deliveryDays: 21, revisions: 2, pages: 5, price: 45000 },
-   standart: { deliveryDays: 30, revisions: 4, pages: 10, price: 70000 },
-   pro: { deliveryDays: 45, revisions: 6, pages: null, price: 95000 },
+   temel: { deliveryDays: 21, revisions: 2, pages: 5 },
+   standart: { deliveryDays: 30, revisions: 4, pages: 10 },
+   pro: { deliveryDays: 45, revisions: 6, pages: null },
   },
  },
  {
@@ -691,9 +682,9 @@ export const mobilePackages = [
    },
   },
   tiers: {
-   temel: { deliveryDays: 30, revisions: 3, pages: 8, price: 60000 },
-   standart: { deliveryDays: 45, revisions: 5, pages: 15, price: 90000 },
-   pro: { deliveryDays: 60, revisions: 8, pages: null, price: 125000 },
+   temel: { deliveryDays: 30, revisions: 3, pages: 8 },
+   standart: { deliveryDays: 45, revisions: 5, pages: 15 },
+   pro: { deliveryDays: 60, revisions: 8, pages: null },
   },
  },
  {
@@ -782,9 +773,39 @@ export const mobilePackages = [
    },
   },
   tiers: {
-   temel: { deliveryDays: 45, revisions: 3, pages: 12, price: 85000 },
-   standart: { deliveryDays: 60, revisions: 5, pages: 20, price: 120000 },
-   pro: { deliveryDays: 90, revisions: 8, pages: null, price: 160000 },
+   temel: { deliveryDays: 45, revisions: 3, pages: 12 },
+   standart: { deliveryDays: 60, revisions: 5, pages: 20 },
+   pro: { deliveryDays: 90, revisions: 8, pages: null },
+  },
+ },
+ {
+  id: "mobile-ecommerce",
+  statLabels: {
+   pages: { TR: "Ekranlar", EN: "SCREENS" },
+  },
+  title: {
+   TR: "E-ticaret Mobil Uygulama",
+   EN: "E-commerce Mobile App",
+  },
+ },
+ {
+  id: "mobile-corporate",
+  statLabels: {
+   pages: { TR: "Ekranlar", EN: "SCREENS" },
+  },
+  title: {
+   TR: "Kurumsal Mobil Uygulama",
+   EN: "Corporate Mobile App",
+  },
+ },
+ {
+  id: "mobile-portfolio",
+  statLabels: {
+   pages: { TR: "Ekranlar", EN: "SCREENS" },
+  },
+  title: {
+   TR: "Tanıtım / Portföy Mobil Uygulama",
+   EN: "Promotion / Portfolio Mobile App",
   },
  },
 ];
