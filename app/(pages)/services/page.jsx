@@ -135,6 +135,7 @@ export default function ServicesPage() {
            sitePackage={pkg}
            language={language}
            index={index}
+           roleId={currentRole.id}
           />
          ))}
         </div>

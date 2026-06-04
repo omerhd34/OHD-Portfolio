@@ -27,7 +27,7 @@ const packageIcons = {
 
 const cardAccent = "from-[#1b5e20] to-[#388e3c]";
 
-export default function SitePackageCard({ sitePackage, language, index = 0 }) {
+export default function SitePackageCard({ sitePackage, language, index = 0, roleId }) {
  const [activeTier, setActiveTier] = useState("standart");
  const lang = language === "EN" ? "EN" : "TR";
  const tier = sitePackage.tiers[activeTier];
@@ -162,7 +162,11 @@ export default function SitePackageCard({ sitePackage, language, index = 0 }) {
 
     <div className="mt-auto pt-5 border-t border-[#2e7d32]/30 flex justify-center">
      <Link
-      href="/contact/"
+      href={
+       roleId
+        ? `/contact?role=${roleId}&package=${sitePackage.id}&tier=${activeTier}`
+        : `/contact?package=${sitePackage.id}&tier=${activeTier}`
+      }
       className="service-package-cta group/cta w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-[15px] tracking-wide text-[#e8f5e9] transition-all duration-300"
      >
       <span>{lang === "TR" ? "Teklif Al" : "Get a Quote"}</span>

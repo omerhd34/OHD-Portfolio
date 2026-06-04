@@ -778,34 +778,4 @@ export const mobilePackages = [
    pro: { deliveryDays: 90, revisions: 8, pages: null },
   },
  },
- {
-  id: "mobile-ecommerce",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "E-ticaret Mobil Uygulama",
-   EN: "E-commerce Mobile App",
-  },
- },
- {
-  id: "mobile-corporate",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "Kurumsal Mobil Uygulama",
-   EN: "Corporate Mobile App",
-  },
- },
- {
-  id: "mobile-portfolio",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "Tanıtım / Portföy Mobil Uygulama",
-   EN: "Promotion / Portfolio Mobile App",
-  },
- },
 ];

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { FaEnvelope } from "react-icons/fa";
 import { Toaster } from "react-hot-toast";
 import { useLanguage } from "../../context/LanguageContext";
@@ -48,10 +48,12 @@ export default function ContactPage() {
      />
 
      <div className="grid lg:grid-cols-2 gap-5 lg:gap-16">
-      <ContactForm
-       language={language}
-       isVisible={isVisible}
-      />
+      <Suspense fallback={null}>
+       <ContactForm
+        language={language}
+        isVisible={isVisible}
+       />
+      </Suspense>
 
       <div className="flex flex-col gap-5 lg:gap-8">
        <ContactInfoCard

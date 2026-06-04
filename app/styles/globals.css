@@ -115,3 +115,26 @@
 html {
   scroll-behavior: auto;
 }
+
+.contact-field {
+  background-color: #0d2821;
+  color: #e8f5e9;
+  color-scheme: dark;
+}
+
+.contact-field::placeholder {
+  color: #81c784;
+  opacity: 1;
+}
+
+.contact-field:-webkit-autofill,
+.contact-field:-webkit-autofill:hover,
+.contact-field:-webkit-autofill:focus,
+.contact-field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #0d2821 inset !important;
+  box-shadow: 0 0 0 1000px #0d2821 inset !important;
+  -webkit-text-fill-color: #e8f5e9 !important;
+  caret-color: #e8f5e9;
+  border-color: #66bb6a;
+  transition: background-color 99999s ease-in-out 0s;
+}
