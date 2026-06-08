@@ -10,7 +10,7 @@ export function Logo({ isHovered, setIsHovered }) {
    onMouseLeave={() => setIsHovered(false)}
   >
    <div className="flex items-center space-x-3 relative">
-    <div className="hidden min-[400px]:block relative">
+    <div className="relative">
      <AnimatedGradient isHovered={isHovered} />
      <div
       className={`absolute top-1/2 -right-2 w-4 h-px bg-linear-to-r from-[#66bb6a] to-transparent transition-all duration-800 ${isHovered ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
@@ -22,7 +22,7 @@ export function Logo({ isHovered, setIsHovered }) {
      />
     </div>
 
-    <div className="relative">
+    <div className="relative hidden lg:block">
      <div className={`absolute inset-0 bg-linear-to-r from-[#2e7d32]/20 via-[#66bb6a]/20 to-[#2e7d32]/20 rounded-lg transition-all duration-800 ${isHovered ? "opacity-100 blur-sm scale-110" : "opacity-0 scale-100"
       }`} />
 

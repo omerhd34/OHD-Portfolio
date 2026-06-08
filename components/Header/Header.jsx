@@ -8,6 +8,7 @@ import { LanguageSelector } from "./LanguageSelector";
 import { MobileMenuButton } from "./MobileMenuButton";
 import { MobileNav } from "./MobileNav";
 import { DesktopSocialLinks } from "./DesktopSocialLinks";
+import HolidayBadge from "../extra/HolidayBadge";
 import { serviceRoles } from "../../data/services";
 
 import {
@@ -133,7 +134,8 @@ export default function Header({ language = "TR", onLanguageChange }) {
      <div className="flex justify-between items-center">
       <Logo isHovered={isHovered} setIsHovered={setIsHovered} />
       <DesktopNav navigationItems={navigationItems} activeSection={activeSection} language={language} />
-      <div className="flex items-center space-x-2 ">
+      <div className="flex min-w-0 shrink items-center gap-2">
+       <HolidayBadge language={language} variant="mobile" className="lg:hidden" />
        <LanguageSelector
         language={language}
         handleLanguageChange={handleLanguageChange}
@@ -155,7 +157,7 @@ export default function Header({ language = "TR", onLanguageChange }) {
      />
     </nav>
    </div>
-   <DesktopSocialLinks socialLinks={socialLinks} t={{ cv: t('header.cv') }} />
+   <DesktopSocialLinks socialLinks={socialLinks} t={{ cv: t('header.cv') }} language={language} />
   </header>
  );
 }
