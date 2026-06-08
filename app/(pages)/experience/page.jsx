@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
-import { FaBriefcase, FaGraduationCap, FaProjectDiagram } from "react-icons/fa";
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -11,10 +11,6 @@ import { useData } from "../../context/DataContext";
 import CategoryTabs from "../../../components/PageComponents/Experience/CategoryTabs";
 
 import ExperienceItem from "../../../components/PageComponents/Experience/ExperienceItem";
-
-import ProjectCard from "../../../components/PageComponents/Project/ProjectCard";
-
-import ProjectStats from "../../../components/PageComponents/Project/ProjectStats";
 
 import Title from "../../../components/extra/Title";
 
@@ -28,17 +24,13 @@ import { GrCertificate } from "react-icons/gr";
 
 export default function ExperiencePage() {
 
- const { language, t, loading: langLoading } = useLanguage();
+ const { language, loading: langLoading } = useLanguage();
 
- const { experience, projects } = useData();
+ const { experience } = useData();
 
  const [isVisible, setIsVisible] = useState(false);
 
  const [activeCategory, setActiveCategory] = useState("education");
-
- const [searchTerm] = useState("");
-
- const [filteredProjects, setFilteredProjects] = useState([]);
 
 
 
@@ -49,56 +41,6 @@ export default function ExperiencePage() {
   return () => clearTimeout(timer);
 
  }, []);
-
-
-
- const stats = useMemo(() => {
-
-  if (!projects) return { total: 0, completed: 0, current: 0 };
-
-
-
-  const total = projects.length;
-
-  const completed = projects.filter((p) => p.status === "completed").length;
-
-  const current = projects.filter((p) => p.status === "current").length;
-
-  return { total, completed, current };
-
- }, [projects]);
-
-
-
- useEffect(() => {
-
-  if (!projects) return;
-
-
-
-  let filtered = projects;
-
-
-
-  if (searchTerm) {
-
-   filtered = filtered.filter(
-
-    (project) =>
-
-     project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-
-     project.description.toLowerCase().includes(searchTerm.toLowerCase())
-
-   );
-
-  }
-
-
-
-  setFilteredProjects(filtered);
-
- }, [searchTerm, projects]);
 
 
 
@@ -258,22 +200,6 @@ export default function ExperiencePage() {
 
 
 
- const projectTranslations = {
-
-  status: {
-
-   completed: t('projects.status.completed'),
-
-   current: t('projects.status.current'),
-
-   planned: t('projects.status.planned'),
-
-  },
-
- };
-
-
-
  const getCategoryStats = (category) => {
 
   const items = experienceData[category]?.items || [];
@@ -394,90 +320,6 @@ export default function ExperiencePage() {
 
      </div>
 
-
-
-     <div id="projects" className="mt-16 sm:mt-20 md:mt-24">
-
-      <FaProjectDiagram
-
-       className={`w-8 h-8 text-green-200 mx-auto mb-2 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-
-      />
-
-
-
-      <Title
-
-       title={language === "EN" ? "Projects" : "Projeler"}
-
-       subtitle={language === "EN" ? "Portfolio" : "Çalışmalarım"}
-
-       description={language === "EN" ? "My projects in web and mobile fields" : "Web ve mobil alanlarındaki çalışmalarım"}
-
-       isVisible={isVisible}
-
-      />
-
-
-
-      <ProjectStats stats={stats} language={language} isVisible={isVisible} />
-
-
-
-      <div className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-
-       {filteredProjects.length === 0 ? (
-
-        <div className="text-center py-12">
-
-         <h3 className="text-lg font-semibold mb-2">
-
-          {language === "TR" ? "Proje bulunamadı" : "No projects found"}
-
-         </h3>
-
-         <p className="text-sm">
-
-          {language === "TR"
-
-           ? "Arama kriterlerinizi değiştirmeyi deneyin"
-
-           : "Try changing your search criteria"}
-
-         </p>
-
-        </div>
-
-       ) : (
-
-        <div className="grid gap-6">
-
-         {filteredProjects.map((project, index) => (
-
-          <ProjectCard
-
-           key={project.id}
-
-           project={project}
-
-           translations={projectTranslations}
-
-           language={language}
-
-           index={index}
-
-          />
-
-         ))}
-
-        </div>
-
-       )}
-
-      </div>
-
-     </div>
-
     </div>
 
    </div>
@@ -487,4 +329,3 @@ export default function ExperiencePage() {
  );
 
 }
-

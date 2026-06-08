@@ -14,16 +14,6 @@ const nextConfig = {
         destination: "/about/#skills",
         permanent: true,
       },
-      {
-        source: "/projects",
-        destination: "/experience/#projects",
-        permanent: true,
-      },
-      {
-        source: "/projects/",
-        destination: "/experience/#projects",
-        permanent: true,
-      },
     ];
   },
   reactStrictMode: true,

@@ -30,8 +30,8 @@ export function Logo({ isHovered, setIsHovered }) {
       <div
        className={`transition-all duration-800 opacity-100 scale-100`}
       >
-       <span className="text-3xl lg:text-4xl font-bold bg-linear-to-r from-[#c8e6c9] via-[#66bb6a] to-[#81c784] bg-clip-text text-transparent leading-tight tracking-widest font-[Garamond]">
-        ÖHD
+       <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold bg-linear-to-r from-[#c8e6c9] via-[#66bb6a] to-[#81c784] bg-clip-text text-transparent leading-tight tracking-wide whitespace-nowrap font-[Garamond]">
+        Ömer Halis Demir
        </span>
       </div>
      </div>

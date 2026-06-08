@@ -13,6 +13,7 @@ import { serviceRoles } from "../../data/services";
 import {
  FaUser,
  FaBriefcase,
+ FaProjectDiagram,
  FaCogs,
  FaEnvelope,
  FaLinkedin,
@@ -37,6 +38,12 @@ const getNavigationItems = (t, currentLanguage) => [
   href: '/experience',
   icon: FaBriefcase,
   name: currentLanguage === 'TR' ? "Deneyimler" : "Experiences"
+ },
+ {
+  key: 'projects',
+  href: '/projects',
+  icon: FaProjectDiagram,
+  name: currentLanguage === 'TR' ? "Projeler" : "Projects"
  },
  {
   key: 'services',

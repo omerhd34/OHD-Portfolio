@@ -56,6 +56,7 @@ export default function ProjectCard({ project, translations, language, index }) 
   SiRedux: "Redux",
   SiGooglegemini: "Google Gemini",
   TbApi: "RESTful API",
+  TbSeo: "SEO",
  };
 
  const technologyIcons = useMemo(() => {

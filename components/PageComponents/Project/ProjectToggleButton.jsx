@@ -4,7 +4,7 @@ export default function ProjectToggleButton({ isExpanded, onClick, buttonTexts }
  return (
   <button
    onClick={onClick}
-   className="flex items-center space-x-1.5 xs:space-x-2 text-green-400 hover:text-green-300 transition-colors duration-200 group"
+   className="flex items-center space-x-1.5 xs:space-x-2 cursor-pointer text-green-400 hover:text-green-300 transition-colors duration-200 group"
    aria-expanded={isExpanded}
    aria-label={isExpanded ? buttonTexts.showLess : buttonTexts.showDetails}
   >

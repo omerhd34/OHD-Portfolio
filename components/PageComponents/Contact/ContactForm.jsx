@@ -240,7 +240,7 @@ export default function ContactForm({ language, isVisible }) {
  };
 
  const pillBase =
-  "px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 border";
+  "px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 border cursor-pointer";
  const pillActive =
   "bg-[#1b5e20] text-[#e8f5e9] border-[#66bb6a]";
  const pillInactive =
