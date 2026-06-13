@@ -72,16 +72,4 @@ export const nationalHolidays = [
    EN: "May 1",
   },
  },
- {
-  month: 6,
-  day: 13,
-  name: {
-   TR: "Atatürk'ü Anma, Gençlik ve Spor Bayramı",
-   EN: "Demokrasi ve Millî Birlik Günü",
-  },
-  shortName: {
-   TR: "19 Mayıs",
-   EN: "May 19",
-  },
- },
 ];
