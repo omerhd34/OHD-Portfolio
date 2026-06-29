@@ -230,7 +230,7 @@ omerhalisdemir.com.tr/
 **Ömer Halis Demir**
 
 - 🌐 Website: [omerhalisdemir.com.tr](https://omerhalisdemir.com.tr)
-- 💼 LinkedIn: [linkedin.com/in/ömer-halis-demir](https://www.linkedin.com/in/ömer-halis-demir-7a9b79169/)
+- 💼 LinkedIn: [linkedin.com/in/omerhd1](https://www.linkedin.com/in/omerhd1/)
 - 📧 Email: omerhd16@outlook.com
 - 💻 GitHub: [@omerhd34](https://github.com/omerhd34)
 

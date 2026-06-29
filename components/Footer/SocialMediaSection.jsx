@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaFileDownload } from "react-icons/fa";
 const socialLinksConfig = [
  {
   name: "Linkedin",
-  href: 'https://www.linkedin.com/in/%C3%B6mer-halis-demir-7a9b79169/',
+  href: 'https://www.linkedin.com/in/omerhd1/',
   icon: FaLinkedin,
  },
  {

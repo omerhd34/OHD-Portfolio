@@ -29,7 +29,7 @@ export default function SocialLinksCard({ language, isVisible }) {
  const profileLinks = [
   {
    name: "LinkedIn",
-   url: "https://www.linkedin.com/in/%C3%B6mer-halis-demir-7a9b79169/",
+   url: "https://www.linkedin.com/in/omerhd1/",
    icon: FaLinkedin,
   },
   {
@@ -39,7 +39,7 @@ export default function SocialLinksCard({ language, isVisible }) {
   },
   {
    name: "CV",
-   url: lang === "EN" ? "/pdf/cv-eng.pdf#zoom=35" : "/pdf/cv.pdf#zoom=35",
+   url: lang === "EN" ? "/pdf/cv-eng.pdf" : "/pdf/cv.pdf",
    icon: FaFileDownload,
   },
  ];

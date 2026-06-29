@@ -72,7 +72,7 @@ const getNavigationItems = (t, currentLanguage) => [
 const getSocialLinks = (t, language) => [
  {
   name: "Linkedin",
-  href: 'https://www.linkedin.com/in/%C3%B6mer-halis-demir-7a9b79169/',
+  href: 'https://www.linkedin.com/in/omerhd1/',
   icon: FaLinkedin
  },
  {
@@ -82,7 +82,7 @@ const getSocialLinks = (t, language) => [
  },
  {
   name: "CV",
-  href: language === 'EN' ? '/pdf/cv-eng.pdf#zoom=35' : '/pdf/cv.pdf#zoom=35',
+  href: language === 'EN' ? '/pdf/cv-eng.pdf' : '/pdf/cv.pdf',
   icon: FaFileDownload
  }
 ];
