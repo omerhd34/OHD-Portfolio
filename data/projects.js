@@ -132,7 +132,7 @@ export const projectList = [
    "Fablessi için Next.js, React ve Node.js ile geliştirilen bu platform, bahçe ve balkon mobilyası üreticisinin ürünlerini portföy ve katalog mantığıyla dijital ortamda sunar. Ana sayfadaki hero carousel ile Aston gibi öne çıkan oturma grupları tanıtılır; oturma, köşe, masa grupları ve şezlong gibi kategoriler üzerinden gezinme sağlanır. Her ürün sayfasında yüksek kaliteli görseller, teknik özellikler ve renk seçenekleri yer alır; ziyaretçiler satın alma için WhatsApp ve telefon gibi iletişim kanallarına yönlendirilir. Yönetim paneli ve RESTful API katmanı üzerinden ürün, kategori ve içerik yönetimi Prisma ve MySQL altyapısıyla güvenli şekilde yapılır. Kurumsal sergileme odaklı tasarım, premium mobilya markasının vitrinini güçlü bir dijital katalog deneyimine dönüştürür.",
   longDescriptionEn:
    "Built with Next.js, React, and Node.js for Fablessi, this platform presents a garden and balcony furniture manufacturer's products through a portfolio and catalog approach. A hero carousel on the homepage highlights featured seating groups such as Aston; visitors browse categories including seating sets, corner groups, dining sets, and sun loungers. Each product page includes high-quality visuals, technical specifications, and color options, while purchase inquiries are directed to WhatsApp and phone contact channels. Product, category, and content management runs through an admin panel and RESTful API layer backed by Prisma and MySQL. With a corporate showcase focus, the design turns the premium furniture brand's display into a strong digital catalog experience.",
-  status: "current",
+  status: "completed",
   liveUrl: "https://fablessi.com",
   technologies: [
    "FaJsSquare",
@@ -179,13 +179,13 @@ export const projectList = [
    { label: "Geliştirme Süresi", value: "30 gün" },
    { label: "Site Türü", value: "Kurumsal Katalog" },
    { label: "Sektör", value: "Bahçe & Balkon Mobilyaları" },
-   { label: "Durum", value: "Devam Ediyor" },
+   { label: "Durum", value: "Aktif" },
   ],
   metricsEn: [
    { label: "Development Time", value: "30 days" },
    { label: "Site Type", value: "Corporate Catalog" },
    { label: "Industry", value: "Garden & Balcony Furniture" },
-   { label: "Status", value: "In Development" },
+   { label: "Status", value: "Actively Used" },
   ],
   displayOrder: 1,
  },
