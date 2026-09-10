@@ -37,6 +37,12 @@ export default function ExperienceTechnologies({ technologies, isMobileExpanded,
    SiPostgresql: { EN: "PostgreSQL", TR: "PostgreSQL" },
    SiPostman: { EN: "Postman", TR: "Postman" },
    TbApi: { EN: "REST API", TR: "REST API" },
+   SiShadcnui: { EN: "shadcn/ui", TR: "shadcn/ui" },
+   TbSeo: { EN: "SEO", TR: "SEO" },
+   SiGooglegemini: { EN: "Google Gemini", TR: "Google Gemini" },
+   SiGoogleanalytics: { EN: "Google Analytics", TR: "Google Analytics" },
+   SiGooglesearchconsole: { EN: "Search Console", TR: "Search Console" },
+   BsCursorFill: { EN: "Cursor", TR: "Cursor" },
   };
 
   return iconNames[iconKey]?.[language] || iconKey;
