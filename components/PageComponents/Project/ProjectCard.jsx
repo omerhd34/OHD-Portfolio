@@ -19,6 +19,8 @@ export default function ProjectCard({ project, translations, language, index }) 
    team: language === "TR" ? "Takım" : "Team",
    myRole: language === "TR" ? "Rolüm" : "My Role",
    projectMetrics: language === "TR" ? "Proje Metrikleri" : "Project Metrics",
+   liveSite: language === "TR" ? "Canlı Site" : "Live Site",
+   viewImage: language === "TR" ? "Görsel" : "View Image",
   }),
   [language]
  );
@@ -55,6 +57,8 @@ export default function ProjectCard({ project, translations, language, index }) 
   SiPostgresql: "PostgreSQL",
   SiRedux: "Redux",
   SiGooglegemini: "Google Gemini",
+  SiGooglesearchconsole: "Google Search Console",
+  SiGoogleanalytics: "Google Analytics",
   TbApi: "RESTful API",
   TbSeo: "SEO",
  };

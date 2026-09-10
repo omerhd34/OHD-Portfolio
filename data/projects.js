@@ -17,8 +17,13 @@ export const projectList = [
    "FaReact",
    "SiNextdotjs",
    "SiTailwindcss",
+   "FaNodeJs",
    "TbSeo",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
    "SiVercel",
+   "FaGitAlt",
+   "FaGithub",
   ],
   featuresTr: [
    "Çok dilli destek (TR/EN)",
@@ -70,7 +75,6 @@ export const projectList = [
   longDescriptionEn:
    "IQfinansAI is a modern web application that leverages Google Gemini AI integration to analyze financial data, providing users with personalized insights and forecasts. The interface built with Next.js, React, and Redux connects analysis, reporting, authentication, and payment workflows to RESTful API endpoints on Node.js. The platform relies on a secure, scalable backend architecture powered by Prisma and MySQL. It also features detailed graphical analysis with Recharts, financial PDF reporting, and a secure authentication infrastructure supported by NextAuth.",
   status: "completed",
-  liveUrl: "https://www.iqfinansai.com",
   technologies: [
    "SiTypescript",
    "FaReact",
@@ -83,6 +87,9 @@ export const projectList = [
    "SiGooglegemini",
    "TbApi",
    "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "Google Gemini AI tabanlı finansal veri analizi",
@@ -122,18 +129,18 @@ export const projectList = [
  },
  {
   category: "web",
-  titleTr: "Fablessi - Bahçe & Balkon Mobilyaları",
-  titleEn: "Fablessi - Garden & Balcony Furniture",
+  titleTr: "Gardossi - Bahçe & Balkon Mobilyaları",
+  titleEn: "Gardossi - Garden & Balcony Furniture",
   descriptionTr:
    "İnegöl ustalığıyla üretilen premium bahçe ve balkon mobilyalarını katalog mantığıyla sunan kurumsal ürün tanıtım sitesi. E-ticaret değil; ürünleri sergiler, detay ve teknik bilgiler paylaşır, iletişim kanalları üzerinden satışa yönlendirir.",
   descriptionEn:
    "A corporate product showcase site presenting premium garden and balcony furniture crafted in İnegöl. Not an e-commerce store—it displays products with detailed specs and directs customers to contact channels for purchase.",
   longDescriptionTr:
-   "Fablessi için Next.js, React ve Node.js ile geliştirilen bu platform, bahçe ve balkon mobilyası üreticisinin ürünlerini portföy ve katalog mantığıyla dijital ortamda sunar. Ana sayfadaki hero carousel ile Aston gibi öne çıkan oturma grupları tanıtılır; oturma, köşe, masa grupları ve şezlong gibi kategoriler üzerinden gezinme sağlanır. Her ürün sayfasında yüksek kaliteli görseller, teknik özellikler ve renk seçenekleri yer alır; ziyaretçiler satın alma için WhatsApp ve telefon gibi iletişim kanallarına yönlendirilir. Yönetim paneli ve RESTful API katmanı üzerinden ürün, kategori ve içerik yönetimi Prisma ve MySQL altyapısıyla güvenli şekilde yapılır. Kurumsal sergileme odaklı tasarım, premium mobilya markasının vitrinini güçlü bir dijital katalog deneyimine dönüştürür.",
+   "Gardossi için Next.js, React ve Node.js ile geliştirilen bu platform, bahçe ve balkon mobilyası üreticisinin ürünlerini portföy ve katalog mantığıyla dijital ortamda sunar. Ana sayfadaki hero carousel ile Aston gibi öne çıkan oturma grupları tanıtılır; oturma, köşe, masa grupları ve şezlong gibi kategoriler üzerinden gezinme sağlanır. Her ürün sayfasında yüksek kaliteli görseller, teknik özellikler ve renk seçenekleri yer alır; ziyaretçiler satın alma için WhatsApp ve telefon gibi iletişim kanallarına yönlendirilir. Yönetim paneli ve RESTful API katmanı üzerinden ürün, kategori ve içerik yönetimi Prisma ve MySQL altyapısıyla güvenli şekilde yapılır. Kurumsal sergileme odaklı tasarım, premium mobilya markasının vitrinini güçlü bir dijital katalog deneyimine dönüştürür.",
   longDescriptionEn:
-   "Built with Next.js, React, and Node.js for Fablessi, this platform presents a garden and balcony furniture manufacturer's products through a portfolio and catalog approach. A hero carousel on the homepage highlights featured seating groups such as Aston; visitors browse categories including seating sets, corner groups, dining sets, and sun loungers. Each product page includes high-quality visuals, technical specifications, and color options, while purchase inquiries are directed to WhatsApp and phone contact channels. Product, category, and content management runs through an admin panel and RESTful API layer backed by Prisma and MySQL. With a corporate showcase focus, the design turns the premium furniture brand's display into a strong digital catalog experience.",
+   "Built with Next.js, React, and Node.js for Gardossi, this platform presents a garden and balcony furniture manufacturer's products through a portfolio and catalog approach. A hero carousel on the homepage highlights featured seating groups such as Aston; visitors browse categories including seating sets, corner groups, dining sets, and sun loungers. Each product page includes high-quality visuals, technical specifications, and color options, while purchase inquiries are directed to WhatsApp and phone contact channels. Product, category, and content management runs through an admin panel and RESTful API layer backed by Prisma and MySQL. With a corporate showcase focus, the design turns the premium furniture brand's display into a strong digital catalog experience.",
   status: "completed",
-  liveUrl: "https://fablessi.com",
+  liveUrl: "https://gardossi.com",
   technologies: [
    "FaJsSquare",
    "FaReact",
@@ -145,7 +152,10 @@ export const projectList = [
    "TbApi",
    "SiVercel",
    "TbSeo",
-   "Tidbcloud"
+   "Tidbcloud",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "Kurumsal ürün katalog ve sunum yapısı",
@@ -212,6 +222,9 @@ export const projectList = [
    "FaNodeJs",
    "TbApi",
    "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "Güvenli ödeme entegrasyonu",
@@ -278,6 +291,9 @@ export const projectList = [
    "FaNodeJs",
    "TbApi",
    "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "Randevu talep sistemi",
@@ -341,6 +357,9 @@ export const projectList = [
    "FaNodeJs",
    "TbApi",
    "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "SEO optimizasyonu (SSR)",
@@ -402,6 +421,9 @@ export const projectList = [
    "FaNodeJs",
    "TbApi",
    "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
   ],
   featuresTr: [
    "Ürün talep oluşturma sistemi",
