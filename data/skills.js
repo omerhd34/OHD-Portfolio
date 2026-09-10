@@ -53,9 +53,9 @@ const skillCategoryOverrides = {
 };
 
 export const primarySkillIcons = {
- frontend: ["FaReact", "SiTypescript", "FaJsSquare", "SiRedux"],
+ frontend: ["FaReact", "SiNextdotjs", "SiTypescript", "FaJsSquare"],
  ui: ["SiTailwindcss", "SiShadcnui", "SiNextui"],
- backend: ["FaNodeJs", "SiExpress", "TbApi", "SiNextdotjs"],
+ backend: ["FaNodeJs", "SiExpress", "TbApi", "FaJava"],
  database: ["SiMysql", "SiMongodb", "SiPostgresql", "SiPrisma"],
  mobile: ["TbBrandReactNative", "SiFlutter", "SiExpo", "SiAndroidstudio"],
  hosting: ["SiVercel", "SiRailway", "SiRender", "IxirhostIcon"],

@@ -124,8 +124,8 @@ export default function AboutPage() {
    subtitle: lang === "EN" ? "Technical Expertise" : "Teknik Uzmanlık",
    description:
     lang === "EN"
-     ? "Skills grouped by the same categories as my services: frontend, UI, backend, database, mobile, hosting, tools, SEO & analytics, and publishing."
-     : "Hizmetlerimdeki kategorilerle aynı gruplama: frontend, UI, backend, veritabanı, mobil, hosting, araçlar, SEO & analitik ve yayın.",
+     ? "Skills grouped by the same categories as my services: frontend, backend, UI, database, mobile, hosting, tools, SEO & analytics, and publishing."
+     : "Hizmetlerimdeki kategorilerle aynı gruplama: frontend, backend, UI, veritabanı, mobil, hosting, araçlar, SEO & analitik ve yayın.",
    categories,
    categoryStats: {
     skills: lang === "EN" ? "Skills" : "Yetenek",
