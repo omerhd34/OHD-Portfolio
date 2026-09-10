@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaCogs } from "react-icons/fa";
+import { FaArrowRight, FaCogs } from "react-icons/fa";
 import { useLanguage } from "../../context/LanguageContext";
 import Title from "../../../components/extra/Title";
 import LoadingScreen from "../../../components/extra/LoadingScreen";
-import SitePackageCard from "../../../components/PageComponents/Services/SitePackageCard";
 import ServiceTechIcons from "../../../components/PageComponents/Services/ServiceTechIcons";
 import ServiceTechCategoryLegend from "../../../components/PageComponents/Services/ServiceTechCategoryLegend";
-import { serviceRoles, sitePackages, mobilePackages, sharedPackageIncludes, sharedMobilePackageIncludes } from "../../../data/services";
+import { serviceRoles } from "../../../data/services";
 import {
  syncServiceRoleFromHash,
 } from "../../../components/Header/serviceNavUtils";
@@ -49,21 +49,13 @@ export default function ServicesPage() {
 
  const lang = language === "EN" ? "EN" : "TR";
  const currentRole = serviceRoles.find((r) => r.id === activeRole) || serviceRoles[0];
- const showSitePackages = currentRole.packageType === "web";
- const showMobilePackages = currentRole.packageType === "app";
- const showPackages = showSitePackages || showMobilePackages;
 
- const activePackages = showMobilePackages ? mobilePackages : sitePackages;
- const packagesIntro = showMobilePackages
-  ? sharedMobilePackageIncludes[lang].body
-  : sharedPackageIncludes[lang];
-
- const title = lang === "TR" ? "Hizmetler & Paketler" : "Services & Packages";
- const subtitle = lang === "TR" ? "Web ve Uygulama Geliştirme Paketleri" : "Web & Application Development Packages";
+ const title = lang === "TR" ? "Hizmetler" : "Services";
+ const subtitle = lang === "TR" ? "Web, Uygulama ve Dijital Hizmetler" : "Web, App & Digital Services";
  const description =
   lang === "TR"
-   ? "Full stack web ve uygulama geliştirme hizmetlerim için paket seviyelerini inceleyebilirsiniz. Sekmeler arasında geçiş yaparak detayları görüntüleyin."
-   : "Explore package tiers for my full stack web and application development services. Switch tabs to view the details.";
+   ? "Web sitesi ve uygulama yapımı, dijital yenileme, SEO, teknik denetim ile bakım-destek hizmetlerimi inceleyebilirsiniz. Sekmeler arasında geçiş yaparak detayları görüntüleyin."
+   : "Explore website and app development, digital renewal, SEO, technical audit, and maintenance services. Switch tabs to view the details.";
 
  return (
   <section id="services" className="relative mt-5 sm:mt-10 md:mt-20 min-h-screen">
@@ -110,9 +102,6 @@ export default function ServicesPage() {
        <p className="text-accent text-xs sm:text-sm leading-[1.7] text-left sm:text-center">
         {currentRole.description[lang]}
        </p>
-       <p className="text-accent text-xs sm:text-sm leading-[1.7] text-left sm:text-center">
-        {packagesIntro}
-       </p>
        <ServiceTechIcons
         icons={currentRole.technologies}
         language={language}
@@ -126,22 +115,16 @@ export default function ServicesPage() {
       className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
        }`}
      >
-      {showPackages ? (
-       <>
-        <div className="services-packages-grid grid grid-cols-1 xl:grid-cols-3 gap-6 xl:gap-8 max-w-7xl xl:max-w-360 mx-auto w-full">
-         {activePackages.map((pkg, index) => (
-          <SitePackageCard
-           key={pkg.id}
-           sitePackage={pkg}
-           language={language}
-           index={index}
-           roleId={currentRole.id}
-          />
-         ))}
-        </div>
-        <ServiceTechCategoryLegend language={language} className="mt-10 sm:mt-12" />
-       </>
-      ) : null}
+      <ServiceTechCategoryLegend language={language} className="mt-10 sm:mt-12" />
+      <div className="flex justify-center px-4 mt-8 sm:mt-10">
+       <Link
+        href={`/contact?role=${currentRole.id}`}
+        className="service-package-cta group/cta inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-semibold text-sm sm:text-[15px] tracking-wide text-[#e8f5e9] transition-all duration-300"
+       >
+        <span>{lang === "TR" ? "Teklif Al" : "Get a Quote"}</span>
+        <FaArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover/cta:translate-x-1" />
+       </Link>
+      </div>
      </div>
     </div>
    </div>

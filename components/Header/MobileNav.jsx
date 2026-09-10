@@ -22,7 +22,7 @@ export function MobileNav({
 
  return (
   <div
-   className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMenuOpen ? "max-h-[700px] opacity-100 mt-6" : "max-h-0 opacity-0"
+   className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${isMenuOpen ? "max-h-[900px] opacity-100 mt-6" : "max-h-0 opacity-0"
     }`}
   >
    <div className="bg-[#143d32]/95 backdrop-blur-sm rounded-xl p-4 space-y-1 md:space-y-2 border border-[#2e7d32]/30">
@@ -130,10 +130,10 @@ export function MobileNav({
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center space-x-1.5 px-3 py-2.5 text-primary bg-linear-to-r from-[#143d32] to-[#1a5745] hover:from-[#2e7d32] hover:to-[#388e3c] rounded-lg text-xs font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-      >
-       <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-[#c8e6c9]" />
-       {link.name === t.cv && (
-        <span className="truncate text-[#c8e6c9] font-semibold">{link.name}</span>
+       >
+        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-[#c8e6c9]" />
+        {link.name === t.cv && (
+         <span className="truncate text-[#c8e6c9] font-semibold">{link.name}</span>
         )}
        </Link>
       );
