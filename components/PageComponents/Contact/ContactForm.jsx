@@ -18,27 +18,10 @@ import {
  validateFiles,
  formatFileSize,
 } from "../../../lib/contactAttachments";
-import {
- serviceRoles,
- sitePackages,
- mobilePackages,
- tierKeys,
- tierLabels,
-} from "../../../data/services";
+import { serviceRoles } from "../../../data/services";
 
 const SUBJECT_OTHER_ID = "other";
-const VALID_TIERS = new Set(tierKeys);
 const ROLE_IDS = new Set(serviceRoles.map((r) => r.id));
-
-function getPackagesForRole(roleId) {
- const role = serviceRoles.find((r) => r.id === roleId);
- if (!role) return [];
- return role.packageType === "app" ? mobilePackages : sitePackages;
-}
-
-function isValidPackageForRole(roleId, packageId) {
- return getPackagesForRole(roleId).some((p) => p.id === packageId);
-}
 
 export default function ContactForm({ language, isVisible }) {
  const searchParams = useSearchParams();
@@ -46,8 +29,6 @@ export default function ContactForm({ language, isVisible }) {
 
  const initialQuote = {
   serviceRoleId: "",
-  packageId: "",
-  tier: "",
  };
 
  const initialFormData = {
@@ -68,30 +49,14 @@ export default function ContactForm({ language, isVisible }) {
 
  useEffect(() => {
   const roleParam = searchParams.get("role");
-  const packageParam = searchParams.get("package");
-  const tierParam = searchParams.get("tier");
 
   if (!roleParam || !ROLE_IDS.has(roleParam)) return;
 
-  const nextQuote = { serviceRoleId: roleParam, packageId: "", tier: "" };
-
-  if (packageParam && isValidPackageForRole(roleParam, packageParam)) {
-   nextQuote.packageId = packageParam;
-  }
-
-  if (tierParam && VALID_TIERS.has(tierParam)) {
-   nextQuote.tier = tierParam;
-  }
-
   setQuote((prev) => {
-   if (
-    prev.serviceRoleId === nextQuote.serviceRoleId &&
-    prev.packageId === nextQuote.packageId &&
-    prev.tier === nextQuote.tier
-   ) {
+   if (prev.serviceRoleId === roleParam) {
     return prev;
    }
-   return nextQuote;
+   return { serviceRoleId: roleParam };
   });
  }, [urlParamsKey]);
 
@@ -105,27 +70,12 @@ export default function ContactForm({ language, isVisible }) {
   [quote.serviceRoleId, isOtherSubject]
  );
 
- const availablePackages = useMemo(
-  () => (quote.serviceRoleId ? getPackagesForRole(quote.serviceRoleId) : []),
-  [quote.serviceRoleId]
- );
-
- const selectedPackage = useMemo(
-  () => availablePackages.find((p) => p.id === quote.packageId),
-  [availablePackages, quote.packageId]
- );
-
  const translations = {
   formTitle: lang === "EN" ? "Request a Quote" : "Teklif İste",
   name: lang === "EN" ? "Name & Surname:" : "İsim & Soyisim:",
   email: lang === "EN" ? "Email:" : "E-posta:",
   phone: lang === "EN" ? "Phone:" : "Telefon:",
   serviceLabel: lang === "EN" ? "Service:" : "Hizmet:",
-  packageLabelWeb:
-   lang === "EN" ? "Website type:" : "Web sitesi türü:",
-  packageLabelApp:
-   lang === "EN" ? "Application type:" : "Uygulama türü:",
-  tierLabel: lang === "EN" ? "Package tier:" : "Paket seviyesi:",
   message: lang === "EN" ? "Additional requests:" : "Ek istekler:",
   send: lang === "EN" ? "Submit Quote" : "Teklifi Gönder",
   sending: lang === "EN" ? "Sending..." : "Gönderiliyor...",
@@ -143,9 +93,6 @@ export default function ContactForm({ language, isVisible }) {
     ? "Specify any additional requests..."
     : "Ek isteklerinizi belirtebilirsiniz...",
   selectService: lang === "EN" ? "Select a service" : "Hizmet seçin",
-  selectPackage:
-   lang === "EN" ? "Select a package type" : "Paket türü seçin",
-  selectTier: lang === "EN" ? "Select a tier" : "Paket seviyesi seçin",
   other: lang === "EN" ? "Other" : "Diğer",
   customSubjectLabel: lang === "EN" ? "Subject title:" : "Konu başlığı:",
   customSubjectPlaceholder:
@@ -175,9 +122,8 @@ export default function ContactForm({ language, isVisible }) {
     ? `${translations.other} — ${title}`
     : translations.other;
   }
-  if (!activeRole || !selectedPackage || !quote.tier) return "";
-  const tierLabel = tierLabels[quote.tier]?.[lang] ?? quote.tier;
-  return `${activeRole.label[lang]} — ${selectedPackage.title[lang]} — ${tierLabel}`;
+  if (!activeRole) return "";
+  return activeRole.label[lang];
  };
 
  const handleChange = (e) => {
@@ -188,25 +134,7 @@ export default function ContactForm({ language, isVisible }) {
  };
 
  const handleRoleSelect = (roleId) => {
-  setQuote((prev) => ({
-   serviceRoleId: roleId,
-   packageId:
-    roleId === SUBJECT_OTHER_ID || roleId !== prev.serviceRoleId
-     ? ""
-     : prev.packageId,
-   tier:
-    roleId === SUBJECT_OTHER_ID || roleId !== prev.serviceRoleId
-     ? ""
-     : prev.tier,
-  }));
- };
-
- const handlePackageSelect = (packageId) => {
-  setQuote((prev) => ({ ...prev, packageId }));
- };
-
- const handleTierSelect = (tier) => {
-  setQuote((prev) => ({ ...prev, tier }));
+  setQuote({ serviceRoleId: roleId });
  };
 
  const handleFileChange = (e) => {
@@ -304,11 +232,9 @@ export default function ContactForm({ language, isVisible }) {
     );
     return;
    }
-  } else if (!quote.packageId || !quote.tier) {
+  } else if (!formData.message.trim()) {
    toast.error(
-    lang === "TR"
-     ? "Lütfen paket türü ve paket seviyesini seçin."
-     : "Please select a package type and tier.",
+    lang === "TR" ? "Lütfen mesajınızı yazın." : "Please enter your message.",
     {
      duration: 4000,
      position: "top-center",
@@ -352,8 +278,6 @@ export default function ContactForm({ language, isVisible }) {
 
   if (!isOtherSubject) {
    payload.append("serviceLabel", activeRole?.label[lang] ?? "");
-   payload.append("packageLabel", selectedPackage?.title[lang] ?? "");
-   payload.append("tierLabel", tierLabels[quote.tier]?.[lang] ?? "");
   }
 
   attachments.forEach((file) => payload.append("attachments", file));
@@ -431,11 +355,6 @@ export default function ContactForm({ language, isVisible }) {
 
  const inputStyles =
   "contact-field w-full px-4 py-3 bg-[#0d2821] text-[#e8f5e9] caret-[#66bb6a] border border-[#66bb6a] rounded-lg placeholder-[#81c784] focus:outline-none focus:border-[#81c784] focus:ring-2 focus:ring-[#66bb6a]/20 transition-all duration-300 text-[16px] sm:text-base hover:border-[#81c784]";
-
- const packageStepLabel =
-  activeRole?.packageType === "app"
-   ? translations.packageLabelApp
-   : translations.packageLabelWeb;
 
  return (
   <div
@@ -564,47 +483,6 @@ export default function ContactForm({ language, isVisible }) {
        </div>
       ) : null}
 
-      {quote.serviceRoleId && !isOtherSubject ? (
-       <div>
-        <p className="text-sm text-[#a5d6a7] mb-2.5">{packageStepLabel}</p>
-        <div className="flex flex-col gap-2" role="group" aria-label={translations.selectPackage}>
-         {availablePackages.map((pkg) => {
-          const isActive = quote.packageId === pkg.id;
-          return (
-           <button
-            key={pkg.id}
-            type="button"
-            onClick={() => handlePackageSelect(pkg.id)}
-            className={`${pillBase} text-left w-full sm:w-auto ${isActive ? pillActive : pillInactive}`}
-           >
-            {pkg.title[lang]}
-           </button>
-          );
-         })}
-        </div>
-       </div>
-      ) : null}
-
-      {quote.packageId ? (
-       <div>
-        <p className="text-sm text-[#a5d6a7] mb-2.5">{translations.tierLabel}</p>
-        <div className="flex flex-wrap gap-2" role="group" aria-label={translations.selectTier}>
-         {tierKeys.map((key) => {
-          const isActive = quote.tier === key;
-          return (
-           <button
-            key={key}
-            type="button"
-            onClick={() => handleTierSelect(key)}
-            className={`${pillBase} ${isActive ? pillActive : pillInactive}`}
-           >
-            {tierLabels[key][lang]}
-           </button>
-          );
-         })}
-        </div>
-       </div>
-      ) : null}
      </div>
 
      <div className="group mb-2">
@@ -623,7 +501,7 @@ export default function ContactForm({ language, isVisible }) {
          : translations.messagePlaceholder
        }
        rows={5}
-       required={isOtherSubject}
+       required
        autoComplete="off"
        className={`${inputStyles} resize-none`}
       />

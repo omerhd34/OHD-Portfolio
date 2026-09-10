@@ -134,8 +134,6 @@ function buildQuoteEmailHtml({
  email,
  phone,
  serviceLabel,
- packageLabel,
- tierLabel,
  message,
  attachmentNames = [],
 }) {
@@ -143,8 +141,6 @@ function buildQuoteEmailHtml({
  const safeEmail = escapeHtml(breakLongWords(email));
  const safePhone = escapeHtml(breakLongWords(phone));
  const safeService = escapeHtml(breakLongWords(serviceLabel));
- const safePackage = escapeHtml(breakLongWords(packageLabel));
- const safeTier = escapeHtml(tierLabel);
  const messageHtml = formatMessageHtml(message);
 
  return `${emailHead("Yeni Teklif Talebi")}
@@ -162,20 +158,14 @@ function buildQuoteEmailHtml({
           </tr>
           <tr>
             <td class="email-body-cell" bgcolor="#ffffff" style="padding:28px 24px;background-color:#ffffff;${WRAP_STYLE}">
-              <p style="margin:0 0 20px;font-size:15px;color:#374151;line-height:1.6;${WRAP_STYLE}">Aşağıda seçilen hizmet ve paket detayları ile birlikte iletişim bilgileri yer almaktadır.</p>
+              <p style="margin:0 0 20px;font-size:15px;color:#374151;line-height:1.6;${WRAP_STYLE}">Aşağıda seçilen hizmet detayları ile birlikte iletişim bilgileri yer almaktadır.</p>
               <table role="presentation" class="email-summary" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f1f8f4" style="margin-bottom:24px;table-layout:fixed;width:100%;background-color:#f1f8f4;border-radius:12px;border:1px solid #c8e6c9;">
                 <tr>
                   <td style="padding:18px;${WRAP_STYLE}">
                     <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#2e7d32;">Teklif Özeti</p>
                     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;width:100%;">
                       <tr>
-                        ${valueCell(`<span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Hizmet</span><br><span style="font-size:15px;font-weight:600;color:#1b5e20;${WRAP_STYLE}">${safeService}</span>`, "border-bottom:1px solid #e0e0e0;")}
-                      </tr>
-                      <tr>
-                        ${valueCell(`<span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Paket Türü</span><br><span style="font-size:15px;font-weight:600;color:#1b5e20;${WRAP_STYLE}">${safePackage}</span>`, "border-bottom:1px solid #e0e0e0;")}
-                      </tr>
-                      <tr>
-                        ${valueCell(`<span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Paket Seviyesi</span><br><span style="display:inline-block;margin-top:4px;padding:4px 12px;font-size:13px;font-weight:700;color:#e8f5e9;background-color:#2e7d32;border-radius:20px;">${safeTier}</span>`)}
+                        ${valueCell(`<span style="font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;">Hizmet</span><br><span style="font-size:15px;font-weight:600;color:#1b5e20;${WRAP_STYLE}">${safeService}</span>`)}
                       </tr>
                     </table>
                   </td>
@@ -280,8 +270,6 @@ function buildQuotePlainText({
  email,
  phone,
  serviceLabel,
- packageLabel,
- tierLabel,
  message,
  attachmentNames = [],
 }) {
@@ -291,8 +279,6 @@ ${"=".repeat(40)}
 TEKLİF ÖZETİ
 ────────────
 Hizmet         : ${serviceLabel}
-Paket Türü     : ${packageLabel}
-Paket Seviyesi : ${tierLabel}
 
 İLETİŞİM
 ────────
@@ -357,8 +343,6 @@ export async function POST(request) {
   const trimmedMessage = formField(formData, "message");
   const subjectType = formField(formData, "subjectType");
   const serviceLabel = formField(formData, "serviceLabel");
-  const packageLabel = formField(formData, "packageLabel");
-  const tierLabel = formField(formData, "tierLabel");
 
   const uploadedFiles = await parseUploadedFiles(formData);
   const fileValidation = validateFiles(uploadedFiles);
@@ -385,11 +369,9 @@ export async function POST(request) {
    );
   }
 
-  const isQuote =
-   subjectType === "quote" ||
-   (subjectType !== "other" && serviceLabel && packageLabel && tierLabel);
+  const isQuote = subjectType === "quote";
 
-  if (isQuote && (!serviceLabel || !packageLabel || !tierLabel)) {
+  if (isQuote && !serviceLabel) {
    return NextResponse.json(
     { success: false, error: "Teklif detayları eksik." },
     { status: 400 }
@@ -434,8 +416,6 @@ export async function POST(request) {
    subject: trimmedSubject,
    message: trimmedMessage,
    serviceLabel,
-   packageLabel,
-   tierLabel,
    attachmentNames,
   };
 
