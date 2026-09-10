@@ -51,6 +51,11 @@ const TECH_LABELS = {
  FaServer: { TR: "Server", EN: "Server" },
  FaAppStoreIos: { TR: "App Store", EN: "App Store" },
  FaGooglePlay: { TR: "Google Play", EN: "Google Play" },
+ FaTools: { TR: "Bakım Araçları", EN: "Maintenance Tools" },
+ FaLaptopCode: { TR: "Kod Denetimi", EN: "Code Review" },
+ FaLayerGroup: { TR: "UI Katmanları", EN: "UI Layers" },
+ FaSearch: { TR: "Arama Analizi", EN: "Search Analysis" },
+ MdDomain: { TR: "Domain", EN: "Domain" },
 };
 
 const iconBaseClass =

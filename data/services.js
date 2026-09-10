@@ -2,15 +2,20 @@ export const serviceRoleHashAliases = {
  "full-stack": "full-stack-web",
  frontend: "full-stack-web",
  backend: "full-stack-web",
+ web: "full-stack-web",
  software: "full-stack-app",
  mobile: "full-stack-app",
+ app: "full-stack-app",
+ digital: "digital-renewal",
+ renewal: "digital-renewal",
+ audit: "technical-audit",
+ support: "maintenance",
 };
 
 export const serviceRoles = [
  {
   id: "full-stack-web",
-  packageType: "web",
-  label: { TR: "Full Stack Web Geliştirici", EN: "Full Stack Web Developer" },
+  label: { TR: "Web Sitesi Yapımı", EN: "Website Development" },
   image: "/images/services/full-stack.svg",
   intro: {
    TR: "Web sitesi geliştirme hizmeti — frontend arayüzden backend altyapısına kadar tüm web sürecini tek elden yönetir.",
@@ -58,8 +63,7 @@ export const serviceRoles = [
  },
  {
   id: "full-stack-app",
-  packageType: "app",
-  label: { TR: "Full Stack Uygulama Geliştirici", EN: "Full Stack Application Developer" },
+  label: { TR: "Uygulama Yapımı", EN: "App Development" },
   image: "/images/services/mobile.svg",
   intro: {
    TR: "Mobil uygulama geliştirme hizmeti — iOS ve Android için arayüz, API ve yayın sürecini uçtan uca yönetir.",
@@ -97,30 +101,125 @@ export const serviceRoles = [
    "FaGooglePlay",
   ],
  },
+ {
+  id: "digital-renewal",
+  label: { TR: "Dijital Yenileme", EN: "Digital Renewal" },
+  image: "/images/services/digital-renewal.svg",
+  intro: {
+   TR: "Mevcut web sitenizi modernize eder — güncel tasarım, performans ve SEO altyapısıyla dijital görünümünüzü yeniler.",
+   EN: "I modernize your existing website — refreshing your digital presence with current design, performance, and SEO infrastructure.",
+  },
+  description: {
+   TR: "Eski, yavaş veya dönüşüm üretmeyen web sitenizi baştan ele alıyorum. Mevcut içeriği ve marka kimliğini koruyarak arayüzü günceller, kod altyapısını sadeleştirir, mobil uyumluluk, hız ve SEO sorunlarını gideririm. Eski stack'lerden React ve Next.js tabanlı modern yapılara geçiş; hosting, domain ve yayın süreçleriyle birlikte planlanır. Sonuç: daha hızlı, daha güvenilir ve daha kolay yönetilen bir dijital vitrin.",
+   EN: "I rebuild slow or underperforming websites from the ground up. I refresh the interface while preserving your content and brand, simplify the codebase, and fix mobile, speed, and SEO issues. Migration from older stacks to React and Next.js is planned together with hosting, domain, and launch. The result is a faster, more reliable, and easier-to-manage digital storefront.",
+  },
+  menuDescription: {
+   TR: "Mevcut sitenizi modern arayüz, performans ve SEO ile yenilerim. Eski yapılardan Next.js'e geçiş, hız optimizasyonu ve yayın süreci dahil uçtan uca dijital yenileme.",
+   EN: "I renew your current site with a modern UI, performance, and SEO—including migration to Next.js, speed optimization, and launch support.",
+  },
+  technologies: [
+   "FaHtml5",
+   "FaCss3Alt",
+   "FaJsSquare",
+   "SiTypescript",
+   "FaReact",
+   "SiNextdotjs",
+   "SiTailwindcss",
+   "FaLaptopCode",
+   "FaLayerGroup",
+   "TbSeo",
+   "SiGoogleanalytics",
+   "SiVercel",
+   "IxirhostIcon",
+   "FaCpanel",
+  ],
+ },
+ {
+  id: "seo",
+  label: { TR: "SEO Hizmetleri", EN: "SEO Services" },
+  image: "/images/services/seo.svg",
+  intro: {
+   TR: "Arama motoru görünürlüğü — teknik SEO, içerik ve ölçümlemeyle sitenizi Google'da öne çıkarır.",
+   EN: "Search visibility — I surface your site on Google through technical SEO, content, and measurement.",
+  },
+  description: {
+   TR: "Teknik SEO denetimi, sayfa içi optimizasyon, site hızı, Core Web Vitals ve yapılandırılmış veri ile arama görünürlüğünüzü güçlendiriyorum. Google Search Console ve Analytics kurulumunu yaparak anahtar kelime, indeksleme ve tıklama verilerini izlenebilir hale getiriyorum. Sitemap, robots.txt, meta etiketleri ve dahili bağlantı yapısını düzenleyerek hem yeni hem mevcut sitelerde sürdürülebilir SEO altyapısı kuruyorum.",
+   EN: "I strengthen search visibility with technical SEO audits, on-page optimization, site speed, Core Web Vitals, and structured data. I set up Google Search Console and Analytics so keyword, indexing, and click data become measurable. Sitemap, robots.txt, meta tags, and internal linking are aligned to build a sustainable SEO foundation for both new and existing sites.",
+  },
+  menuDescription: {
+   TR: "Teknik SEO, Search Console ve Analytics kurulumu, sayfa hızı ve meta optimizasyonu. Google'da bulunabilir, ölçülebilir bir arama altyapısı.",
+   EN: "Technical SEO, Search Console and Analytics setup, page speed, and meta optimization—a measurable search foundation for Google.",
+  },
+  technologies: [
+   "TbSeo",
+   "FaSearch",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
+   "SiGooglemaps",
+   "MdDomain",
+   "SiNextdotjs",
+   "SiVercel",
+  ],
+ },
+ {
+  id: "technical-audit",
+  label: { TR: "Teknik Denetim", EN: "Technical Audit" },
+  image: "/images/services/technical-audit.svg",
+  intro: {
+   TR: "Kod, performans, güvenlik ve SEO odaklı teknik denetim — sorunları tespit eder, öncelikli aksiyon listesi sunar.",
+   EN: "A technical audit focused on code, performance, security, and SEO — I identify issues and deliver a prioritized action list.",
+  },
+  description: {
+   TR: "Mevcut web sitenizi veya uygulamanızı kod kalitesi, performans, güvenlik ve SEO açısından tarıyorum. Yavaş sayfalar, kırık bağlantılar, erişilebilirlik eksikleri, bağımlılık riskleri ve zayıf API yapıları gibi sorunları raporluyorum. Her bulgu için öncelik, etki ve önerilen çözümle birlikte uygulanabilir bir aksiyon listesi sunuyorum; böylece neyin hemen, neyin planlı düzeltilmesi gerektiği netleşir.",
+   EN: "I review your current website or app for code quality, performance, security, and SEO. Slow pages, broken links, accessibility gaps, dependency risks, and weak API patterns are documented. Each finding comes with priority, impact, and a recommended fix so it is clear what to address immediately and what to plan next.",
+  },
+  menuDescription: {
+   TR: "Performans, güvenlik, kod kalitesi ve SEO denetimi. Önceliklendirilmiş bulgular ve uygulanabilir aksiyon listesi.",
+   EN: "Performance, security, code quality, and SEO audit—prioritized findings with an actionable list.",
+  },
+  technologies: [
+   "FaSearch",
+   "FaLaptopCode",
+   "SiPostman",
+   "TbSeo",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
+   "FaServer",
+   "DiVisualstudio",
+   "FaGitAlt",
+   "TbApi",
+  ],
+ },
+ {
+  id: "maintenance",
+  label: { TR: "Bakım & Destek", EN: "Maintenance & Support" },
+  image: "/images/services/maintenance.svg",
+  intro: {
+   TR: "Yayın sonrası bakım ve destek — güncelleme, yedekleme, hata düzeltme ve izleme ile projenizi güvende tutar.",
+   EN: "Post-launch maintenance and support — I keep your project safe with updates, backups, bug fixes, and monitoring.",
+  },
+  description: {
+   TR: "Yayına alınan web sitesi veya uygulamayı güncel, güvenli ve kesintisiz tutuyorum. Bağımlılık güncellemeleri, yedekleme, hata düzeltme, içerik ve küçük özellik talepleri ile hosting/cPanel süreçlerini düzenli takip ediyorum. Acil müdahale ve planlı bakım ile projenizin performansını korur, teknik borç birikmesini önlerim.",
+   EN: "I keep launched websites and apps current, secure, and available. Dependency updates, backups, bug fixes, content and small feature requests, plus hosting/cPanel tasks, are handled on a regular cadence. With urgent response and planned maintenance, I protect performance and prevent technical debt from piling up.",
+  },
+  menuDescription: {
+   TR: "Güncelleme, yedekleme, hata düzeltme ve hosting takibi. Yayın sonrası sitenizi ve uygulamanızı sürekli ayakta tutan bakım.",
+   EN: "Updates, backups, bug fixes, and hosting follow-up—ongoing maintenance that keeps your site and app running after launch.",
+  },
+  technologies: [
+   "FaTools",
+   "FaServer",
+   "FaCloud",
+   "FaCpanel",
+   "IxirhostIcon",
+   "FaGitAlt",
+   "FaGithub",
+   "SiVercel",
+   "SiRailway",
+   "SiRender",
+  ],
+ },
 ];
-
-export const rolesWithSitePackages = serviceRoles
- .filter((role) => role.packageType === "web")
- .map((role) => role.id);
-
-export const rolesWithMobilePackages = serviceRoles
- .filter((role) => role.packageType === "app")
- .map((role) => role.id);
-
-export const mobileServiceNote = {
- TR: {
-  title: "Mobil Uygulama Türleri ve Paketler",
-  body: "Tüm mobil paketlerde iOS ve Android uyumlu arayüz, modern ve temiz kod altyapısı, API entegrasyonu, kaynak kod teslimi ve mağaza yayın sürecinde rehberlik standart olarak yer alır.",
-  cta: "Mobil Proje İçin Teklif Al",
- },
- EN: {
-  title: "Mobile App Types & Packages",
-  body: "All mobile packages include iOS and Android compatible UI, a modern clean-code foundation, API integration, source code delivery, and app store publishing guidance.",
-  cta: "Get a Quote for Mobile",
- },
-};
-
-export const sharedMobilePackageIncludes = mobileServiceNote;
 
 export const serviceTechIconCategories = {
  FaHtml5: "frontend",
@@ -129,15 +228,14 @@ export const serviceTechIconCategories = {
  SiTypescript: "frontend",
  FaReact: "frontend",
  SiRedux: "frontend",
- SiNextdotjs: "backend",
- SiGooglemaps: "frontend",
- SiTailwindcss: "ui",
+ SiNextdotjs: "frontend",
+ SiTailwindcss: "frontend",
  SiShadcnui: "ui",
  SiNextui: "ui",
  SiChakraui: "ui",
  SiHeadlessui: "ui",
  SiRadixui: "ui",
- FaBootstrap: "ui",
+ FaBootstrap: "frontend",
  FaNodeJs: "backend",
  SiExpress: "backend",
  TbApi: "backend",
@@ -158,6 +256,15 @@ export const serviceTechIconCategories = {
  FaCloud: "hosting",
  FaServer: "hosting",
  SiPostman: "tools",
+ FaTools: "tools",
+ FaLaptopCode: "frontend",
+ FaLayerGroup: "ui",
+ FaSearch: "seo",
+ MdDomain: "seo",
+ SiGooglemaps: "seo",
+ FaGitAlt: "tools",
+ FaGithub: "tools",
+ DiVisualstudio: "tools",
  TbSeo: "seo",
  SiGooglesearchconsole: "seo",
  SiGoogleanalytics: "seo",
@@ -167,8 +274,8 @@ export const serviceTechIconCategories = {
 
 export const serviceTechCategoryMeta = [
  { id: "frontend", className: "service-tech-icon-frontend", label: { TR: "Frontend", EN: "Frontend" } },
- { id: "ui", className: "service-tech-icon-ui", label: { TR: "UI", EN: "UI" } },
  { id: "backend", className: "service-tech-icon-backend", label: { TR: "Backend", EN: "Backend" } },
+ { id: "ui", className: "service-tech-icon-ui", label: { TR: "UI", EN: "UI" } },
  { id: "database", className: "service-tech-icon-database", label: { TR: "Veritabanı", EN: "Database" } },
  { id: "mobile", className: "service-tech-icon-mobile", label: { TR: "Mobil", EN: "Mobile" } },
  { id: "hosting", className: "service-tech-icon-hosting", label: { TR: "Hosting", EN: "Hosting" } },
@@ -212,570 +319,40 @@ export const primaryServiceTechIcons = {
   "FaGooglePlay",
   "SiRailway",
  ],
+ "digital-renewal": [
+  "FaReact",
+  "SiNextdotjs",
+  "SiTypescript",
+  "SiTailwindcss",
+  "FaLaptopCode",
+  "TbSeo",
+  "SiVercel",
+  "IxirhostIcon",
+ ],
+ seo: [
+  "TbSeo",
+  "FaSearch",
+  "SiGooglesearchconsole",
+  "SiGoogleanalytics",
+  "SiNextdotjs",
+  "SiVercel",
+ ],
+ "technical-audit": [
+  "FaSearch",
+  "FaLaptopCode",
+  "SiPostman",
+  "TbSeo",
+  "SiGooglesearchconsole",
+  "FaServer",
+  "DiVisualstudio",
+ ],
+ maintenance: [
+  "FaTools",
+  "FaServer",
+  "FaCloud",
+  "FaCpanel",
+  "IxirhostIcon",
+  "FaGitAlt",
+  "SiVercel",
+ ],
 };
-
-export const tierKeys = ["temel", "standart", "pro"];
-
-export const tierLabels = {
- pro: { TR: "Pro", EN: "Pro" },
- standart: { TR: "Standart", EN: "Standard" },
- temel: { TR: "Temel", EN: "Basic" },
-};
-
-export const sharedPackageIncludes = {
- TR: "Tüm paketlerde markanıza özel tasarım özelleştirmesi, içerik girişi ve düzenlemesi, mobil–tablet–masaüstü uyumlu responsive yapı, modern ve temiz kod altyapısı, çapraz tarayıcı uyumluluğu ile tam kaynak kod teslimi standart olarak yer alır. Temel, Standart ve Pro seviyelerinin her birinde projenizi yayına hazır, ölçeklenebilir ve sürdürülebilir bir altyapıyla sunmayı hedefliyoruz.",
- EN: "Every package includes brand-tailored design customization, content setup and editing, a fully responsive layout across mobile, tablet, and desktop, a modern clean-code foundation, cross-browser compatibility, and full source code delivery. From Basic to Pro, each tier is built to deliver your project on a production-ready, scalable, and maintainable foundation.",
-};
-
-export const sitePackages = [
- {
-  id: "portfolio",
-  title: {
-   TR: "Portföy / Tanıtım Web Sitesi",
-   EN: "Portfolio / Promotion Website",
-  },
-  description: {
-   TR: "Hızlı, modern ve temiz kod yapısıyla hazırlanan profesyonel tanıtım veya portföy sitesi. Kişisel markanızı veya işletmenizi etkili biçimde öne çıkarmanız için tasarlanır.",
-   EN: "A professional promotion or portfolio site built with fast, modern, and clean code—designed to showcase your personal brand or business effectively.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "Tamamen Mobil Uyumlu (Responsive) Tasarım",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Temel Arama Motoru (SEO) Uyumluluğu",
-     "İletişim Formu ve Sosyal Medya Entegrasyonu",
-     "Ücretsiz SSL Sertifikası Kurulumu"
-    ],
-    EN: [
-     "Fully Mobile Responsive Design",
-     "Lightning-Fast Page Load Performance",
-     "Basic Search Engine (SEO) Compatibility",
-     "Contact Form & Social Media Integration",
-     "Free SSL Certificate Setup"
-    ],
-   },
-   standart: {
-    TR: [
-     "Tamamen Mobil Uyumlu (Responsive) Tasarım",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Kapsamlı SEO ve Meta Optimizasyonu",
-     "İletişim Formu ve Sosyal Medya Entegrasyonu",
-     "Premium ve Modern Arayüz (Animasyonlar, Glassmorphism)",
-     "WhatsApp İletişim Butonu Entegrasyonu",
-     "Özel Alan Adı (Domain) Bağlantısı"
-    ],
-    EN: [
-     "Fully Mobile Responsive Design",
-     "Lightning-Fast Page Load Performance",
-     "Comprehensive SEO & Meta Optimization",
-     "Contact Form & Social Media Integration",
-     "Premium & Modern UI (Animations, Glassmorphism)",
-     "WhatsApp Contact Button Integration",
-     "Custom Domain Connection"
-    ],
-   },
-   pro: {
-    TR: [
-     "Tamamen Mobil Uyumlu (Responsive) Tasarım",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Kapsamlı SEO ve Meta Optimizasyonu",
-     "Premium ve Modern Arayüz (Animasyonlar, Glassmorphism)",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Dinamik İçerik Yönetim Paneli (Portföy Ekleme/Çıkarma)",
-     "Karanlık / Aydınlık Tema (Dark/Light Mode) Desteği",
-     "Çoklu Dil Desteği",
-     "Google Analytics ve Search Console Kurulumu"
-    ],
-    EN: [
-     "Fully Mobile Responsive Design",
-     "Lightning-Fast Page Load Performance",
-     "Comprehensive SEO & Meta Optimization",
-     "Premium & Modern UI (Animations, Glassmorphism)",
-     "Coding from Figma & Similar Design Files",
-     "Dynamic Content Management Panel (Add/Remove Projects)",
-     "Dark / Light Mode Support",
-     "Multi-language Support",
-     "Google Analytics & Search Console Setup"
-    ],
-   },
-  },
-  tiers: {
-   temel: {
-    deliveryDays: 7,
-    revisions: 2,
-    pages: 3,
-   },
-   standart: {
-    deliveryDays: 14,
-    revisions: 4,
-    pages: 8,
-   },
-   pro: {
-    deliveryDays: 21,
-    revisions: 6,
-    pages: null,
-   },
-  },
- },
- {
-  id: "corporate",
-  title: {
-   TR: "Kurumsal Web Sitesi",
-   EN: "Corporate Website",
-  },
-  description: {
-   TR: "Kurumsal kimliğinize uygun, yüksek performanslı ve modern web sitesi çözümü. Markanızın güvenilirliğini dijitalde güçlendirmek için SEO altyapısıyla birlikte sunulur.",
-   EN: "A brand-aligned, high-performance modern corporate website solution delivered with SEO infrastructure to strengthen your credibility online.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "Mobil Uyumlu (Responsive) Kurumsal Tasarım",
-     "Hızlı Sayfa Yükleme ve Yüksek Performans",
-     "Temel SEO Altyapısı ve Meta Etiketleri",
-     "İletişim Formu ve Google Haritalar Entegrasyonu",
-     "SSL Sertifikası ve Güvenlik Altyapısı"
-    ],
-    EN: [
-     "Mobile Responsive Corporate Design",
-     "Fast Page Loading & High Performance",
-     "Basic SEO Infrastructure & Meta Tags",
-     "Contact Form & Google Maps Integration",
-     "SSL Certificate & Security Infrastructure"
-    ],
-   },
-   standart: {
-    TR: [
-     "Mobil Uyumlu (Responsive) Kurumsal Tasarım",
-     "Hızlı Sayfa Yükleme ve Yüksek Performans",
-     "Gelişmiş SEO ve Performans Optimizasyonu",
-     "Premium Arayüz ve Modern UI/UX Etkileşimleri",
-     "Kapsamlı İçerik Yönetim Paneli (CMS)",
-     "Dinamik Blog / Haber ve Duyuru Modülü",
-     "Kurumsal E-posta Kurulum Yönlendirmesi"
-    ],
-    EN: [
-     "Mobile Responsive Corporate Design",
-     "Fast Page Loading & High Performance",
-     "Advanced SEO & Performance Optimization",
-     "Premium UI & Modern UX Interactions",
-     "Comprehensive Content Management System (CMS)",
-     "Dynamic Blog / News & Announcement Module",
-     "Corporate Email Setup Guidance"
-    ],
-   },
-   pro: {
-    TR: [
-     "Mobil Uyumlu (Responsive) Kurumsal Tasarım",
-     "Hızlı Sayfa Yükleme ve Yüksek Performans",
-     "Gelişmiş SEO ve Performans Optimizasyonu",
-     "Premium Arayüz ve Modern UI/UX Etkileşimleri",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Kapsamlı İçerik Yönetim Paneli (CMS) ve Blog",
-     "Karanlık / Aydınlık Tema (Dark/Light Mode) Seçeneği",
-     "Çoklu Dil Desteği",
-     "Canlı Destek (Live Chat) veya WhatsApp Entegrasyonu",
-     "Google Analytics ve Veri Raporlama Kurulumu"
-    ],
-    EN: [
-     "Mobile Responsive Corporate Design",
-     "Fast Page Loading & High Performance",
-     "Advanced SEO & Performance Optimization",
-     "Premium UI & Modern UX Interactions",
-     "Coding from Figma & Similar Design Files",
-     "Comprehensive Content Management System (CMS) & Blog",
-     "Dark / Light Mode Option",
-     "Multi-language Support",
-     "Live Chat or WhatsApp Integration",
-     "Google Analytics & Data Reporting Setup"
-    ],
-   },
-  },
-  tiers: {
-   temel: {
-    deliveryDays: 14,
-    revisions: 3,
-    pages: 5,
-   },
-   standart: {
-    deliveryDays: 21,
-    revisions: 5,
-    pages: 15,
-   },
-   pro: {
-    deliveryDays: 30,
-    revisions: 8,
-    pages: null,
-   },
-  },
- },
- {
-  id: "ecommerce",
-  title: {
-   TR: "E-ticaret Web Sitesi",
-   EN: "E-commerce Website",
-  },
-  description: {
-   TR: "Güvenli ödeme sistemli, gelişmiş yönetim panelli ve ölçeklenebilir e-ticaret platformu. Ürünlerinizi online satışa hazır, yönetilebilir bir yapıda sunmanızı sağlar.",
-   EN: "A scalable e-commerce platform with secure payments and an advanced admin panel—ready to present and manage your products for online sales.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "Mobil Uyumlu (Responsive) E-Ticaret Arayüzü",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Güvenli Sanal POS (Ödeme Sistemi) Entegrasyonu",
-     "Temel Ürün, Kategori ve Sepet Yönetimi",
-     "SSL Sertifikası ile Güvenli Alışveriş Altyapısı"
-    ],
-    EN: [
-     "Mobile Responsive E-commerce Interface",
-     "Lightning-Fast Page Load Performance",
-     "Secure Payment Gateway (Virtual POS) Integration",
-     "Basic Product, Category & Cart Management",
-     "Secure Shopping Infrastructure with SSL"
-    ],
-   },
-   standart: {
-    TR: [
-     "Mobil Uyumlu (Responsive) E-Ticaret Arayüzü",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Güvenli Sanal POS (Ödeme Sistemi) Entegrasyonu",
-     "Gelişmiş SEO ve Ürün Meta Optimizasyonu",
-     "Müşteri Üyelik Sistemi ve Sipariş Takip Paneli",
-     "İndirim ve Kupon Kodu Sistemi",
-     "Premium ve Modern Kullanıcı Deneyimi (UI/UX)"
-    ],
-    EN: [
-     "Mobile Responsive E-commerce Interface",
-     "Lightning-Fast Page Load Performance",
-     "Secure Payment Gateway (Virtual POS) Integration",
-     "Advanced SEO & Product Meta Optimization",
-     "Customer Account System & Order Tracking Panel",
-     "Discount & Coupon Code System",
-     "Premium & Modern User Experience (UI/UX)"
-    ],
-   },
-   pro: {
-    TR: [
-     "Mobil Uyumlu (Responsive) E-Ticaret Arayüzü",
-     "Yüksek Hızlı Sayfa Yükleme Performansı",
-     "Güvenli Sanal POS ve Kargo Entegrasyonu Altyapısı",
-     "Detaylı Stok, Fiyat ve Varyasyon Yönetimi",
-     "İndirim, Kupon ve Terk Edilen Sepet Hatırlatma Sistemi",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Karanlık / Aydınlık Tema (Dark/Light Mode) Desteği",
-     "Çoklu Dil ve Çoklu Para Birimi Desteği",
-     "Gelişmiş Satış Analitikleri ve Google E-Ticaret Raporlaması"
-    ],
-    EN: [
-     "Mobile Responsive E-commerce Interface",
-     "Lightning-Fast Page Load Performance",
-     "Secure Payment Gateway & Shipping Integration Setup",
-     "Detailed Stock, Price & Variant Management",
-     "Discount, Coupon & Abandoned Cart Recovery System",
-     "Coding from Figma & Similar Design Files",
-     "Dark / Light Mode Support",
-     "Multi-language & Multi-Currency Support",
-     "Advanced Sales Analytics & Google E-commerce Reporting"
-    ],
-   },
-  },
-  tiers: {
-   temel: {
-    deliveryDays: 21,
-    revisions: 3,
-    pages: 15,
-   },
-   standart: {
-    deliveryDays: 30,
-    revisions: 5,
-    pages: 30,
-   },
-   pro: {
-    deliveryDays: 45,
-    revisions: 10,
-    pages: null,
-   },
-  },
- },
-];
-
-export const mobilePackages = [
- {
-  id: "mobile-portfolio",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "Tanıtım / Portföy Mobil Uygulama",
-   EN: "Promotion / Portfolio Mobile App",
-  },
-  description: {
-   TR: "Markanızı veya hizmetlerinizi iOS ve Android'de sunan, hızlı ve modern bir tanıtım uygulaması. React Native veya Flutter ile tek kod tabanından geliştirilir.",
-   EN: "A fast, modern promotion app for iOS and Android to showcase your brand or services—built from a single codebase with React Native or Flutter.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "iOS ve Android Uyumlu Arayüz",
-     "Temel Navigasyon ve Bilgi Ekranları",
-     "İletişim Formu veya WhatsApp Yönlendirmesi",
-     "REST API Entegrasyonu",
-     "Temel Performans Optimizasyonu",
-    ],
-    EN: [
-     "iOS & Android Compatible UI",
-     "Basic Navigation & Info Screens",
-     "Contact Form or WhatsApp Redirect",
-     "REST API Integration",
-     "Basic Performance Optimization",
-    ],
-   },
-   standart: {
-    TR: [
-     "iOS ve Android Uyumlu Arayüz",
-     "Temel Navigasyon ve Bilgi Ekranları",
-     "İletişim Formu veya WhatsApp Yönlendirmesi",
-     "REST API Entegrasyonu",
-     "Temel Performans Optimizasyonu",
-     "Premium UI/UX ve Akıcı Animasyonlar",
-     "Push Bildirim Altyapısı",
-     "Sosyal Medya Bağlantıları",
-     "Offline (Çevrimdışı) Temel Destek",
-    ],
-    EN: [
-     "iOS & Android Compatible UI",
-     "Basic Navigation & Info Screens",
-     "Contact Form or WhatsApp Redirect",
-     "REST API Integration",
-     "Basic Performance Optimization",
-     "Premium UI/UX & Smooth Animations",
-     "Push Notification Infrastructure",
-     "Social Media Links",
-     "Basic Offline Support",
-    ],
-   },
-   pro: {
-    TR: [
-     "iOS ve Android Uyumlu Arayüz",
-     "Temel Navigasyon ve Bilgi Ekranları",
-     "İletişim Formu veya WhatsApp Yönlendirmesi",
-     "REST API Entegrasyonu",
-     "Temel Performans Optimizasyonu",
-     "Premium UI/UX ve Akıcı Animasyonlar",
-     "Push Bildirim Altyapısı",
-     "Sosyal Medya Bağlantıları",
-     "Offline (Çevrimdışı) Temel Destek",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Karanlık / Aydınlık Tema (Dark/Light Mode) Desteği",
-     "Çoklu Dil Desteği",
-     "App Store ve Google Play Yayın Desteği",
-    ],
-    EN: [
-     "iOS & Android Compatible UI",
-     "Basic Navigation & Info Screens",
-     "Contact Form or WhatsApp Redirect",
-     "REST API Integration",
-     "Basic Performance Optimization",
-     "Premium UI/UX & Smooth Animations",
-     "Push Notification Infrastructure",
-     "Social Media Links",
-     "Basic Offline Support",
-     "Coding from Figma & Similar Design Files",
-     "Dark / Light Mode Support",
-     "Multi-language Support",
-     "App Store & Google Play Publishing Support",
-    ],
-   },
-  },
-  tiers: {
-   temel: { deliveryDays: 21, revisions: 2, pages: 5 },
-   standart: { deliveryDays: 30, revisions: 4, pages: 10 },
-   pro: { deliveryDays: 45, revisions: 6, pages: null },
-  },
- },
- {
-  id: "mobile-corporate",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "Kurumsal Mobil Uygulama",
-   EN: "Corporate Mobile App",
-  },
-  description: {
-   TR: "Kurumsal kimliğinize uygun, güvenilir ve ölçeklenebilir mobil uygulama. Çalışan veya müşteri odaklı paneller ve bildirim sistemleriyle desteklenir.",
-   EN: "A reliable, scalable corporate mobile app aligned with your brand—supported by employee or customer-focused panels and notification systems.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "iOS ve Android Kurumsal Arayüz",
-     "Haber / Duyuru ve İçerik Ekranları",
-     "İletişim ve Destek Formu",
-     "Güvenli API ve Kimlik Doğrulama Altyapısı",
-     "Temel Analitik Entegrasyonu",
-    ],
-    EN: [
-     "iOS & Android Corporate UI",
-     "News / Announcement & Content Screens",
-     "Contact & Support Form",
-     "Secure API & Authentication Infrastructure",
-     "Basic Analytics Integration",
-    ],
-   },
-   standart: {
-    TR: [
-     "iOS ve Android Kurumsal Arayüz",
-     "Haber / Duyuru ve İçerik Ekranları",
-     "İletişim ve Destek Formu",
-     "Güvenli API ve Kimlik Doğrulama Altyapısı",
-     "Temel Analitik Entegrasyonu",
-     "Push Bildirim ve Duyuru Sistemi",
-     "Kullanıcı Rolleri ve Yetkilendirme",
-     "Offline İçerik Görüntüleme",
-    ],
-    EN: [
-     "iOS & Android Corporate UI",
-     "News / Announcement & Content Screens",
-     "Contact & Support Form",
-     "Secure API & Authentication Infrastructure",
-     "Basic Analytics Integration",
-     "Push Notification & Announcement System",
-     "User Roles & Authorization",
-     "Offline Content Viewing",
-    ],
-   },
-   pro: {
-    TR: [
-     "iOS ve Android Kurumsal Arayüz",
-     "Haber / Duyuru ve İçerik Ekranları",
-     "İletişim ve Destek Formu",
-     "Güvenli API ve Kimlik Doğrulama Altyapısı",
-     "Temel Analitik Entegrasyonu",
-     "Push Bildirim ve Duyuru Sistemi",
-     "Kullanıcı Rolleri ve Yetkilendirme",
-     "Offline İçerik Görüntüleme",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Karanlık / Aydınlık Tema Desteği",
-     "Çoklu Dil Desteği",
-     "Canlı Destek veya WhatsApp Entegrasyonu",
-     "App Store ve Google Play Yayın Desteği",
-    ],
-    EN: [
-     "iOS & Android Corporate UI",
-     "News / Announcement & Content Screens",
-     "Contact & Support Form",
-     "Secure API & Authentication Infrastructure",
-     "Basic Analytics Integration",
-     "Push Notification & Announcement System",
-     "User Roles & Authorization",
-     "Offline Content Viewing",
-     "Coding from Figma & Similar Design Files",
-     "Dark / Light Mode Support",
-     "Multi-language Support",
-     "Live Support or WhatsApp Integration",
-     "App Store & Google Play Publishing Support",
-    ],
-   },
-  },
-  tiers: {
-   temel: { deliveryDays: 30, revisions: 3, pages: 8 },
-   standart: { deliveryDays: 45, revisions: 5, pages: 15 },
-   pro: { deliveryDays: 60, revisions: 8, pages: null },
-  },
- },
- {
-  id: "mobile-ecommerce",
-  statLabels: {
-   pages: { TR: "Ekranlar", EN: "SCREENS" },
-  },
-  title: {
-   TR: "E-ticaret Mobil Uygulama",
-   EN: "E-commerce Mobile App",
-  },
-  description: {
-   TR: "Güvenli ödeme, ürün yönetimi ve sipariş takibi sunan ölçeklenebilir e-ticaret mobil uygulaması. iOS ve Android mağazalarında satışa hazır yapı.",
-   EN: "A scalable e-commerce mobile app with secure payments, product management, and order tracking—ready for iOS and Android app stores.",
-  },
-  features: {
-   temel: {
-    TR: [
-     "iOS ve Android E-Ticaret Arayüzü",
-     "Ürün Listeleme ve Detay Ekranları",
-     "Sepet ve Güvenli Ödeme Entegrasyonu",
-     "Temel Sipariş Takip Ekranı",
-     "SSL ve Güvenli Veri Aktarımı",
-    ],
-    EN: [
-     "iOS & Android E-commerce UI",
-     "Product Listing & Detail Screens",
-     "Cart & Secure Payment Integration",
-     "Basic Order Tracking Screen",
-     "SSL & Secure Data Transfer",
-    ],
-   },
-   standart: {
-    TR: [
-     "iOS ve Android E-Ticaret Arayüzü",
-     "Ürün Listeleme ve Detay Ekranları",
-     "Sepet ve Güvenli Ödeme Entegrasyonu",
-     "Temel Sipariş Takip Ekranı",
-     "SSL ve Güvenli Veri Aktarımı",
-     "Kullanıcı Üyelik ve Profil Yönetimi",
-     "Push Bildirim (Sipariş / Kampanya)",
-     "İndirim ve Kupon Kodu Desteği",
-    ],
-    EN: [
-     "iOS & Android E-commerce UI",
-     "Product Listing & Detail Screens",
-     "Cart & Secure Payment Integration",
-     "Basic Order Tracking Screen",
-     "SSL & Secure Data Transfer",
-     "User Account & Profile Management",
-     "Push Notifications (Orders / Campaigns)",
-     "Discount & Coupon Code Support",
-    ],
-   },
-   pro: {
-    TR: [
-     "iOS ve Android E-Ticaret Arayüzü",
-     "Ürün Listeleme ve Detay Ekranları",
-     "Sepet ve Güvenli Ödeme Entegrasyonu",
-     "Temel Sipariş Takip Ekranı",
-     "SSL ve Güvenli Veri Aktarımı",
-     "Kullanıcı Üyelik ve Profil Yönetimi",
-     "Push Bildirim (Sipariş / Kampanya)",
-     "İndirim ve Kupon Kodu Desteği",
-     "Stok, Varyasyon ve Fiyat Yönetimi",
-     "Figma ve Benzeri Tasarımlara Göre Kodlama",
-     "Karanlık / Aydınlık Tema Desteği",
-     "Çoklu Dil ve Para Birimi Desteği",
-     "App Store ve Google Play Yayın Desteği",
-    ],
-    EN: [
-     "iOS & Android E-commerce UI",
-     "Product Listing & Detail Screens",
-     "Cart & Secure Payment Integration",
-     "Basic Order Tracking Screen",
-     "SSL & Secure Data Transfer",
-     "User Account & Profile Management",
-     "Push Notifications (Orders / Campaigns)",
-     "Discount & Coupon Code Support",
-     "Stock, Variant & Price Management",
-     "Coding from Figma & Similar Design Files",
-     "Dark / Light Mode Support",
-     "Multi-language & Currency Support",
-     "App Store & Google Play Publishing Support",
-    ],
-   },
-  },
-  tiers: {
-   temel: { deliveryDays: 45, revisions: 3, pages: 12 },
-   standart: { deliveryDays: 60, revisions: 5, pages: 20 },
-   pro: { deliveryDays: 90, revisions: 8, pages: null },
-  },
- },
-];

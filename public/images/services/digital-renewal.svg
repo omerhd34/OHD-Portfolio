@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none">
+  <defs>
+    <linearGradient id="dr-bg" x1="0" y1="0" x2="240" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#143d32" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#66bb6a" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="dr-old" x1="28" y1="48" x2="108" y2="128" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1b5e20"/>
+      <stop offset="1" stop-color="#0d2821"/>
+    </linearGradient>
+    <linearGradient id="dr-new" x1="132" y1="36" x2="216" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2e7d32"/>
+      <stop offset="1" stop-color="#143d32"/>
+    </linearGradient>
+    <filter id="dr-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="240" height="200" fill="url(#dr-bg)" rx="16"/>
+  <rect x="24" y="52" width="84" height="88" rx="10" fill="url(#dr-old)" stroke="#388e3c" stroke-width="1.5" opacity="0.7"/>
+  <rect x="34" y="66" width="64" height="8" rx="2" fill="#2e7d32" opacity="0.7"/>
+  <rect x="34" y="82" width="44" height="6" rx="2" fill="#388e3c" opacity="0.45"/>
+  <rect x="34" y="96" width="52" height="6" rx="2" fill="#2e7d32" opacity="0.35"/>
+  <rect x="34" y="110" width="36" height="6" rx="2" fill="#1b5e20" opacity="0.5"/>
+  <rect x="128" y="36" width="88" height="100" rx="12" fill="url(#dr-new)" stroke="#81c784" stroke-width="2" filter="url(#dr-glow)"/>
+  <rect x="140" y="52" width="64" height="10" rx="3" fill="#66bb6a" opacity="0.95"/>
+  <rect x="140" y="70" width="48" height="7" rx="2" fill="#a5d6a7" opacity="0.75"/>
+  <rect x="140" y="84" width="56" height="7" rx="2" fill="#81c784" opacity="0.6"/>
+  <rect x="140" y="98" width="40" height="7" rx="2" fill="#66bb6a" opacity="0.5"/>
+  <circle cx="172" cy="122" r="6" fill="#c8e6c9"/>
+  <path d="M108 96 C118 78 130 78 140 88" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M132 80 L140 88 L128 90" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M96 156 H144" stroke="#66bb6a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <path d="M128 148 A16 16 0 1 1 112 164" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M148 156 L128 148 L136 168" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

@@ -27,7 +27,7 @@ Bu proje, yazılım geliştirme kariyerim boyunca edindiğim deneyimleri, tamaml
 - 🌍 Çok dilli destek (Türkçe/İngilizce)
 - 📱 Tam responsive tasarım
 - ⚡ Yüksek performans ve hız
-- 🛠 Hizmet ve paket tanıtımı
+- 🛠 Hizmet tanıtımı
 - 📊 Merkezi statik veri yönetimi
 
 ## ✨ Özellikler
@@ -51,7 +51,7 @@ Bu proje, yazılım geliştirme kariyerim boyunca edindiğim deneyimleri, tamaml
 - **Ana Sayfa**: Profil özeti, kısa tanıtım ve istatistik kartları
 - **Hakkımda**: Kişisel bilgiler, yolculuk özeti, ilgi alanları ve yetenekler (`/about#skills`)
 - **Deneyimler**: Eğitim, iş deneyimi, sertifikalar ve projeler (`/experience#projects`)
-- **Hizmetler**: Full stack web/mobil hizmet rolleri, site paketleri ve teknoloji ikonları
+- **Hizmetler**: Full stack web/mobil hizmet rolleri ve teknoloji ikonları
 - **İletişim**: Form ile direkt mesaj gönderme (Nodemailer)
 
 ### ⚡ Performans
@@ -159,7 +159,7 @@ Site içeriği veritabanı yerine `data/` klasöründeki JavaScript modüllerind
 | `data/skills.js` | Yetenekler ve kategori grupları |
 | `data/experience.js` | Eğitim, iş deneyimi ve sertifikalar |
 | `data/projects.js` | Proje listesi ve detayları |
-| `data/services.js` | Hizmet rolleri, paketler ve teknoloji kategorileri |
+| `data/services.js` | Hizmet rolleri ve teknoloji kategorileri |
 
 Veri akışı React Context üzerinden sağlanır:
 
@@ -192,7 +192,7 @@ omerhalisdemir.com.tr/
 │   │   ├── about/            # Hakkımda + yetenekler
 │   │   ├── contact/          # İletişim formu
 │   │   ├── experience/       # Deneyimler + projeler
-│   │   └── services/         # Hizmetler ve paketler
+│   │   └── services/         # Hizmetler
 │   ├── api/
 │   │   └── contact/          # İletişim formu API
 │   ├── context/              # React Context
