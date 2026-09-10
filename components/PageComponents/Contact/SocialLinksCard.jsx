@@ -87,7 +87,7 @@ export default function SocialLinksCard({ language, isVisible }) {
        target="_blank"
        rel="noopener noreferrer"
        aria-label={platform.name}
-       className="group flex flex-1 items-center justify-center px-4 sm:px-5 py-2.5 sm:py-3 bg-muted border border-info hover:border-2 text-primary rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 min-w-0 cursor-pointer"
+       className="group flex flex-1 items-center justify-center px-4 sm:px-5 py-2.5 sm:py-3 bg-muted border-2 border-info text-primary rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 min-w-0 cursor-pointer"
        style={{
         animationDelay: `${(index + 2) * 100}ms`,
         animation: `bounceIn 0.8s ease-out ${(index + 2) * 100}ms both`,
