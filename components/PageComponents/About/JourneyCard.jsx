@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaRocket, FaChevronDown, FaChevronRight } from "react-icons/fa";
+import FormattedText from "../../extra/FormattedText";
 
 export default function JourneyCard({ journeyText, language, isVisible }) {
  const [isExpanded, setIsExpanded] = useState(false);
@@ -20,14 +21,18 @@ export default function JourneyCard({ journeyText, language, isVisible }) {
    </div>
    <div className="flex flex-col flex-1 text-[16px] text-left leading-relaxed">
     <div className="flex-1">
-     <p className="mb-4">{journeyText.preview}</p>
+     <p className="mb-4">
+      <FormattedText text={journeyText.preview} />
+     </p>
 
      {journeyText.hasMore && (
       <div
        className={`transition-all duration-500 ease-in-out overflow-hidden ${isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-       <p className="mb-4 animate-fadeInUp">{journeyText.remaining}</p>
+       <p className="mb-4 animate-fadeInUp">
+        <FormattedText text={journeyText.remaining} />
+       </p>
       </div>
      )}
     </div>

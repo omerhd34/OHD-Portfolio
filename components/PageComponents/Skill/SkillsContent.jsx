@@ -1,4 +1,5 @@
 import SkillCard from "./SkillCard";
+import FormattedText from "../../extra/FormattedText";
 
 export default function SkillsContent({
  activeCategory,
@@ -17,8 +18,8 @@ export default function SkillsContent({
     <h3 className="text-xl sm:text-2xl font-bold mb-2">
      {translations.categories[activeCategory]?.title || activeCategory}
     </h3>
-    <p className="text-sm sm:text-base px-2">
-     {translations.categories[activeCategory]?.description || ""}
+    <p className="text-lg px-2">
+     <FormattedText text={translations.categories[activeCategory]?.description || ""} />
     </p>
    </div>
 

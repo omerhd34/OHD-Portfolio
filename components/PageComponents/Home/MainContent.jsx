@@ -1,10 +1,11 @@
 "use client";
 import { FaCode } from "react-icons/fa";
 import ActionButtons from "./ActionButtons";
+import FormattedText from "../../extra/FormattedText";
 
 export default function MainContent({ description, language }) {
  const professionTitle =
-  language === "EN" ? "Full Stack Developer" : "Full Stack Geliştirici";
+  language === "EN" ? "Full Stack Developer & Engineer" : "Full Stack Geliştirici & Mühendisi";
 
  return (
   <div className="grow text-center lg:text-left">
@@ -22,7 +23,7 @@ export default function MainContent({ description, language }) {
    </div>
 
    <p className="text-accent leading-relaxed text-[15px] sm:text-[16px] lg:text-[17px] mb-5 sm:mb-7 max-w-2xl mx-auto lg:mx-0 text-left">
-    {description}
+    <FormattedText text={description} />
    </p>
 
    <ActionButtons />

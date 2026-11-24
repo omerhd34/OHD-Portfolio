@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaLightbulb, FaChevronDown, FaChevronRight } from "react-icons/fa";
+import FormattedText from "../../extra/FormattedText";
 
 export default function InterestsCard({ interestsText, translations, language, isVisible }) {
  const [isExpanded, setIsExpanded] = useState(false);
@@ -21,14 +22,18 @@ export default function InterestsCard({ interestsText, translations, language, i
    </div>
    <div className="flex flex-col flex-1 text-[16px] text-left leading-relaxed">
     <div className="flex-1">
-     <p className="mb-4">{interestsText.preview}</p>
+     <p className="mb-4">
+      <FormattedText text={interestsText.preview} />
+     </p>
 
      {interestsText.hasMore && (
       <div
        className={`transition-all duration-500 ease-in-out overflow-hidden ${isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-       <p className="mb-4 animate-fadeInUp">{interestsText.remaining}</p>
+       <p className="mb-4 animate-fadeInUp">
+        <FormattedText text={interestsText.remaining} />
+       </p>
       </div>
      )}
     </div>
