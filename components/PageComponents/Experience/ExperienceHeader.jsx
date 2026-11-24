@@ -11,9 +11,20 @@ export default function ExperienceHeader({ item, Icon, iconBgColor, statusTexts,
       <h4 className="text-[18px] sm:text-[19px] font-bold mb-1 wrap-break-words">
        {item.title}
       </h4>
-      <p className="text-[16px] sm:text-[17px] font-medium wrap-break-words">
-       {item.institution}
-      </p>
+      {item.institutionUrl ? (
+       <a
+        href={item.institutionUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[16px] sm:text-[17px] font-medium wrap-break-words text-[#a5d6a7] hover:text-[#c8e6c9] underline-offset-2 hover:underline transition-colors"
+       >
+        {item.institution}
+       </a>
+      ) : (
+       <p className="text-[16px] sm:text-[17px] font-medium wrap-break-words">
+        {item.institution}
+       </p>
+      )}
      </div>
      <div className="text-left sm:text-right shrink-0">
       <div

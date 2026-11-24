@@ -49,7 +49,7 @@ export default function ExperienceItem({ item, translations, isVisible, index, l
       {item.description}
      </p>
 
-     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-4">
+     <div className="flex flex-col min-[1152px]:flex-row min-[1152px]:items-center min-[1152px]:justify-between gap-4 mb-4">
       <ExperienceTechnologies
        technologies={item.technologies}
        isMobileExpanded={isMobileExpanded}
@@ -57,15 +57,15 @@ export default function ExperienceItem({ item, translations, isVisible, index, l
       />
 
       {showCertificateButtons && (
-       <div className="hidden lg:flex lg:items-center">
-        <CertificateButtons language={language} isMobile={false} />
+       <div className="hidden min-[1152px]:flex min-[1152px]:items-center">
+        <CertificateButtons language={language} />
        </div>
       )}
      </div>
 
      {showCertificateButtons && (
-      <div className="flex lg:hidden mb-4">
-       <CertificateButtons language={language} isMobile={false} />
+      <div className="flex min-[1152px]:hidden mb-4">
+       <CertificateButtons language={language} />
       </div>
      )}
 
@@ -81,10 +81,6 @@ export default function ExperienceItem({ item, translations, isVisible, index, l
       translations={translations}
       showExpandButton={showExpandButton}
      />
-
-     {showCertificateButtons && isMobileExpanded && (
-      <CertificateButtons language={language} isMobile={true} />
-     )}
     </div>
    </div>
 

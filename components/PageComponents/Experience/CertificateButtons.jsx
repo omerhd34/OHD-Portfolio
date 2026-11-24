@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaAward, FaExternalLinkAlt } from "react-icons/fa";
 import { GrCertificate } from "react-icons/gr";
 
-export default function CertificateButtons({ language, isMobile = false }) {
+export default function CertificateButtons({ language }) {
  const certificateText = language === "EN" ? "Certificate" : "Sertifika";
  const achievementText = language === "EN" ? "Achievement Certificate" : "Başarı Belgesi";
 
@@ -22,7 +22,7 @@ export default function CertificateButtons({ language, isMobile = false }) {
  ];
 
  return (
-  <div className={`flex flex-wrap gap-3 ${isMobile ? "flex lg:hidden" : ""}`}>
+  <div className="flex flex-wrap gap-3">
    {buttons.map((button, index) => {
     const IconComponent = button.icon;
     return (
