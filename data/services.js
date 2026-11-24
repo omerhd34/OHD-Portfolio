@@ -15,6 +15,7 @@ export const serviceRoleHashAliases = {
 export const serviceRoles = [
  {
   id: "full-stack-web",
+  menuIcon: "FaGlobe",
   label: { TR: "Web Sitesi Yapımı", EN: "Website Development" },
   image: "/images/services/full-stack.svg",
   intro: {
@@ -22,12 +23,12 @@ export const serviceRoles = [
    EN: "Website development — I manage the entire web process from frontend interface to backend infrastructure in one place.",
   },
   description: {
-   TR: "Portföy, kurumsal ve e-ticaret projelerinde frontend ve backend süreçlerini tek çatı altında yönetiyorum. React ve Next.js ile hızlı, erişilebilir ve dönüşüm odaklı arayüzler geliştirirken; Node.js ve Express.js ile güvenilir RESTful API katmanları, kimlik doğrulama ve veritabanı mimarisini kuruyorum. MySQL, MongoDB ve PostgreSQL üzerinde ölçeklenebilir veri yapıları planlayarak performans, SEO ve kullanıcı deneyimini birlikte ele alıyorum. Responsive tasarım, modern UI/UX, hosting ve yayın süreçleriyle web projenizi uçtan uca teslim ediyorum.",
-   EN: "For portfolio, corporate, and e-commerce projects, I manage frontend and backend under one roof. I build fast, accessible, conversion-focused interfaces with React and Next.js while establishing reliable RESTful APIs, authentication, and database architecture with Node.js and Express.js. I plan scalable data structures on MySQL, MongoDB, and PostgreSQL, addressing performance, SEO, and user experience together—from responsive design and modern UI/UX to hosting and launch.",
+   TR: "**Portföy**, **kurumsal** ve **e-ticaret** projelerinde **frontend** ve **backend** süreçlerini tek çatı altında yönetiyorum. **React** ve **Next.js** ile hızlı, erişilebilir ve dönüşüm odaklı arayüzler geliştirirken; **Node.js** ve **Express.js** ile güvenilir **RESTful API** katmanları, kimlik doğrulama ve veritabanı mimarisini kuruyorum. **MySQL**, **MongoDB** ve **PostgreSQL** üzerinde ölçeklenebilir veri yapıları planlayarak **performans**, **SEO** ve **kullanıcı deneyimini** birlikte ele alıyorum. **Responsive tasarım**, **modern UI/UX**, **hosting** ve **yayın süreçleriyle** web projenizi uçtan uca teslim ediyorum.",
+   EN: "For **portfolio**, **corporate**, and **e-commerce** projects, I manage **frontend** and **backend** under one roof. I build fast, accessible, conversion-focused interfaces with **React** and **Next.js** while establishing reliable **RESTful APIs**, authentication, and database architecture with **Node.js** and **Express.js**. I plan scalable data structures on **MySQL**, **MongoDB**, and **PostgreSQL**, addressing **performance**, **SEO**, and **user experience** together—from **responsive design** and **modern UI/UX** to **hosting** and **launch**.",
   },
   menuDescription: {
-   TR: "Frontend ve backend'i bir arada sunuyorum: React/Next.js arayüzler, Node.js/Express API'ler, MySQL/MongoDB/PostgreSQL veri katmanı, SEO ve performans optimizasyonu. Portföy, kurumsal ve e-ticaret web projelerinde uçtan uca çözüm.",
-   EN: "I deliver frontend and backend together: React/Next.js interfaces, Node.js/Express APIs, MySQL/MongoDB/PostgreSQL data layers, SEO and performance optimization—end-to-end for portfolio, corporate, and e-commerce web projects.",
+   TR: "**Frontend** ve **backend**'i bir arada sunuyorum: **React/Next.js** arayüzler, **Node.js/Express** API'ler, **MySQL/MongoDB/PostgreSQL** veri katmanı, **SEO** ve **performans** optimizasyonu. **Portföy**, **kurumsal** ve **e-ticaret** web projelerinde uçtan uca çözüm.",
+   EN: "I deliver **frontend** and **backend** together: **React/Next.js** interfaces, **Node.js/Express** APIs, **MySQL/MongoDB/PostgreSQL** data layers, **SEO** and **performance** optimization—end-to-end for **portfolio**, **corporate**, and **e-commerce** web projects.",
   },
   technologies: [
    "FaHtml5",
@@ -40,10 +41,6 @@ export const serviceRoles = [
    "SiTailwindcss",
    "FaBootstrap",
    "SiShadcnui",
-   "SiNextui",
-   "SiChakraui",
-   "SiHeadlessui",
-   "SiRadixui",
    "FaJsSquare",
    "SiTypescript",
    "FaReact",
@@ -51,18 +48,17 @@ export const serviceRoles = [
    "FaNodeJs",
    "SiExpress",
    "TbApi",
-   "SiPostman",
    "SiMysql",
    "SiMongodb",
    "SiPostgresql",
    "SiPrisma",
    "SiVercel",
    "IxirhostIcon",
-   "FaCpanel",
   ],
  },
  {
   id: "full-stack-app",
+  menuIcon: "FaMobileAlt",
   label: { TR: "Uygulama Yapımı", EN: "App Development" },
   image: "/images/services/mobile.svg",
   intro: {
@@ -70,12 +66,12 @@ export const serviceRoles = [
    EN: "Mobile application development — I manage UI, API, and publishing for iOS and Android end to end.",
   },
   description: {
-   TR: "React Native ve Flutter ile iOS ve Android için performanslı mobil uygulamalar geliştirirken, Node.js tabanlı API ve veritabanı altyapısını aynı projede kuruyorum. Tek kod tabanından hızlı geliştirme sağlarken push bildirim, offline destek, kimlik doğrulama ve üçüncü parti entegrasyonları güvenli biçimde kurguluyorum. App Store ve Google Play yayın süreçlerinde rehberlik ederek uygulamanızın büyümesine uyum sağlayan sürdürülebilir mobil çözümler sunuyorum.",
-   EN: "I build performant mobile apps for iOS and Android with React Native and Flutter while setting up Node.js-based API and database infrastructure in the same project. From a single codebase, I implement push notifications, offline support, authentication, and third-party integrations securely. I guide App Store and Google Play publishing to deliver sustainable mobile solutions that scale with your product.",
+   TR: "**React Native** ve **Flutter** ile **iOS** ve **Android** için performanslı **mobil uygulamalar** geliştirirken, **Node.js** tabanlı **API** ve veritabanı altyapısını aynı projede kuruyorum. Tek kod tabanından hızlı geliştirme sağlarken **push bildirim**, **offline destek**, **kimlik doğrulama** ve üçüncü parti entegrasyonları güvenli biçimde kurguluyorum. **App Store** ve **Google Play** yayın süreçlerinde rehberlik ederek uygulamanızın büyümesine uyum sağlayan sürdürülebilir mobil çözümler sunuyorum.",
+   EN: "I build performant mobile apps for **iOS** and **Android** with **React Native** and **Flutter** while setting up **Node.js**-based **API** and database infrastructure in the same project. From a single codebase, I implement **push notifications**, **offline support**, **authentication**, and third-party integrations securely. I guide **App Store** and **Google Play** publishing to deliver sustainable mobile solutions that scale with your product.",
   },
   menuDescription: {
-   TR: "React Native ve Flutter mobil arayüzler, Node.js/Express API katmanı, push bildirim ve mağaza yayın desteği. iOS ve Android uygulamalarınız için full stack mobil çözüm.",
-   EN: "React Native and Flutter mobile UI, Node.js/Express API layer, push notifications, and store publishing support—a full stack mobile solution for your iOS and Android apps.",
+   TR: "**React Native** ve **Flutter** mobil arayüzler, **Node.js/Express** API katmanı, **push bildirim** ve **mağaza yayın** desteği. **iOS** ve **Android** uygulamalarınız için **full stack** mobil çözüm.",
+   EN: "**React Native** and **Flutter** mobile UI, **Node.js/Express** API layer, **push notifications**, and **store publishing** support—a **full stack** mobile solution for your **iOS** and **Android** apps.",
   },
   technologies: [
    "TbBrandReactNative",
@@ -88,13 +84,10 @@ export const serviceRoles = [
    "FaNodeJs",
    "SiExpress",
    "TbApi",
-   "SiPostman",
    "SiMysql",
    "SiMongodb",
    "SiPostgresql",
    "SiPrisma",
-   "SiRailway",
-   "SiRender",
    "FaCloud",
    "FaServer",
    "FaAppStoreIos",
@@ -103,6 +96,7 @@ export const serviceRoles = [
  },
  {
   id: "digital-renewal",
+  menuIcon: "FaSyncAlt",
   label: { TR: "Dijital Yenileme", EN: "Digital Renewal" },
   image: "/images/services/digital-renewal.svg",
   intro: {
@@ -110,12 +104,12 @@ export const serviceRoles = [
    EN: "I modernize your existing website — refreshing your digital presence with current design, performance, and SEO infrastructure.",
   },
   description: {
-   TR: "Eski, yavaş veya dönüşüm üretmeyen web sitenizi baştan ele alıyorum. Mevcut içeriği ve marka kimliğini koruyarak arayüzü günceller, kod altyapısını sadeleştirir, mobil uyumluluk, hız ve SEO sorunlarını gideririm. Eski stack'lerden React ve Next.js tabanlı modern yapılara geçiş; hosting, domain ve yayın süreçleriyle birlikte planlanır. Sonuç: daha hızlı, daha güvenilir ve daha kolay yönetilen bir dijital vitrin.",
-   EN: "I rebuild slow or underperforming websites from the ground up. I refresh the interface while preserving your content and brand, simplify the codebase, and fix mobile, speed, and SEO issues. Migration from older stacks to React and Next.js is planned together with hosting, domain, and launch. The result is a faster, more reliable, and easier-to-manage digital storefront.",
+   TR: "Eski, yavaş veya dönüşüm üretmeyen web sitenizi baştan ele alıyorum. Mevcut içeriği ve marka kimliğini koruyarak arayüzü günceller, kod altyapısını sadeleştirir, **mobil uyumluluk**, **hız** ve **SEO** sorunlarını gideririm. Eski stack'lerden **React** ve **Next.js** tabanlı modern yapılara geçiş; **hosting**, **domain** ve **yayın süreçleriyle** birlikte planlanır. Sonuç: daha hızlı, daha güvenilir ve daha kolay yönetilen bir dijital vitrin.",
+   EN: "I rebuild slow or underperforming websites from the ground up. I refresh the interface while preserving your content and brand, simplify the codebase, and fix **mobile** compatibility, **speed**, and **SEO** issues. Migration from older stacks to **React** and **Next.js** is planned together with **hosting**, **domain**, and **launch** workflows. The result is a faster, more reliable, and easier-to-manage digital storefront.",
   },
   menuDescription: {
-   TR: "Mevcut sitenizi modern arayüz, performans ve SEO ile yenilerim. Eski yapılardan Next.js'e geçiş, hız optimizasyonu ve yayın süreci dahil uçtan uca dijital yenileme.",
-   EN: "I renew your current site with a modern UI, performance, and SEO—including migration to Next.js, speed optimization, and launch support.",
+   TR: "Mevcut sitenizi **modern arayüz**, **performans** ve **SEO** ile yenilerim. Eski yapılardan **Next.js**'e geçiş, **hız optimizasyonu** ve **yayın süreci** dahil uçtan uca dijital yenileme.",
+   EN: "I renew your current site with a **modern UI**, **performance**, and **SEO**—including migration to **Next.js**, **speed optimization**, and **launch** support.",
   },
   technologies: [
    "FaHtml5",
@@ -131,11 +125,11 @@ export const serviceRoles = [
    "SiGoogleanalytics",
    "SiVercel",
    "IxirhostIcon",
-   "FaCpanel",
   ],
  },
  {
   id: "seo",
+  menuIcon: "FaSearch",
   label: { TR: "SEO Hizmetleri", EN: "SEO Services" },
   image: "/images/services/seo.svg",
   intro: {
@@ -143,12 +137,12 @@ export const serviceRoles = [
    EN: "Search visibility — I surface your site on Google through technical SEO, content, and measurement.",
   },
   description: {
-   TR: "Teknik SEO denetimi, sayfa içi optimizasyon, site hızı, Core Web Vitals ve yapılandırılmış veri ile arama görünürlüğünüzü güçlendiriyorum. Google Search Console ve Analytics kurulumunu yaparak anahtar kelime, indeksleme ve tıklama verilerini izlenebilir hale getiriyorum. Sitemap, robots.txt, meta etiketleri ve dahili bağlantı yapısını düzenleyerek hem yeni hem mevcut sitelerde sürdürülebilir SEO altyapısı kuruyorum.",
-   EN: "I strengthen search visibility with technical SEO audits, on-page optimization, site speed, Core Web Vitals, and structured data. I set up Google Search Console and Analytics so keyword, indexing, and click data become measurable. Sitemap, robots.txt, meta tags, and internal linking are aligned to build a sustainable SEO foundation for both new and existing sites.",
+   TR: "Teknik **SEO** denetimi, **sayfa içi optimizasyon**, **site hızı**, **Core Web Vitals** ve **yapılandırılmış veri** ile arama görünürlüğünüzü güçlendiriyorum. **Google Search Console** ve **Analytics** kurulumunu yaparak anahtar kelime, indeksleme ve tıklama verilerini izlenebilir hale getiriyorum. **Sitemap**, **robots.txt**, **meta etiketleri** ve dahili bağlantı yapısını düzenleyerek hem yeni hem mevcut sitelerde sürdürülebilir **SEO** altyapısı kuruyorum.",
+   EN: "I strengthen search visibility with technical **SEO** audits, **on-page optimization**, **site speed**, **Core Web Vitals**, and **structured data**. I set up **Google Search Console** and **Analytics** so keyword, indexing, and click data become measurable. **Sitemap**, **robots.txt**, **meta tags**, and internal linking are aligned to build a sustainable **SEO** foundation for both new and existing sites.",
   },
   menuDescription: {
-   TR: "Teknik SEO, Search Console ve Analytics kurulumu, sayfa hızı ve meta optimizasyonu. Google'da bulunabilir, ölçülebilir bir arama altyapısı.",
-   EN: "Technical SEO, Search Console and Analytics setup, page speed, and meta optimization—a measurable search foundation for Google.",
+   TR: "Teknik **SEO**, **Search Console** ve **Analytics** kurulumu, **sayfa hızı** ve **meta optimizasyonu**. **Google**'da bulunabilir, ölçülebilir bir arama altyapısı.",
+   EN: "Technical **SEO**, **Search Console** and **Analytics** setup, **page speed**, and **meta optimization**—a measurable search foundation for **Google**.",
   },
   technologies: [
    "TbSeo",
@@ -163,6 +157,7 @@ export const serviceRoles = [
  },
  {
   id: "technical-audit",
+  menuIcon: "FaClipboardCheck",
   label: { TR: "Teknik Denetim", EN: "Technical Audit" },
   image: "/images/services/technical-audit.svg",
   intro: {
@@ -170,17 +165,16 @@ export const serviceRoles = [
    EN: "A technical audit focused on code, performance, security, and SEO — I identify issues and deliver a prioritized action list.",
   },
   description: {
-   TR: "Mevcut web sitenizi veya uygulamanızı kod kalitesi, performans, güvenlik ve SEO açısından tarıyorum. Yavaş sayfalar, kırık bağlantılar, erişilebilirlik eksikleri, bağımlılık riskleri ve zayıf API yapıları gibi sorunları raporluyorum. Her bulgu için öncelik, etki ve önerilen çözümle birlikte uygulanabilir bir aksiyon listesi sunuyorum; böylece neyin hemen, neyin planlı düzeltilmesi gerektiği netleşir.",
-   EN: "I review your current website or app for code quality, performance, security, and SEO. Slow pages, broken links, accessibility gaps, dependency risks, and weak API patterns are documented. Each finding comes with priority, impact, and a recommended fix so it is clear what to address immediately and what to plan next.",
+   TR: "Mevcut web sitenizi veya uygulamanızı **kod kalitesi**, **performans**, **güvenlik** ve **SEO** açısından tarıyorum. Yavaş sayfalar, kırık bağlantılar, **erişilebilirlik** eksikleri, bağımlılık riskleri ve zayıf **API** yapıları gibi sorunları raporluyorum. Her bulgu için öncelik, etki ve önerilen çözümle birlikte uygulanabilir bir **aksiyon listesi** sunuyorum; böylece neyin hemen, neyin planlı düzeltilmesi gerektiği netleşir.",
+   EN: "I review your current website or app for **code quality**, **performance**, **security**, and **SEO**. Slow pages, broken links, **accessibility** gaps, dependency risks, and weak **API** patterns are documented. Each finding comes with priority, impact, and a recommended fix so it is clear what to address immediately and what to plan next.",
   },
   menuDescription: {
-   TR: "Performans, güvenlik, kod kalitesi ve SEO denetimi. Önceliklendirilmiş bulgular ve uygulanabilir aksiyon listesi.",
-   EN: "Performance, security, code quality, and SEO audit—prioritized findings with an actionable list.",
+   TR: "**Performans**, **güvenlik**, **kod kalitesi** ve **SEO** denetimi. Önceliklendirilmiş bulgular ve uygulanabilir **aksiyon listesi**.",
+   EN: "**Performance**, **security**, **code quality**, and **SEO** audit—prioritized findings with an actionable **action list**.",
   },
   technologies: [
    "FaSearch",
    "FaLaptopCode",
-   "SiPostman",
    "TbSeo",
    "SiGooglesearchconsole",
    "SiGoogleanalytics",
@@ -192,6 +186,7 @@ export const serviceRoles = [
  },
  {
   id: "maintenance",
+  menuIcon: "FaTools",
   label: { TR: "Bakım & Destek", EN: "Maintenance & Support" },
   image: "/images/services/maintenance.svg",
   intro: {
@@ -199,24 +194,21 @@ export const serviceRoles = [
    EN: "Post-launch maintenance and support — I keep your project safe with updates, backups, bug fixes, and monitoring.",
   },
   description: {
-   TR: "Yayına alınan web sitesi veya uygulamayı güncel, güvenli ve kesintisiz tutuyorum. Bağımlılık güncellemeleri, yedekleme, hata düzeltme, içerik ve küçük özellik talepleri ile hosting/cPanel süreçlerini düzenli takip ediyorum. Acil müdahale ve planlı bakım ile projenizin performansını korur, teknik borç birikmesini önlerim.",
-   EN: "I keep launched websites and apps current, secure, and available. Dependency updates, backups, bug fixes, content and small feature requests, plus hosting/cPanel tasks, are handled on a regular cadence. With urgent response and planned maintenance, I protect performance and prevent technical debt from piling up.",
+   TR: "Yayına alınan **web sitesi** veya **uygulamayı** güncel, güvenli ve kesintisiz tutuyorum. **Bağımlılık güncellemeleri**, **yedekleme**, **hata düzeltme**, içerik ve küçük özellik talepleri ile **hosting/cPanel** süreçlerini düzenli takip ediyorum. **Acil müdahale** ve **planlı bakım** ile projenizin **performansını** korur, **teknik borç** birikmesini önlerim.",
+   EN: "I keep launched **websites** and **apps** current, secure, and available. **Dependency updates**, **backups**, **bug fixes**, content and small feature requests, plus **hosting/cPanel** tasks, are handled on a regular cadence. With **urgent response** and **planned maintenance**, I protect **performance** and prevent **technical debt** from piling up.",
   },
   menuDescription: {
-   TR: "Güncelleme, yedekleme, hata düzeltme ve hosting takibi. Yayın sonrası sitenizi ve uygulamanızı sürekli ayakta tutan bakım.",
-   EN: "Updates, backups, bug fixes, and hosting follow-up—ongoing maintenance that keeps your site and app running after launch.",
+   TR: "**Güncelleme**, **yedekleme**, **hata düzeltme** ve **hosting** takibi. Yayın sonrası sitenizi ve uygulamanızı sürekli ayakta tutan bakım.",
+   EN: "**Updates**, **backups**, **bug fixes**, and **hosting** follow-up—ongoing maintenance that keeps your site and app running after launch.",
   },
   technologies: [
    "FaTools",
    "FaServer",
    "FaCloud",
-   "FaCpanel",
    "IxirhostIcon",
    "FaGitAlt",
    "FaGithub",
    "SiVercel",
-   "SiRailway",
-   "SiRender",
   ],
  },
 ];
@@ -230,12 +222,10 @@ export const serviceTechIconCategories = {
  SiRedux: "frontend",
  SiNextdotjs: "frontend",
  SiTailwindcss: "frontend",
- SiShadcnui: "ui",
- SiNextui: "ui",
- SiChakraui: "ui",
- SiHeadlessui: "ui",
- SiRadixui: "ui",
+ SiShadcnui: "frontend",
  FaBootstrap: "frontend",
+ FaLaptopCode: "frontend",
+ FaLayerGroup: "frontend",
  FaNodeJs: "backend",
  SiExpress: "backend",
  TbApi: "backend",
@@ -248,17 +238,7 @@ export const serviceTechIconCategories = {
  SiFlutter: "mobile",
  SiAndroidstudio: "mobile",
  SiExpo: "mobile",
- SiVercel: "hosting",
- IxirhostIcon: "hosting",
- FaCpanel: "hosting",
- SiRailway: "hosting",
- SiRender: "hosting",
- FaCloud: "hosting",
- FaServer: "hosting",
- SiPostman: "tools",
  FaTools: "tools",
- FaLaptopCode: "frontend",
- FaLayerGroup: "ui",
  FaSearch: "seo",
  MdDomain: "seo",
  SiGooglemaps: "seo",
@@ -270,15 +250,17 @@ export const serviceTechIconCategories = {
  SiGoogleanalytics: "seo",
  FaAppStoreIos: "publishing",
  FaGooglePlay: "publishing",
+ SiVercel: "publishing",
+ IxirhostIcon: "publishing",
+ FaCloud: "tools",
+ FaServer: "tools",
 };
 
 export const serviceTechCategoryMeta = [
  { id: "frontend", className: "service-tech-icon-frontend", label: { TR: "Frontend", EN: "Frontend" } },
  { id: "backend", className: "service-tech-icon-backend", label: { TR: "Backend", EN: "Backend" } },
- { id: "ui", className: "service-tech-icon-ui", label: { TR: "UI", EN: "UI" } },
  { id: "database", className: "service-tech-icon-database", label: { TR: "Veritabanı", EN: "Database" } },
  { id: "mobile", className: "service-tech-icon-mobile", label: { TR: "Mobil", EN: "Mobile" } },
- { id: "hosting", className: "service-tech-icon-hosting", label: { TR: "Hosting", EN: "Hosting" } },
  { id: "tools", className: "service-tech-icon-tools", label: { TR: "Araçlar", EN: "Tools" } },
  { id: "seo", className: "service-tech-icon-seo", label: { TR: "SEO & Analitik", EN: "SEO & Analytics" } },
  { id: "publishing", className: "service-tech-icon-publishing", label: { TR: "Yayın", EN: "Publishing" } },
@@ -286,9 +268,9 @@ export const serviceTechCategoryMeta = [
 
 export const primaryServiceTechIcons = {
  "full-stack-web": [
+  "SiNextdotjs",
   "FaReact",
   "SiRedux",
-  "SiNextdotjs",
   "SiTypescript",
   "SiTailwindcss",
   "SiShadcnui",
@@ -317,11 +299,10 @@ export const primaryServiceTechIcons = {
   "SiExpo",
   "FaAppStoreIos",
   "FaGooglePlay",
-  "SiRailway",
  ],
  "digital-renewal": [
-  "FaReact",
   "SiNextdotjs",
+  "FaReact",
   "SiTypescript",
   "SiTailwindcss",
   "FaLaptopCode",
@@ -340,7 +321,6 @@ export const primaryServiceTechIcons = {
  "technical-audit": [
   "FaSearch",
   "FaLaptopCode",
-  "SiPostman",
   "TbSeo",
   "SiGooglesearchconsole",
   "FaServer",
@@ -350,7 +330,6 @@ export const primaryServiceTechIcons = {
   "FaTools",
   "FaServer",
   "FaCloud",
-  "FaCpanel",
   "IxirhostIcon",
   "FaGitAlt",
   "SiVercel",

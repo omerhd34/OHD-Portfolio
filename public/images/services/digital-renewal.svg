@@ -16,6 +16,26 @@
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <linearGradient id="dr-arrow-top" x1="108" y1="98" x2="140" y2="86" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#43a047" stop-opacity="0.75"/>
+      <stop offset="45%" stop-color="#81c784"/>
+      <stop offset="100%" stop-color="#e8f5e9"/>
+    </linearGradient>
+    <linearGradient id="dr-arrow-bottom" x1="140" y1="142" x2="108" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#43a047" stop-opacity="0.75"/>
+      <stop offset="45%" stop-color="#81c784"/>
+      <stop offset="100%" stop-color="#e8f5e9"/>
+    </linearGradient>
+    <filter id="dr-arrow-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="dr-head" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1.5 1.2 L8.8 5 L1.5 8.8 Z" fill="#e8f5e9" stroke="#c8e6c9" stroke-width="0.6" stroke-linejoin="round"/>
+    </marker>
   </defs>
   <rect width="240" height="200" fill="url(#dr-bg)" rx="16"/>
   <rect x="24" y="52" width="84" height="88" rx="10" fill="url(#dr-old)" stroke="#388e3c" stroke-width="1.5" opacity="0.7"/>
@@ -29,9 +49,8 @@
   <rect x="140" y="84" width="56" height="7" rx="2" fill="#81c784" opacity="0.6"/>
   <rect x="140" y="98" width="40" height="7" rx="2" fill="#66bb6a" opacity="0.5"/>
   <circle cx="172" cy="122" r="6" fill="#c8e6c9"/>
-  <path d="M108 96 C118 78 130 78 140 88" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-  <path d="M132 80 L140 88 L128 90" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M96 156 H144" stroke="#66bb6a" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-  <path d="M128 148 A16 16 0 1 1 112 164" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-  <path d="M148 156 L128 148 L136 168" stroke="#81c784" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g filter="url(#dr-arrow-glow)">
+    <path d="M108 98 C118 74 128 74 138 90" stroke="url(#dr-arrow-top)" stroke-width="2.75" stroke-linecap="round" fill="none" marker-end="url(#dr-head)"/>
+    <path d="M138 146 C128 170 118 170 108 154" stroke="url(#dr-arrow-bottom)" stroke-width="2.75" stroke-linecap="round" fill="none" marker-end="url(#dr-head)"/>
+  </g>
 </svg>

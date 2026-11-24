@@ -16,23 +16,17 @@ const TECH_LABELS = {
  SiNextdotjs: { TR: "Next.js", EN: "Next.js" },
  SiTailwindcss: { TR: "Tailwind CSS", EN: "Tailwind CSS" },
  SiShadcnui: { TR: "Shadcn", EN: "Shadcn" },
- SiNextui: { TR: "HeroUI", EN: "HeroUI" },
- SiChakraui: { TR: "Chakra UI", EN: "Chakra UI" },
- SiHeadlessui: { TR: "Headless UI", EN: "Headless UI" },
- SiRadixui: { TR: "Radix UI", EN: "Radix UI" },
  FaBootstrap: { TR: "Bootstrap", EN: "Bootstrap" },
  FaNodeJs: { TR: "Node.js", EN: "Node.js" },
  FaJava: { TR: "Java", EN: "Java" },
  SiExpress: { TR: "Express.js", EN: "Express.js" },
  TbApi: { TR: "REST API", EN: "REST API" },
- SiPostman: { TR: "Postman", EN: "Postman" },
  FaDatabase: { TR: "SQL & NoSQL", EN: "SQL & NoSQL" },
  SiMysql: { TR: "MySQL", EN: "MySQL" },
  SiMongodb: { TR: "MongoDB", EN: "MongoDB" },
  SiPostgresql: { TR: "PostgreSQL", EN: "PostgreSQL" },
  SiPrisma: { TR: "Prisma", EN: "Prisma" },
  DiVisualstudio: { TR: "VS Code", EN: "VS Code" },
- BsCursorFill: { TR: "Cursor", EN: "Cursor" },
  FaGitAlt: { TR: "Git", EN: "Git" },
  FaGithub: { TR: "GitHub", EN: "GitHub" },
  SiVercel: { TR: "Vercel", EN: "Vercel" },
@@ -43,10 +37,7 @@ const TECH_LABELS = {
  IxirhostIcon: {
   TR: "ixirhost | İksir İnternet Hizmetleri A.Ş.", EN: "IXIRHOST | Iksir Internet Services Inc."
  },
- FaCpanel: { TR: "cPanel", EN: "cPanel" },
  SiExpo: { TR: "Expo", EN: "Expo" },
- SiRailway: { TR: "Railway", EN: "Railway" },
- SiRender: { TR: "Render", EN: "Render" },
  FaCloud: { TR: "Cloud", EN: "Cloud" },
  FaServer: { TR: "Server", EN: "Server" },
  FaAppStoreIos: { TR: "App Store", EN: "App Store" },
@@ -66,7 +57,11 @@ export default function ServiceTechIcons({ icons, language = "TR", roleId, class
 
  const lang = language === "EN" ? "EN" : "TR";
  const primarySet = new Set(primaryServiceTechIcons[roleId] || []);
- const sortedIcons = sortServiceTechIcons(icons, serviceTechIconCategories);
+ const sortedIcons = sortServiceTechIcons(
+  icons,
+  serviceTechIconCategories,
+  primaryServiceTechIcons[roleId]
+ );
 
  return (
   <div className={`flex flex-wrap gap-2.5 mt-4 pb-1 ${className}`}>

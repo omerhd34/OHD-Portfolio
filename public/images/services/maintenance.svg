@@ -4,29 +4,114 @@
       <stop stop-color="#143d32" stop-opacity="0.35"/>
       <stop offset="1" stop-color="#66bb6a" stop-opacity="0.08"/>
     </linearGradient>
-    <linearGradient id="mn-server" x1="36" y1="44" x2="120" y2="156" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1b5e20"/>
+    <linearGradient id="mn-server" x1="88" y1="32" x2="152" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2a4a3e"/>
+      <stop offset="0.5" stop-color="#1b5e20"/>
       <stop offset="1" stop-color="#0d2821"/>
     </linearGradient>
-    <filter id="mn-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <linearGradient id="mn-server-side" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#143d32"/>
+      <stop offset="1" stop-color="#0a1f1a"/>
+    </linearGradient>
+    <linearGradient id="mn-neon" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#43a047" stop-opacity="0.2"/>
+      <stop offset="0.5" stop-color="#81c784"/>
+      <stop offset="1" stop-color="#c8e6c9"/>
+    </linearGradient>
+    <linearGradient id="mn-holo" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#a5d6a7" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#66bb6a" stop-opacity="0.25"/>
+    </linearGradient>
+    <filter id="mn-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="mn-bloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="mn-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
+
   <rect width="240" height="200" fill="url(#mn-bg)" rx="16"/>
-  <rect x="32" y="44" width="96" height="112" rx="12" fill="url(#mn-server)" stroke="#81c784" stroke-width="2"/>
-  <rect x="44" y="60" width="72" height="22" rx="6" fill="#143d32" stroke="#2e7d32" stroke-width="1"/>
-  <circle cx="56" cy="71" r="4" fill="#66bb6a"/>
-  <rect x="68" y="67" width="36" height="6" rx="2" fill="#81c784" opacity="0.6"/>
-  <rect x="44" y="92" width="72" height="22" rx="6" fill="#143d32" stroke="#2e7d32" stroke-width="1"/>
-  <circle cx="56" cy="103" r="4" fill="#81c784"/>
-  <rect x="68" y="99" width="36" height="6" rx="2" fill="#66bb6a" opacity="0.5"/>
-  <rect x="44" y="124" width="72" height="22" rx="6" fill="#143d32" stroke="#2e7d32" stroke-width="1"/>
-  <circle cx="56" cy="135" r="4" fill="#43a047"/>
-  <rect x="68" y="131" width="36" height="6" rx="2" fill="#388e3c" opacity="0.5"/>
-  <g transform="translate(148 58)" filter="url(#mn-glow)">
-    <path d="M28 8 C40 8 48 18 44 28 L68 52 C72 56 72 64 68 68 L60 76 C56 80 48 80 44 76 L20 52 C10 56 0 48 0 36 C0 24 10 16 22 18 L34 6 C36 4 40 4 42 6 Z" fill="#1b5e20" stroke="#a5d6a7" stroke-width="2" stroke-linejoin="round"/>
-    <circle cx="28" cy="28" r="7" fill="none" stroke="#66bb6a" stroke-width="2.5"/>
-    <path d="M52 60 L64 72" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- arka plan devre / dalga -->
+  <g opacity="0.35">
+    <path d="M20 178 Q60 158 100 172 T180 166" stroke="#388e3c" stroke-width="1" fill="none" opacity="0.5"/>
+    <path d="M48 42 Q120 28 192 48" stroke="#2e7d32" stroke-width="1" fill="none" opacity="0.4"/>
+    <circle cx="52" cy="48" r="2.5" fill="#66bb6a" opacity="0.6"/>
+    <circle cx="188" cy="44" r="2" fill="#81c784" opacity="0.5"/>
+    <circle cx="36" cy="120" r="2" fill="#43a047" opacity="0.4"/>
+    <circle cx="204" cy="108" r="2.5" fill="#66bb6a" opacity="0.45"/>
+  </g>
+
+  <!-- taban devre izi -->
+  <g opacity="0.55" filter="url(#mn-soft)">
+    <path d="M48 172 H88 M88 172 V160 M88 160 H128 M128 160 V172 M128 172 H168" stroke="#43a047" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M68 172 V152 M148 172 V156" stroke="#2e7d32" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="88" cy="160" r="3" fill="#66bb6a" opacity="0.8"/>
+    <circle cx="128" cy="172" r="3" fill="#81c784" opacity="0.75"/>
+  </g>
+
+  <!-- sunucu gövdesi (hafif izometrik) -->
+  <path d="M76 44 L164 44 L172 52 V164 L84 164 L76 156 Z" fill="url(#mn-server-side)" opacity="0.9"/>
+  <rect x="68" y="48" width="88" height="112" rx="10" fill="url(#mn-server)" stroke="#5a9a6a" stroke-width="1.5"/>
+  <path d="M68 48 L76 40 H164 L156 48" fill="#1b5e20" opacity="0.5"/>
+  <rect x="78" y="40" width="80" height="8" rx="3" fill="#2e7d32" opacity="0.6"/>
+
+  <!-- raflar + neon LED -->
+  <g filter="url(#mn-glow)">
+    <rect x="80" y="62" width="64" height="20" rx="5" fill="#0a1f1a" stroke="#2e7d32" stroke-width="1"/>
+    <rect x="88" y="70" width="44" height="4" rx="2" fill="url(#mn-neon)"/>
+    <circle cx="86" cy="72" r="3" fill="#81c784"/>
+
+    <rect x="80" y="90" width="64" height="20" rx="5" fill="#0a1f1a" stroke="#2e7d32" stroke-width="1"/>
+    <rect x="88" y="98" width="44" height="4" rx="2" fill="url(#mn-neon)"/>
+    <circle cx="86" cy="100" r="3" fill="#c8e6c9"/>
+
+    <rect x="80" y="118" width="64" height="20" rx="5" fill="#0a1f1a" stroke="#2e7d32" stroke-width="1"/>
+    <rect x="88" y="126" width="44" height="4" rx="2" fill="url(#mn-neon)"/>
+    <circle cx="86" cy="128" r="3" fill="#66bb6a"/>
+
+    <rect x="80" y="146" width="64" height="10" rx="4" fill="#143d32" stroke="#388e3c" stroke-width="1"/>
+    <rect x="88" y="149" width="32" height="4" rx="2" fill="#43a047" opacity="0.9"/>
+  </g>
+
+  <!-- parıltılar -->
+  <g opacity="0.7">
+    <circle cx="132" cy="78" r="1.5" fill="#e8f5e9"/>
+    <circle cx="118" cy="134" r="1.2" fill="#c8e6c9"/>
+    <circle cx="148" cy="112" r="1.5" fill="#a5d6a7"/>
+    <circle cx="94" cy="105" r="1" fill="#81c784"/>
+  </g>
+
+  <!-- holografik anahtar + dişli -->
+  <g transform="translate(118 72)" filter="url(#mn-bloom)" opacity="0.92">
+    <!-- dişliler -->
+    <g fill="none" stroke="#a5d6a7" stroke-width="2" opacity="0.85">
+      <circle cx="38" cy="52" r="14"/>
+      <circle cx="38" cy="52" r="6" fill="url(#mn-holo)" stroke="none" opacity="0.5"/>
+      <path d="M38 40 V36 M38 68 V72 M26 52 H22 M54 52 H58 M43 41 L46 38 M33 63 L30 66 M43 63 L46 66 M33 41 L30 38" stroke-linecap="round"/>
+      <circle cx="58" cy="28" r="10" stroke-width="1.6" opacity="0.75"/>
+      <circle cx="58" cy="28" r="4" fill="url(#mn-holo)" stroke="none" opacity="0.45"/>
+    </g>
+
+    <!-- çapraz anahtarlar -->
+    <g transform="rotate(-32 42 48)">
+      <path d="M8 4 C8 0 12 0 14 2 L22 10 C24 12 24 16 22 18 L18 22 C16 24 12 24 10 22 L2 14 C0 12 0 8 4 8 L8 4 Z" fill="url(#mn-holo)" stroke="#c8e6c9" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="14" cy="14" r="5" fill="none" stroke="#e8f5e9" stroke-width="2"/>
+      <path d="M26 26 L36 36" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(28 52 56)">
+      <path d="M8 4 C8 0 12 0 14 2 L22 10 C24 12 24 16 22 18 L18 22 C16 24 12 24 10 22 L2 14 C0 12 0 8 4 8 L8 4 Z" fill="url(#mn-holo)" stroke="#c8e6c9" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="14" cy="14" r="5" fill="none" stroke="#e8f5e9" stroke-width="2"/>
+      <path d="M26 26 L36 36" stroke="#81c784" stroke-width="3" stroke-linecap="round"/>
+    </g>
   </g>
 </svg>

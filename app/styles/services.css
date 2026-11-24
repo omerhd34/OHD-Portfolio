@@ -149,18 +149,6 @@
   box-shadow: 0 0 16px rgba(77, 208, 225, 0.32);
 }
 
-.service-tech-icon-hosting {
-  background-color: rgba(74, 20, 140, 0.38);
-  border: 1px solid rgba(171, 71, 188, 0.52);
-  box-shadow: 0 0 10px rgba(171, 71, 188, 0.2);
-}
-
-.service-tech-icon-hosting:hover {
-  background-color: rgba(106, 27, 154, 0.48);
-  border-color: #ce93d8;
-  box-shadow: 0 0 16px rgba(206, 147, 216, 0.32);
-}
-
 .service-tech-icon-tools {
   background-color: rgba(245, 127, 23, 0.28);
   border: 1px solid rgba(255, 202, 40, 0.52);
@@ -219,10 +207,6 @@
 
 .service-tech-icon-emphasis.service-tech-icon-mobile {
   box-shadow: 0 0 14px rgba(77, 208, 225, 0.34);
-}
-
-.service-tech-icon-emphasis.service-tech-icon-hosting {
-  box-shadow: 0 0 14px rgba(206, 147, 216, 0.34);
 }
 
 .service-tech-icon-emphasis.service-tech-icon-tools {
