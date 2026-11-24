@@ -49,9 +49,8 @@ export default function ProjectsPage() {
    <div className="min-h-screen relative overflow-hidden text-primary">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10 pb-16">
      <FaProjectDiagram
-      className={`w-8 h-8 text-green-200 mx-auto mb-2 transition-all duration-1000 delay-100 ${
-       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={`w-8 h-8 text-green-200 mx-auto mb-2 transition-all duration-1000 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+       }`}
      />
 
      <Title
@@ -68,9 +67,8 @@ export default function ProjectsPage() {
      <ProjectStats stats={stats} language={language} isVisible={isVisible} />
 
      <div
-      className={`transition-all duration-1000 delay-300 ${
-       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+       }`}
      >
       {!projects || projects.length === 0 ? (
        <div className="text-center py-12">
@@ -79,7 +77,7 @@ export default function ProjectsPage() {
         </h3>
        </div>
       ) : (
-       <div className="grid gap-6">
+       <div className="grid grid-cols-1 gap-6">
         {projects.map((project, index) => (
          <ProjectCard
           key={project.id}

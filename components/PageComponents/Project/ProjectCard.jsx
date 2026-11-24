@@ -56,7 +56,6 @@ export default function ProjectCard({ project, translations, language, index }) 
   SiPrisma: "Prisma",
   SiPostgresql: "PostgreSQL",
   SiRedux: "Redux",
-  SiGooglegemini: "Google Gemini",
   SiGooglesearchconsole: "Google Search Console",
   SiGoogleanalytics: "Google Analytics",
   TbApi: "RESTful API",

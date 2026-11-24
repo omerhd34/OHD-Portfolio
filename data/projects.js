@@ -1,6 +1,68 @@
 export const projectList = [
  {
   category: "web",
+  titleTr: "VeltStack | Web, Mobil ve SEO Hizmet Sitesi",
+  titleEn: "VeltStack | Web, Mobile & SEO Services Site",
+  descriptionTr:
+   "Kurucusu olduğum VeltStack’in kurumsal web sitesi; web, mobil ve SEO odaklı hizmetleri, proje vitrinini, blog ve iletişim süreçlerini tek marka çatısı altında sunar. Fikirden yayına net süreç ve müşteri odaklı anlatımla ajans kimliğini dijital ortamda temsil eder.",
+  descriptionEn:
+   "The corporate website of VeltStack, my software agency—showcasing web, mobile, and SEO services, a project portfolio, blog, and contact flows under one brand. It represents the agency identity online with a clear idea-to-launch narrative and client-focused messaging.",
+  longDescriptionTr:
+   "VeltStack için Next.js ve React ile geliştirdiğim bu platform, hizmet kartları, öne çıkan projeler mega menüsü, müşteri yorumları, süreç adımları ve görüşme planlama çağrılarıyla ajansın tam hizmet yelpazesini sunar. SSR ve teknik SEO ile arama görünürlüğü güçlendirilir; Google Analytics ve Search Console ile performans izlenir. İletişim ve keşif formları potansiyel müşteri taleplerini yapılandırılmış biçimde toplar. Vercel üzerinde yayınlanan site aktif olarak kullanılmakta ve marka ile hizmet içerikleri düzenli güncellenmektedir.",
+  longDescriptionEn:
+   "Built with Next.js and React for VeltStack, this platform presents the full agency offering through service cards, a featured-projects mega menu, client testimonials, process steps, and schedule-a-call CTAs. SSR and technical SEO strengthen search visibility, while Google Analytics and Search Console support measurement. Contact and discovery forms capture leads in a structured way. Published on Vercel, the site is actively used and updated as the brand and service content evolve.",
+  status: "completed",
+  technologies: [
+   "SiTypescript",
+   "FaReact",
+   "SiNextdotjs",
+   "SiTailwindcss",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
+   "SiVercel",
+   "FaGitAlt",
+   "FaGithub",
+   "TbApi",
+  ],
+  featuresTr: [
+   "Hizmetler ve paket vitrini",
+   "Projeler mega menü ve portföy yönlendirmesi",
+   "Blog, SSS ve kurumsal içerik sayfaları",
+   "Görüşme planlama ve iletişim formları",
+   "Müşteri yorumları ve süreç adımları",
+   "SSR tabanlı SEO optimizasyonu",
+   "Responsive ve marka odaklı arayüz",
+   "Vercel ile canlı yayın",
+  ],
+  featuresEn: [
+   "Services and package showcase",
+   "Projects mega menu and portfolio routing",
+   "Blog, FAQ, and corporate content pages",
+   "Schedule-a-call and contact forms",
+   "Client testimonials and process steps",
+   "SSR-based SEO optimization",
+   "Responsive, brand-focused interface",
+   "Live deployment on Vercel",
+  ],
+  liveUrl: "https://www.veltstack.com/",
+  teamTr: "VeltStack",
+  teamEn: "VeltStack",
+  roleTr: "Kurucu & Full Stack Developer",
+  roleEn: "Founder & Full Stack Developer",
+  metricsTr: [
+   { label: "Kategori", value: "Kurumsal / Ajans" },
+   { label: "Dil", value: "TR" },
+   { label: "Durum", value: "Aktif" },
+  ],
+  metricsEn: [
+   { label: "Category", value: "Corporate / Agency" },
+   { label: "Language", value: "TR" },
+   { label: "Status", value: "Active" },
+  ],
+  displayOrder: 0,
+ },
+ {
+  category: "web",
   titleTr: "Kişisel Portfolio Web Sitesi",
   titleEn: "Personal Portfolio Website",
   descriptionTr:
@@ -18,7 +80,6 @@ export const projectList = [
    "SiNextdotjs",
    "SiTailwindcss",
    "FaNodeJs",
-   "TbSeo",
    "SiGooglesearchconsole",
    "SiGoogleanalytics",
    "SiVercel",
@@ -60,7 +121,7 @@ export const projectList = [
    { label: "Language Support", value: "TR / EN" },
    { label: "Status", value: "Active & Improving" },
   ],
-  displayOrder: 1,
+  displayOrder: 6,
  },
  {
   category: "web",
@@ -84,7 +145,6 @@ export const projectList = [
    "SiMysql",
    "SiPrisma",
    "SiRedux",
-   "SiGooglegemini",
    "TbApi",
    "SiVercel",
    "FaGithub",
@@ -125,6 +185,72 @@ export const projectList = [
    { label: "Payment", value: "Integrated" },
    { label: "Registered Users", value: "500+" },
   ],
+  displayOrder: 7,
+ },
+ {
+  category: "web",
+  titleTr: "Dil Atölyesi",
+  titleEn: "Dil Atölyesi",
+  descriptionTr:
+   "İngilizce öğrenimini tek çatı altında toplayan dil eğitimi platformu: seviye testi, A1–C2 ders yolu, kelime çalışması ve yapay zeka destekli alıştırmalarla kullanıcı ilerlemesi kayıt altında tutulur.",
+  descriptionEn:
+   "An English learning platform that brings lessons, vocabulary, and AI-powered exercises under one roof—with placement testing, an A1–C2 lesson path, and progress saved on the user dashboard.",
+  longDescriptionTr:
+   "Dil Atölyesi için Next.js ve React ile geliştirdiğim bu platformda kayıt sonrası kısa seviye testi ile A1–C2 arasında başlangıç belirlenir; dersler sırayla açılır ve dinleme, okuma, yazma, konuşma ile dil bilgisi tek yol üzerinde ilerler. Her ders sonrası yapay zeka çoktan seçmeli, boşluk doldurma, doğru/yanlış, dikte, çapraz bulmaca ve eşleştirme alıştırmaları üretir; zayıf konular daha sık tekrarlanır. Kelime çalışması aralıklı tekrar ve zamanlayıcı ile desteklenir; seviye yeterlilik sınavları bir üst seviyeyi açar. RESTful API ve veritabanı katmanı kullanıcı, ders ve ilerleme verisini güvenle yönetir. Vercel üzerinde yayınlanan site aktif olarak kullanılmaktadır.",
+  longDescriptionEn:
+   "Built with Next.js and React for Dil Atölyesi, this platform places learners between A1 and C2 after a short signup test, then unlocks lessons in order across listening, reading, writing, speaking, and grammar on a single path. After each lesson, AI generates multiple-choice, fill-in-the-blank, true/false, dictation, crossword, and matching sets, emphasizing weaker topics. Vocabulary study uses timers and spaced repetition; proficiency exams unlock the next level. A RESTful API and database layer manage users, lessons, and progress securely. Published on Vercel, the site is actively in use.",
+  status: "current",
+  liveUrl: "https://www.dilatolyesi.com/",
+  technologies: [
+   "SiTypescript",
+   "FaReact",
+   "SiNextdotjs",
+   "SiTailwindcss",
+   "FaNodeJs",
+   "SiPrisma",
+   "SiPostgresql",
+   "TbApi",
+   "SiVercel",
+   "FaGithub",
+   "SiGooglesearchconsole",
+   "SiGoogleanalytics",
+  ],
+  featuresTr: [
+   "A1–C2 seviye belirleme ve esnek başlangıç",
+   "Sıralı ders açılımı ve günlük ilerleme",
+   "Yapay zeka destekli çok formatlı alıştırmalar",
+   "Kelime çalışması ve aralıklı tekrar",
+   "Kullanıcı panelinde ilerleme takibi",
+   "Seviye yeterlilik sınavları",
+   "Dört beceri odaklı içerik yolu",
+   "SSR tabanlı SEO",
+   "RESTful API ile öğrenme verisi yönetimi",
+  ],
+  featuresEn: [
+   "A1–C2 placement and flexible starting level",
+   "Sequential lesson unlock and daily progress",
+   "AI-powered multi-format exercises",
+   "Vocabulary study with spaced repetition",
+   "Progress tracking on user dashboard",
+   "Level proficiency exams",
+   "Four-skills learning path",
+   "SSR-based SEO",
+   "Learning data management via RESTful API",
+  ],
+  teamTr: "Dil Atölyesi",
+  teamEn: "Dil Atölyesi",
+  roleTr: "Full Stack Developer",
+  roleEn: "Full Stack Developer",
+  metricsTr: [
+   { label: "Seviye Yolu", value: "A1 – C2" },
+   { label: "Dil", value: "TR / EN arayüz" },
+   { label: "Durum", value: "Aktif" },
+  ],
+  metricsEn: [
+   { label: "Level Path", value: "A1 – C2" },
+   { label: "Language", value: "TR / EN UI" },
+   { label: "Status", value: "Actively Used" },
+  ],
   displayOrder: 2,
  },
  {
@@ -151,7 +277,6 @@ export const projectList = [
    "SiPrisma",
    "TbApi",
    "SiVercel",
-   "TbSeo",
    "Tidbcloud",
    "FaGithub",
    "SiGooglesearchconsole",
@@ -197,20 +322,20 @@ export const projectList = [
    { label: "Industry", value: "Garden & Balcony Furniture" },
    { label: "Status", value: "Actively Used" },
   ],
-  displayOrder: 1,
+  displayOrder: 3,
  },
  {
   category: "web",
-  titleTr: "Yazıcı Ticaret E-Ticaret Sitesi",
-  titleEn: "Yazici Ticaret E-Commerce Website",
+  titleTr: "Yazıcı Ticaret - Profilo",
+  titleEn: "Yazici Ticaret - Profilo",
   descriptionTr:
-   "Beyaz eşya ve ev elektroniği sektöründe faaliyet gösteren Yazıcı Ticaret için geliştirilen tam kapsamlı e-ticaret platformu. RESTful API üzerinden bağlanan ürün, sipariş, ödeme ve admin süreçleriyle Profilo ve LG ürünlerini listeleyen platform aktif olarak kullanılmaktadır.",
+   "Beyaz eşya ve ev elektroniği sektöründe faaliyet gösteren Yazıcı Ticaret için geliştirilen tam kapsamlı e-ticaret platformu. RESTful API üzerinden bağlanan ürün, sipariş, ödeme ve admin süreçleriyle Profilo ürünlerini listeleyen platform aktif olarak kullanılmaktadır.",
   descriptionEn:
-   "A full-featured e-commerce platform developed for Yazici Ticaret, operating in the home appliances and electronics sector. Product, order, payment, and admin workflows connected through a RESTful API; the platform listing Profilo and LG products is actively used.",
+   "A full-featured e-commerce platform developed for Yazici Ticaret, operating in the home appliances and electronics sector. Product, order, payment, and admin workflows connected through a RESTful API; the platform listing Profilo products is actively used.",
   longDescriptionTr:
-   "Yazıcı Ticaret için Next.js, React ve Node.js teknolojileriyle geliştirilen bu e-ticaret platformu, müşterilerin Profilo ve LG gibi markalardan ürün satın almasını, siparişlerini takip etmesini ve hesaplarını yönetmesini sağlar. Mağaza, sepet, sipariş, ödeme ve yönetim paneli RESTful API katmanı üzerinden aynı veri modeline bağlanır. Ürün filtreleme, karşılaştırma ve arama özellikleriyle kullanıcı deneyimi ön planda tutulmuştur. Güvenli ödeme entegrasyonu ile kredi/banka kartı işlemleri sorunsuz gerçekleşmekte; her sipariş için üretilen benzersiz takip numarası sayesinde müşteriler siparişlerini anlık olarak takip edebilmektedir. Kapsamlı admin paneli aracılığıyla ürün yönetimi, stok takibi, fiyat güncellemeleri ve sipariş süreçleri kolayca yönetilebilmektedir. MongoDB altyapısı ve Vercel deployment ile yüksek performans ve güvenilirlik sağlanmıştır.",
+   "Yazıcı Ticaret için Next.js, React ve Node.js teknolojileriyle geliştirilen bu e-ticaret platformu, müşterilerin Profilo gibi markalardan ürün satın almasını, siparişlerini takip etmesini ve hesaplarını yönetmesini sağlar. Mağaza, sepet, sipariş, ödeme ve yönetim paneli RESTful API katmanı üzerinden aynı veri modeline bağlanır. Ürün filtreleme, karşılaştırma ve arama özellikleriyle kullanıcı deneyimi ön planda tutulmuştur. Güvenli ödeme entegrasyonu ile kredi/banka kartı işlemleri sorunsuz gerçekleşmekte; her sipariş için üretilen benzersiz takip numarası sayesinde müşteriler siparişlerini anlık olarak takip edebilmektedir. Kapsamlı admin paneli aracılığıyla ürün yönetimi, stok takibi, fiyat güncellemeleri ve sipariş süreçleri kolayca yönetilebilmektedir. MongoDB altyapısı ve Vercel deployment ile yüksek performans ve güvenilirlik sağlanmıştır.",
   longDescriptionEn:
-   "Built with Next.js, React, and Node.js for Yazici Ticaret, this e-commerce platform allows customers to purchase products from brands like Profilo and LG, track their orders, and manage their accounts. Storefront, cart, order, payment, and admin panel connect to the same data model through a RESTful API layer. Product filtering, comparison, and search features ensure a smooth user experience. Secure payment integration handles credit and debit card transactions reliably, while unique tracking numbers keep customers informed about their order status in real time. The comprehensive admin panel makes product management, inventory tracking, price updates, and order processing straightforward. MongoDB and Vercel deployment ensure high performance and reliability.",
+   "Built with Next.js, React, and Node.js for Yazici Ticaret, this e-commerce platform allows customers to purchase products from brands like Profilo, track their orders, and manage their accounts. Storefront, cart, order, payment, and admin panel connect to the same data model through a RESTful API layer. Product filtering, comparison, and search features ensure a smooth user experience. Secure payment integration handles credit and debit card transactions reliably, while unique tracking numbers keep customers informed about their order status in real time. The comprehensive admin panel makes product management, inventory tracking, price updates, and order processing straightforward. MongoDB and Vercel deployment ensure high performance and reliability.",
   status: "completed",
   liveUrl: "https://yazici.gen.tr/",
   technologies: [
@@ -266,7 +391,7 @@ export const projectList = [
    { label: "Status", value: "Actively Used" },
    { label: "Payment", value: "Integrated" },
   ],
-  displayOrder: 4,
+  displayOrder: 1,
  },
  {
   category: "web",
@@ -332,7 +457,7 @@ export const projectList = [
    { label: "Development Time", value: "4 weeks" },
    { label: "Status", value: "Actively Used" },
   ],
-  displayOrder: 5,
+  displayOrder: 4,
  },
  {
   category: "web",
@@ -396,7 +521,7 @@ export const projectList = [
    { label: "Development Time", value: "4 weeks" },
    { label: "Status", value: "Actively Used" },
   ],
-  displayOrder: 6,
+  displayOrder: 5,
  },
  {
   category: "web",
@@ -461,7 +586,7 @@ export const projectList = [
    { label: "Status", value: "Not active" },
    { label: "Request Tracking", value: "Unique Number" },
   ],
-  displayOrder: 7,
+  displayOrder: 8,
  },
 ];
 
