@@ -4,6 +4,7 @@ import ReactCountryFlag from "react-country-flag";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import { navigateToServiceRole } from "./serviceNavUtils";
+import ServiceRoleMenuLabel from "../PageComponents/Services/ServiceRoleMenuLabel";
 
 export function MobileNav({
  isMenuOpen,
@@ -68,9 +69,9 @@ export function MobileNav({
              handleNavigationClick();
              navigateToServiceRole(child.key, pathname, router);
             }}
-            className="block py-2 text-[13px] md:text-[15px] text-[#a5d6a7] hover:text-[#c8e6c9] transition-colors"
+            className="block py-2 text-[13px] md:text-[15px] font-medium text-[#a5d6a7] hover:text-[#c8e6c9] transition-colors"
            >
-            {child.name}
+            <ServiceRoleMenuLabel menuIcon={child.menuIcon} label={child.name} />
            </Link>
           ))}
          </div>

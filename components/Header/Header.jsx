@@ -54,6 +54,7 @@ const getNavigationItems = (t, currentLanguage) => [
   children: serviceRoles.map((role) => ({
    key: role.id,
    href: `/services#${role.id}`,
+   menuIcon: role.menuIcon,
    name: role.label[currentLanguage === "TR" ? "TR" : "EN"],
    image: role.image,
    intro: role.intro[currentLanguage === "TR" ? "TR" : "EN"],

@@ -7,6 +7,8 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { navigateToServiceRole } from "./serviceNavUtils";
 import ServiceTechIcons from "../PageComponents/Services/ServiceTechIcons";
+import ServiceRoleMenuLabel from "../PageComponents/Services/ServiceRoleMenuLabel";
+import FormattedText from "../extra/FormattedText";
 
 export function ServicesNavDropdown({ item, isActive, language = "TR" }) {
  const [isOpen, setIsOpen] = useState(false);
@@ -126,12 +128,12 @@ export function ServicesNavDropdown({ item, isActive, language = "TR" }) {
           setIsOpen(false);
           navigateToServiceRole(child.key, pathname, router);
          }}
-         className={`block px-3.5 py-3 text-[15px] font-medium rounded-lg transition-all duration-300 border-l-[3px] mb-1 ${hoveredKey === child.key
+         className={`block px-3 py-2.5 text-[15px] font-medium rounded-lg transition-all duration-300 border-l-[3px] mb-1.5 ${hoveredKey === child.key
           ? "text-[#c8e6c9] bg-[#1b5e20]/40 border-[#66bb6a]"
           : "text-[#a5d6a7] border-transparent hover:text-[#81c784] hover:bg-[#2e7d32]/10"
           }`}
         >
-         {child.name}
+         <ServiceRoleMenuLabel menuIcon={child.menuIcon} label={child.name} />
         </Link>
        ))}
       </div>
@@ -150,17 +152,22 @@ export function ServicesNavDropdown({ item, isActive, language = "TR" }) {
          />
         </div>
         <div className="flex flex-col justify-center min-w-0 flex-1 self-center py-2 max-w-xl xl:max-w-2xl">
-         <h3 className="text-base xl:text-lg font-bold text-[#c8e6c9] mb-2">
-          {previewChild.name}
+         <h3 className="mb-2">
+          <ServiceRoleMenuLabel
+           menuIcon={previewChild.menuIcon}
+           label={previewChild.name}
+           iconClassName="w-5 h-5"
+           labelClassName="text-base xl:text-lg font-bold text-[#c8e6c9]"
+          />
          </h3>
          {previewChild.intro && (
           <p className="text-xs sm:text-sm font-semibold text-[#81c784] mb-3 leading-snug">
-           {previewChild.intro}
+           <FormattedText text={previewChild.intro} />
           </p>
          )}
          {previewChild.description && (
           <p className="text-xs sm:text-sm leading-[1.7] text-[#a5d6a7]">
-           {previewChild.description}
+           <FormattedText text={previewChild.description} />
           </p>
          )}
          <ServiceTechIcons

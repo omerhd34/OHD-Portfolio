@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 import { FaArrowRight, FaCogs } from "react-icons/fa";
 import { useLanguage } from "../../context/LanguageContext";
 import Title from "../../../components/extra/Title";
+import FormattedText from "../../../components/extra/FormattedText";
 import LoadingScreen from "../../../components/extra/LoadingScreen";
 import ServiceTechIcons from "../../../components/PageComponents/Services/ServiceTechIcons";
 import ServiceTechCategoryLegend from "../../../components/PageComponents/Services/ServiceTechCategoryLegend";
+import ServiceRoleMenuLabel from "../../../components/PageComponents/Services/ServiceRoleMenuLabel";
 import { serviceRoles } from "../../../data/services";
 import {
  syncServiceRoleFromHash,
@@ -54,8 +56,8 @@ export default function ServicesPage() {
  const subtitle = lang === "TR" ? "Web, Uygulama ve Dijital Hizmetler" : "Web, App & Digital Services";
  const description =
   lang === "TR"
-   ? "Web sitesi ve uygulama yapımı, dijital yenileme, SEO, teknik denetim ile bakım-destek hizmetlerimi inceleyebilirsiniz. Sekmeler arasında geçiş yaparak detayları görüntüleyin."
-   : "Explore website and app development, digital renewal, SEO, technical audit, and maintenance services. Switch tabs to view the details.";
+   ? "**Web sitesi** ve **uygulama yapımı**, **dijital yenileme**, **SEO**, **teknik denetim** ile **bakım-destek** hizmetlerimi inceleyebilirsiniz. Sekmeler arasında geçiş yaparak detayları görüntüleyin."
+   : "Explore **website** and **app development**, **digital renewal**, **SEO**, **technical audit**, and **maintenance services**. Switch tabs to view the details.";
 
  return (
   <section id="services" className="relative mt-5 sm:mt-10 md:mt-20 min-h-screen">
@@ -87,20 +89,25 @@ export default function ServicesPage() {
           setActiveRole(role.id);
           window.history.replaceState(null, "", `#${role.id}`);
          }}
-         className={`service-role-tab px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold border border-[#2e7d32]/40 text-secondary hover:bg-muted/30 ${activeRole === role.id ? "active" : ""
+         className={`service-role-tab inline-flex items-center px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold border border-[#2e7d32]/40 text-secondary hover:bg-muted/30 ${activeRole === role.id ? "active" : ""
           }`}
         >
-         {role.label[lang]}
+         <ServiceRoleMenuLabel
+          menuIcon={role.menuIcon}
+          label={role.label[lang]}
+          iconClassName="w-3.5 h-3.5 sm:w-4 sm:h-4"
+          className="gap-1.5 sm:gap-2"
+         />
         </button>
        ))}
       </div>
 
       <div className="w-full max-w-5xl xl:max-w-6xl mx-auto text-center px-2 sm:px-4 space-y-4">
        <p className="text-[#81c784] text-xs sm:text-sm font-semibold leading-relaxed">
-        {currentRole.intro[lang]}
+        <FormattedText text={currentRole.intro[lang]} />
        </p>
        <p className="text-accent text-xs sm:text-sm leading-[1.7] text-left sm:text-center">
-        {currentRole.description[lang]}
+        <FormattedText text={currentRole.description[lang]} />
        </p>
        <ServiceTechIcons
         icons={currentRole.technologies}
