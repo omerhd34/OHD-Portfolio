@@ -25,11 +25,9 @@ const categoryIcons = Object.fromEntries(
 
 const categoryColors = {
  frontend: "from-blue-700 to-blue-600",
- ui: "from-teal-700 to-teal-600",
  backend: "from-orange-700 to-orange-600",
  database: "from-slate-600 to-slate-500",
  mobile: "from-cyan-700 to-cyan-600",
- hosting: "from-purple-700 to-purple-600",
  tools: "from-yellow-600 to-amber-600",
  seo: "from-green-700 to-green-600",
  publishing: "from-indigo-700 to-indigo-600",
@@ -37,40 +35,32 @@ const categoryColors = {
 
 const categoryDescriptions = {
  frontend: {
-  TR: "Web arayüzleri, istemci tarafı teknolojiler ve framework'ler",
-  EN: "Web interfaces, client-side technologies, and frameworks",
- },
- ui: {
-  TR: "UI bileşen kütüphaneleri ve tasarım sistemleri",
-  EN: "UI component libraries and design systems",
+  TR: "**Web arayüzleri**, **framework**'ler ve **UI** bileşen kütüphaneleri",
+  EN: "**Web interfaces**, **frameworks**, and **UI** component libraries",
  },
  backend: {
-  TR: "Sunucu tarafı teknolojiler ve API geliştirme",
-  EN: "Server-side technologies and API development",
+  TR: "**Sunucu tarafı** teknolojiler ve **API** geliştirme",
+  EN: "**Server-side** technologies and **API** development",
  },
  database: {
-  TR: "Veritabanı teknolojileri ve ORM araçları",
-  EN: "Database technologies and ORM tools",
+  TR: "**Veritabanı** teknolojileri ve **ORM** araçları",
+  EN: "**Database** technologies and **ORM** tools",
  },
  mobile: {
-  TR: "iOS ve Android mobil uygulama geliştirme",
-  EN: "iOS and Android mobile application development",
- },
- hosting: {
-  TR: "Hosting, cloud ve deploy altyapıları",
-  EN: "Hosting, cloud, and deployment infrastructure",
+  TR: "**iOS** ve **Android** mobil uygulama geliştirme",
+  EN: "**iOS** and **Android** mobile application development",
  },
  tools: {
-  TR: "Geliştirme araçları ve yardımcı platformlar",
-  EN: "Development tools and supporting platforms",
+  TR: "**Geliştirme araçları**, **deploy** ve yardımcı platformlar",
+  EN: "**Development tools**, **deployment**, and supporting platforms",
  },
  seo: {
-  TR: "SEO, arama görünürlüğü ve web analitik",
-  EN: "SEO, search visibility, and web analytics",
+  TR: "**SEO**, **arama görünürlüğü** ve **web analitik**",
+  EN: "**SEO**, **search visibility**, and **web analytics**",
  },
  publishing: {
-  TR: "App Store ve Google Play yayın süreçleri",
-  EN: "App Store and Google Play publishing",
+  TR: "**Vercel deploy**, **App Store** ve **Google Play** yayın süreçleri",
+  EN: "**Vercel deployment**, **App Store**, and **Google Play** publishing",
  },
 };
 
@@ -124,8 +114,8 @@ export default function AboutPage() {
    subtitle: lang === "EN" ? "Technical Expertise" : "Teknik Uzmanlık",
    description:
     lang === "EN"
-     ? "Skills grouped by the same categories as my services: frontend, backend, UI, database, mobile, hosting, tools, SEO & analytics, and publishing."
-     : "Hizmetlerimdeki kategorilerle aynı gruplama: frontend, backend, UI, veritabanı, mobil, hosting, araçlar, SEO & analitik ve yayın.",
+     ? "Skills grouped by the same categories as my services: **frontend**, **backend**, **database**, **mobile**, **tools**, **SEO** & **analytics**, and **publishing**."
+     : "Hizmetlerimdeki kategorilerle aynı gruplama: **frontend**, **backend**, **veritabanı**, **mobil**, **araçlar**, **SEO** & **analitik** ve **yayın**.",
    categories,
    categoryStats: {
     skills: lang === "EN" ? "Skills" : "Yetenek",
@@ -141,7 +131,7 @@ export default function AboutPage() {
   if (!text) return { preview: "", hasMore: false };
 
   const sentences = text
-   .split(". ")
+   .split(/(?<!\w)\. +/)
    .filter((sentence) => sentence.trim().length > 0);
 
   if (sentences.length <= maxSentences) {
@@ -156,10 +146,7 @@ export default function AboutPage() {
   return { preview, remaining, hasMore: true };
  };
 
- const aboutDescription =
-  lang === "EN"
-   ? "Born and based in Istanbul, I hold a bachelor's degree in Electrical-Electronics Engineering from Istanbul Commerce University. From my second year of engineering studies onward, I began moving into software development and, after graduation, positioned my career in this field. Building on the analytical foundation of my engineering background, I now specialize in end-to-end delivery across web and application development projects—from design and development to database, hosting, SEO, and publishing workflows. My professional journey, areas of focus, and technical expertise are outlined below."
-   : "İstanbul doğumlu ve merkezli olarak faaliyet gösteriyorum. İstanbul Ticaret Üniversitesi Elektrik-Elektronik Mühendisliği lisans programında eğitim alırken ikinci yıldan itibaren yazılıma adım attım; mezuniyetimin ardından kariyerimi bu alanda konumlandırdım. Mühendislik disiplininden edindiğim analitik altyapıyı yazılım geliştirmeye taşıyarak web ve uygulama geliştirme projelerinde tasarımdan yayına kadar tüm süreçleri uçtan uca yönetiyorum. Yolculuğum, uzmanlık alanlarım ve teknik yetkinliklerim aşağıda detaylandırılmıştır.";
+ const aboutDescription = t("about.pageDescription");
 
  const journeyText = getTextPreview(t("about.journeyDescription"), 3);
  const interestsText = getTextPreview(t("about.interestsDescription"), 3);
