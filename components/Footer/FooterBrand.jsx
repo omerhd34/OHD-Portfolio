@@ -2,8 +2,8 @@ import Link from "next/link";
 import { FaCode } from "react-icons/fa";
 
 const roleByLanguage = {
- TR: "Full-stack Geliştirici",
- EN: "Full-stack Developer",
+ TR: "Full Stack Geliştirici & Mühendisi",
+ EN: "Full Stack Developer & Engineer",
 };
 
 export default function FooterBrand({ language = "EN" }) {

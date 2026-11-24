@@ -4,7 +4,7 @@ export default function FooterBottom({ languageSelector }) {
    <div className="hidden md:block">{languageSelector}</div>
    <div className="text-accent text-sm text-center md:text-right">
     <p className="flex items-center justify-center md:justify-end space-x-1">
-     <span>Ömer Halis DEMİR | 2023 -  {new Date().getFullYear()}</span>
+     <span>Ömer Halis DEMİR</span>
     </p>
    </div>
   </div>
